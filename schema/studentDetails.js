@@ -42,6 +42,10 @@ const studentDetailsSchema = mongoose.Schema({
     year: {
         type: Number,
         required: true
+    },
+    department: {
+        type: String,
+        required: true
     }
 
 })
