@@ -1,0 +1,17 @@
+{
+  "name": "mcet-hms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manish and his team-mate",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "hbs": "^4.2.0",
+    "mongoose": "^6.5.2",
+    "toastify": "^2.0.1"
+  }
+}
