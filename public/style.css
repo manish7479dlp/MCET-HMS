@@ -1,6 +1,10 @@
 :root {
-  --headingHeight: 70px;
+  --headingHeight: 147px;
   --footerHeight: 60px;
+}
+body {
+  width: 100%;
+  overflow: hidden;
 }
 .makeContentCenter {
   height: 100%;
@@ -16,15 +20,7 @@
   box-sizing: border-box;
 }
 
-/* heading css code begin */
-.collegeHeading {
-  height: var(--headingHeight);
 
-  background-color: rgb(40, 198, 242);
-  color: white;
-  padding: 10px 0px;
-  border-radius: 5px;
-}
 
 /* carousel css code begin */
 
@@ -279,3 +275,110 @@
 .loginPopup {
     display: none !important;
 }
+
+/* CSS for Header */
+
+.animated {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+}
+
+
+.cdesc-container {
+  background-color: #eee;
+  margin: 5px 5px 4px 5px;
+
+  border-radius: 10px;
+  /* text-align: center; */
+  border: solid;
+  border-color: #085379;
+  border-width: 3px;
+}
+
+.clogo img {
+  text-align: center;
+  width: 108px !important;
+  height: auto !important;
+}
+
+.collegeLogo {
+  width: 100px !important;
+  height: 97px !important;
+  margin-top: 8px;
+}
+
+.cdesc {
+  text-align: center;
+}
+
+.cdesc h1 {
+  font-family: Ubuntu;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #0570a7;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.cdesc h3 {
+  font-family: Roboto;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #101314;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .cdesc h1 {
+      font-size: 1.5rem;
+  }
+
+  .cdesc h3 {
+      font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width:480px) {
+  .cdesc h1 {
+      font-size: 1.5rem;
+  }
+
+  .cdesc h3 {
+      font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width:365px) {
+  .cdesc h1 {
+      font-size: 1.5rem;
+  }
+
+  .cdesc h3 {
+      font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width:350px) {
+  .cdesc h1 {
+      font-size: 1.5rem;
+  }
+
+  .cdesc h3 {
+      font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width:300px) {
+  .cdesc h1 {
+      font-size: 1.5rem;
+  }
+
+  .cdesc h3 {
+      font-size: 0.8rem;
+  }
+}
+
+/* CSS For Header ends */
