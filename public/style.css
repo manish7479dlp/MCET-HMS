@@ -1,10 +1,49 @@
+:root {
+    --headingHeight: 90px;
+    --footerHeight: 60px;
+}
+.makeContentCenter {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 /* heading css code begin */
-.heading {
+.collegeHeading {
+    height: var(--headingHeight);
+
     background-color: rgb(40, 198, 242);
     color: white;
-    text-align: center;
-    padding: 5px 0px;
+    padding: 10px 0px;
     border-radius: 5px;
+}
+
+/* carousel css code begin */
+
+.carouselDimension img{
+    width: 100%;
+    /* height: 400px; */
+    height: calc(100vh - var(--headingHeight) - var(--footerHeight));
+    object-fit: cover;
+}
+
+/* footer code begin */
+
+.footer {
+    width: 100%;
+    height: var(--footerHeight);
+    background-color: grey;
+}
+
+.footer p {
+    color: white;    
+    font-size: 1.3rem;
+    margin-top: 11px;
 }
