@@ -6,7 +6,7 @@ require("./dbConfig/dbConfig")
 const port = 8000;
 
 const studentDetail = require("./router/student")
-
+const adminDetails = require("./router/admin")
 const staticPath = path.join(__dirname , "public");
 const templatePath = path.join(__dirname , "template/views");
 const partialsPath = path.join(__dirname , "template/partials");
@@ -23,6 +23,7 @@ hbs.registerPartials(partialsPath);
 // Router code start
 
 app.use(studentDetail);
+app.use(adminDetails);
 
 app.get("/" , (req , res) => {
    res.render("index")
@@ -30,6 +31,10 @@ app.get("/" , (req , res) => {
 //building detail
 app.get("/buildingDetails" , (req , res) => {
    res.render("buildingDetails")
+})
+
+app.get("/dashboard", (req , res) => {
+   res.render("dashboard");
 })
 
 
