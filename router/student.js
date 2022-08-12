@@ -22,6 +22,13 @@ router.get("/student/:year" , async (req , res) => {
     // console.log("🚀 ~ file: student.js ~ line 22 ~ router.get ~ response", response)
     res.send(response);
 })
+// get student details by student (Building Number)
+router.get("/studentBuilding/:buildingNumber" , async (req , res) => {
+    console.log(req.params);
+    const response = await studentDetailsSchema.find(req.params);
+    // console.log("🚀 ~ file: student.js ~ line 22 ~ router.get ~ response", response)
+    res.send(response);
+})
 // get student details by student (bloodGroup)
 router.get("/studentBloodGroup/:bloodGroup" , async (req , res) => {
     console.log(req.params);

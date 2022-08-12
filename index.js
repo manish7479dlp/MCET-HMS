@@ -25,8 +25,14 @@ hbs.registerPartials(partialsPath);
 app.use(studentDetail);
 
 app.get("/" , (req , res) => {
-    res.send("This is home page..");
+   res.render("index")
 })
+//building detail
+app.get("/buildingDetails" , (req , res) => {
+   res.render("buildingDetails")
+})
+
+
 
 app.listen(port , () => {
     console.log("Connecting to the server at Port number: " + port);

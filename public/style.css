@@ -1,3 +1,10 @@
-.demo {
-    color: blue;
+
+
+/* heading css code begin */
+.heading {
+    background-color: rgb(40, 198, 242);
+    color: white;
+    text-align: center;
+    padding: 5px 0px;
+    border-radius: 5px;
 }
