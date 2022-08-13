@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const hbs = require("hbs");
+const cors = require("cors")
 require("./dbConfig/dbConfig")
 const port = 8000;
 
@@ -14,6 +15,7 @@ const partialsPath = path.join(__dirname , "template/partials");
 // console.log(partialsPath);
 
 app.use(express.json())
+app.use(cors());
 
 app.use(express.static(staticPath))
 app.set("view engine" , "hbs");

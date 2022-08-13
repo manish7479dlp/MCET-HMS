@@ -6,7 +6,8 @@ const studentDetailsSchema = require("../schema/studentDetails")
 
 router.get("/student" , async (req , res) => {
     const response = await studentDetailsSchema.find();
-    res.send(response);
+    // res.send(response);
+    res.render("dashboard");
 })
 // get student details by student (Department and year)
 router.get("/student/:department/:year" , async (req , res) => {
