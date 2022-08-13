@@ -461,7 +461,7 @@ a {
 
 .table {
   height: 342px;
-  overflow-y: scroll;
+  overflow-y: auto;
   margin-bottom: 10px;
 }
 
