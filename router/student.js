@@ -6,9 +6,32 @@ const studentDetailsSchema = require("../schema/studentDetails")
 
 router.get("/student" , async (req , res) => {
     const response = await studentDetailsSchema.find();
-    // res.send(response);
-    res.render("dashboard");
+    const no1y = response.filter((data) => {
+        return data.year === 1;
+    })
+    const no2y = response.filter((data) => {
+        return data.year === 2;
+    })
+    const no3y = response.filter((data) => {
+        return data.year === 3;
+    })
+    const no4y = response.filter((data) => {
+        return data.year === 4;
+    })
+
+    console.log(no1y.length);
+    console.log(no2y.length);
+    console.log(no3y.length);
+    console.log(no4y.length);
+
+    res.render("dashboard",{
+       no1y: no1y.length,
+        no2y: no2y.length,
+        no3y: no3y.length, 
+        no4y: no4y.length
+    });
 })
+
 // get student details by student (Department and year)
 router.get("/student/:department/:year" , async (req , res) => {
     const response = await studentDetailsSchema.find(req.params);
