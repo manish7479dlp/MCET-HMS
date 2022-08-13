@@ -1,17 +1,17 @@
-let menu = document.querySelector(".menu");
-let sidebar = document.querySelector(".sidebar");
-let mainContent = document.querySelector(".main--content");
+const form = document.querySelector("form"),
+        nextBtn = form.querySelector(".nextBtn"),
+        backBtn = form.querySelector(".backBtn"),
+        allInput = form.querySelectorAll(".first input");
 
-menu.onclick = function () {
-  sidebar.classList.toggle("active");
-  mainContent.classList.toggle("active");
-};
 
-const getStudentData = async (url) => {
-  const response = await fetch(url);
-  const result = await response.json();
-  console.log("🚀 ~ file: dashBoardJs.js ~ line 13 ~ getStudentData ~ result", result)
-  return result;
-}
+nextBtn.addEventListener("click", ()=> {
+    allInput.forEach(input => {
+        if(input.value != ""){
+            form.classList.add('secActive');
+        }else{
+            form.classList.remove('secActive');
+        }
+    })
+})
 
-getStudentData("http://localhost:8000/student");
+backBtn.addEventListener("click", () => form.classList.remove('secActive'));

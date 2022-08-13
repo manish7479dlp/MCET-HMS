@@ -4,205 +4,38 @@
    {{>metaData}}
    <link rel="stylesheet" href="dashboardStyle.css">
     <title>Dashboard</title>
+
+    <link rel="stylesheet" href="formStyle.css">
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
        
     {{!-- remixIcon CDN --}}
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
-     
-      <section class="header">
-        <div class="logo">
-            <i class="ri-menu-line icon icon-0 menu"></i>
-            <h2>MCET<span>-HMS</span></h2>
-        </div>
-        <div class="search--notification--profile">
-            <div class="search">
-                <input type="text" placeholder="Search Scdule..">
-                <button><i class="ri-search-2-line"></i></button>
-            </div>
-            <div class="notification--profile">
-                <div class="picon lock">
-                    <i class="ri-lock-line"></i>
-                </div>
-                <div class="picon bell">
-                    <i class="ri-notification-2-line"></i>
-                </div>
-                <div class="picon chat">
-                    <i class="ri-wechat-2-line"></i>
-                </div>
-                <div class="picon profile">
-                    <img src="assets/images/profile.jpg" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
+
+    
+      
+    {{>dashboardHeading}}
     <section class="main">
-        <div class="sidebar">
-            <ul class="sidebar--items">
-                <li>
-                    <a href="#" id="active--link">
-                        <span class="icon icon-4"><i class="ri-user-line"></i></span>
+        {{>slidbarNavigation}}
+        <div class="main--content" >
 
-                        <span class="sidebar--item">Boys Hostel</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icon icon-3"><i class="ri-user-2-line"></i></span>
-                        <span class="sidebar--item">Girls Hostel</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icon icon-1"><i class="ri-layout-grid-line"></i></span>
-                        <span class="sidebar--item">Available Seats</span>
-                    </a>
-                    
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icon icon-2"><i class="ri-search-line"></i></span>
-                        <span class="sidebar--item" style="white-space: nowrap;">Search Student</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icon icon-5"><i class="ri-user-settings-line"></i></span>
-                        <span class="sidebar--item">Modify Student Details</span>
-                    </a>
-                </li>
-                <!-- <li>
-                    <a href="#">
-                        <span class="icon icon-6"><i class="ri-customer-service-line"></i></span>
-                        <span class="sidebar--item">Support</span>
-                    </a>
-                </li> -->
-            </ul>
-            <ul class="sidebar--bottom-items">
-                <!-- <li>
-                    <a href="#">
-                        <span class="icon icon-7"><i class="ri-settings-3-line"></i></span>
-                        <span class="sidebar--item">Settings</span>
-                    </a>
-                </li> -->
-                <li>
-                    <a href="#">
-                        <span class="icon icon-8"><i class="ri-logout-box-r-line"></i></span>
-                        <span class="sidebar--item">Logout</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="main--content">
-            <div class="overview">
-                <div class="title">
-                    <h2 class="section--title">Boy's Hostel Overview</h2>
-                    <select name="date" id="date" class="dropdown">
-                        <option value="today">Today</option>
-                        <option value="lastweek">Last Week</option>
-                        <option value="lastmonth">Last Month</option>
-                        <option value="lastyear">Last Year</option>
-                        <option value="alltime">All Time</option>
-                    </select>
-                </div>
-                <div class="cards">
-                    <div onclick="fetchStudentDetails(1)" class="card card-1">
-                        <div class="card--data">
-                            <div class="card--content">
-                                <h5 class="card--title">1<sup>st</sup> Year</h5>
-                                <h1>{{no1y}}<span style="font-size: 15px; "> Students</span</h1>
-                            </div>
-                            <i class="ri-user-2-line card--icon--lg"></i>
-                            
-                        </div>
-                        <div class="card--stats">
-                            <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>65%</span>
-                            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>10</span>
-                            <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>2</span>
-                        </div>
-                    </div>
-                    <div onclick="fetchStudentDetails(2)" class="card card-2">
-                        <div class="card--data">
-                            <div class="card--content">
-                                <h5 class="card--title">2<sup>nd</sup> Year</h5>
-                                <h1>{{no2y}}<span style="font-size: 15px; "> Students</span</h1>
-                            </div>
-                            <i class="ri-user-line card--icon--lg"></i>
-                        </div>
-                        <div class="card--stats">
-                            <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>82%</span>
-                            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>230</span>
-                            <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>45</span>
-                        </div>
-                    </div>
-                    <div onclick="fetchStudentDetails(3)" class="card card-3">
-                        <div class="card--data">
-                            <div class="card--content">
-                                <h5 class="card--title">3 <sup>rd</sup> Year</h5>
-
-
-                                <h1>{{no3y}}<span style="font-size: 15px; "> Students</span</h1>
-                            </div>
-                            <i class="ri-calendar-2-line card--icon--lg"></i>
-                        </div>
-                        <div class="card--stats">
-                            <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>27%</span>
-                            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>31</span>
-                            <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>23</span>
-                        </div>
-                    </div>
-                    <div onclick="fetchStudentDetails(4)" class="card card-4">
-                        <div class="card--data">
-                            <div class="card--content">
-                                <h5 class="card--title">4 <sup>th</sup> Year</h5>
-                                <h1>{{no4y}}<span style="font-size: 15px; "> Students</span></h1>
-                            </div>
-                            <i class="ri-hotel-bed-line card--icon--lg"></i>
-                        </div>
-                        <div class="card--stats">
-                            <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>8%</span>
-                            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>11</span>
-                            <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>2</span>
-                        </div>
-                    </div>
-                </div>
+            <div class=" dashboardRightContent">
+               {{>dashboardCard}}
+            
+               {{>dashboardTable}}
             </div>
 
-            <!-- table code begin -->
-
-            <div class="recent--patients" id="tableParent">
-                <div class="title">
-                    <h2 class="section--title" id="studentYear"></h2>
-                    <button class="add" id="addStudentBtn" style="visibility: hidden;"><i class="ri-add-line"></i>Add Student</button>
-                </div>
-
-              <div class="table">
-                    <table>
-                        <thead style="visibility: hidden;" id="tableHead">
-                            <tr >
-                                <th>Name</th>
-                                <th>Mob </th>
-                                <th>Dept/Year</th>
-                                <th>Building Num</th>
-                                <th>Room Type</th>
-                                <th>Settings</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tableBody">
-                           
-                        </tbody>
-                    </table>
-                </div>
-
-
-                
+            <div class="formContainer">
+                {{>studentDetailsForm}}
             </div>
+            
         </div>
     </section>
 
-    <script src="dashboardjs.js">
-           
-    </script>
+    <script src="dashboardjs.js"></script>
 
 </body>
 </html>

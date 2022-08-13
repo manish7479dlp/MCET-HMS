@@ -1,419 +1,196 @@
 <!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <title>Dashboard</title>
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="style.css">
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!--<title>Responsive Regisration Form </title>--> 
 </head>
-
 <body>
-    <section class="header">
-        <div class="logo">
-            <i class="ri-menu-line icon icon-0 menu"></i>
-            <h2>MCET<span>-HMS</span></h2>
-        </div>
-        <div class="search--notification--profile">
-            <div class="search">
-                <input type="text" placeholder="Search Scdule..">
-                <button><i class="ri-search-2-line"></i></button>
-            </div>
-            <div class="notification--profile">
-                <div class="picon lock">
-                    <i class="ri-lock-line"></i>
-                </div>
-                <div class="picon bell">
-                    <i class="ri-notification-2-line"></i>
-                </div>
-                <div class="picon chat">
-                    <i class="ri-wechat-2-line"></i>
-                </div>
-                <div class="picon profile">
-                    <img src="assets/images/profile.jpg" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="main">
-        <div class="sidebar">
-            <ul class="sidebar--items">
-                <li>
-                    <a href="#" id="active--link">
-                        <span class="icon icon-4"><i class="ri-user-line"></i></span>
+    <div class="container">
+        <header>Registration</header>
 
-                        <span class="sidebar--item">Boys Hostel</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icon icon-3"><i class="ri-user-2-line"></i></span>
-                        <span class="sidebar--item">Girls Hostel</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icon icon-1"><i class="ri-layout-grid-line"></i></span>
-                        <span class="sidebar--item">Available Seats</span>
-                    </a>
-                    
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icon icon-2"><i class="ri-search-line"></i></span>
-                        <span class="sidebar--item" style="white-space: nowrap;">Search Student</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icon icon-5"><i class="ri-user-settings-line"></i></span>
-                        <span class="sidebar--item">Modify Student Details</span>
-                    </a>
-                </li>
-                <!-- <li>
-                    <a href="#">
-                        <span class="icon icon-6"><i class="ri-customer-service-line"></i></span>
-                        <span class="sidebar--item">Support</span>
-                    </a>
-                </li> -->
-            </ul>
-            <ul class="sidebar--bottom-items">
-                <!-- <li>
-                    <a href="#">
-                        <span class="icon icon-7"><i class="ri-settings-3-line"></i></span>
-                        <span class="sidebar--item">Settings</span>
-                    </a>
-                </li> -->
-                <li>
-                    <a href="#">
-                        <span class="icon icon-8"><i class="ri-logout-box-r-line"></i></span>
-                        <span class="sidebar--item">Logout</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="main--content">
-            <div class="overview">
-                <div class="title">
-                    <h2 class="section--title">Boy's Hostel Overview</h2>
-                    <select name="date" id="date" class="dropdown">
-                        <option value="today">Today</option>
-                        <option value="lastweek">Last Week</option>
-                        <option value="lastmonth">Last Month</option>
-                        <option value="lastyear">Last Year</option>
-                        <option value="alltime">All Time</option>
-                    </select>
-                </div>
-                <div class="cards">
-                    <div class="card card-1">
-                        <div class="card--data">
-                            <div class="card--content">
-                                <h5 class="card--title">1<sup>st</sup> Year</h5>
-                                <h1>152</h1>
-                            </div>
-                            <i class="ri-user-2-line card--icon--lg"></i>
-                            
-                        </div>
-                        <div class="card--stats">
-                            <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>65%</span>
-                            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>10</span>
-                            <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>2</span>
-                        </div>
-                    </div>
-                    <div class="card card-2">
-                        <div class="card--data">
-                            <div class="card--content">
-                                <h5 class="card--title">2<sup>nd</sup> Year</h5>
-                                <h1>1145</h1>
-                            </div>
-                            <i class="ri-user-line card--icon--lg"></i>
-                        </div>
-                        <div class="card--stats">
-                            <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>82%</span>
-                            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>230</span>
-                            <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>45</span>
-                        </div>
-                    </div>
-                    <div class="card card-3">
-                        <div class="card--data">
-                            <div class="card--content">
-                                <h5 class="card--title">3 <sup>rd</sup> Year</h5>
+        <form action="#">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
 
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name" required>
+                        </div>
 
-                                <h1>102</h1>
-                            </div>
-                            <i class="ri-calendar-2-line card--icon--lg"></i>
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input type="date" placeholder="Enter birth date" required>
                         </div>
-                        <div class="card--stats">
-                            <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>27%</span>
-                            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>31</span>
-                            <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>23</span>
+
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="text" placeholder="Enter your email" required>
                         </div>
-                    </div>
-                    <div class="card card-4">
-                        <div class="card--data">
-                            <div class="card--content">
-                                <h5 class="card--title">4 <sup>th</sup> Year</h5>
-                                <h1>15</h1>
-                            </div>
-                            <i class="ri-hotel-bed-line card--icon--lg"></i>
+
+                        <div class="input-field">
+                            <label>Mobile Number</label>
+                            <input type="number" placeholder="Enter mobile number" required>
                         </div>
-                        <div class="card--stats">
-                            <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>8%</span>
-                            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>11</span>
-                            <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>2</span>
+
+                        <div class="input-field">
+                            <label>Gender</label>
+                            <select required>
+                                <option disabled selected>Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Others</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Occupation</label>
+                            <input type="text" placeholder="Enter your ccupation" required>
                         </div>
                     </div>
                 </div>
+
+                <div class="details ID">
+                    <span class="title">Identity Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>ID Type</label>
+                            <input type="text" placeholder="Enter ID type" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>ID Number</label>
+                            <input type="number" placeholder="Enter ID number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Issued Authority</label>
+                            <input type="text" placeholder="Enter issued authority" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Issued State</label>
+                            <input type="text" placeholder="Enter issued state" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Issued Date</label>
+                            <input type="date" placeholder="Enter your issued date" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Expiry Date</label>
+                            <input type="date" placeholder="Enter expiry date" required>
+                        </div>
+                    </div>
+
+                    <button class="nextBtn">
+                        <span class="btnText">Next</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div> 
             </div>
 
-            <!-- table code begin -->
+            <div class="form second">
+                <div class="details address">
+                    <span class="title">Address Details</span>
 
-            <div class="recent--patients">
-                <div class="title">
-                    <h2 class="section--title">3<sup>rd</sup> Year Student's</h2>
-                    <button class="add"><i class="ri-add-line"></i>Add Student</button>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Address Type</label>
+                            <input type="text" placeholder="Permanent or Temporary" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nationality</label>
+                            <input type="text" placeholder="Enter nationality" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>State</label>
+                            <input type="text" placeholder="Enter your state" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>District</label>
+                            <input type="text" placeholder="Enter your district" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Block Number</label>
+                            <input type="number" placeholder="Enter block number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Ward Number</label>
+                            <input type="number" placeholder="Enter ward number" required>
+                        </div>
+                    </div>
                 </div>
-                <div class="table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Date in</th>
-                                <th>Gender</th>
-                                <th>Age</th>
-                                <th>Status</th>
-                                <th>Settings</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Cameron Williamson</td>
-                                <td>30/07/2022</td>
-                                <td>Male</td>
-                                <td>61kg</td>
-                                <td class="pending">pending</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>George Washington</td>
-                                <td>30/07/2022</td>
-                                <td>Male</td>
-                                <td>54kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>John Adams</td>
-                                <td>29/07/2022</td>
-                                <td>Male</td>
-                                <td>56kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>Thomas Jefferson</td>
-                                <td>29/07/2022</td>
-                                <td>Male</td>
-                                <td>11kg</td>
-                                <td class="rejected">Rejected</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>James Madison</td>
-                                <td>29/07/2022</td>
-                                <td>Male</td>
-                                <td>69kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>Andrew Jackson</td>
-                                <td>28/07/2022</td>
-                                <td>Male</td>
-                                <td>88kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>James Madison</td>
-                                <td>29/07/2022</td>
-                                <td>Male</td>
-                                <td>69kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>Andrew Jackson</td>
-                                <td>28/07/2022</td>
-                                <td>Male</td>
-                                <td>88kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>James Madison</td>
-                                <td>29/07/2022</td>
-                                <td>Male</td>
-                                <td>69kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>Andrew Jackson</td>
-                                <td>28/07/2022</td>
-                                <td>Male</td>
-                                <td>88kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>James Madison</td>
-                                <td>29/07/2022</td>
-                                <td>Male</td>
-                                <td>69kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>Andrew Jackson</td>
-                                <td>28/07/2022</td>
-                                <td>Male</td>
-                                <td>88kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>James Madison</td>
-                                <td>29/07/2022</td>
-                                <td>Male</td>
-                                <td>69kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>Andrew Jackson</td>
-                                <td>28/07/2022</td>
-                                <td>Male</td>
-                                <td>88kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>James Madison</td>
-                                <td>29/07/2022</td>
-                                <td>Male</td>
-                                <td>69kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>Andrew Jackson</td>
-                                <td>28/07/2022</td>
-                                <td>Male</td>
-                                <td>88kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>James Madison</td>
-                                <td>29/07/2022</td>
-                                <td>Male</td>
-                                <td>69kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>Andrew Jackson</td>
-                                <td>28/07/2022</td>
-                                <td>Male</td>
-                                <td>88kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>James Madison</td>
-                                <td>29/07/2022</td>
-                                <td>Male</td>
-                                <td>69kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>Andrew Jackson</td>
-                                <td>28/07/2022</td>
-                                <td>Male</td>
-                                <td>88kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>James Madison</td>
-                                <td>29/07/2022</td>
-                                <td>Male</td>
-                                <td>69kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>Andrew Jackson</td>
-                                <td>28/07/2022</td>
-                                <td>Male</td>
-                                <td>88kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>James Madison</td>
-                                <td>29/07/2022</td>
-                                <td>Male</td>
-                                <td>69kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>Andrew Jackson</td>
-                                <td>28/07/2022</td>
-                                <td>Male</td>
-                                <td>88kg</td>
-                                <td class="confirmed">Confirmed</td>
-                                <td><span><i class="ri-edit-line edit"></i><i
-                                            class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+
+                <div class="details family">
+                    <span class="title">Family Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Father Name</label>
+                            <input type="text" placeholder="Enter father name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mother Name</label>
+                            <input type="text" placeholder="Enter mother name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Grandfather</label>
+                            <input type="text" placeholder="Enter grandfther name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Spouse Name</label>
+                            <input type="text" placeholder="Enter spouse name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Father in Law</label>
+                            <input type="text" placeholder="Father in law name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mother in Law</label>
+                            <input type="text" placeholder="Mother in law name" required>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <div class="backBtn">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </div>
+                        
+                        <button class="sumbit">
+                            <span class="btnText">Submit</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div> 
             </div>
-        </div>
-    </section>
-    <script src="./dashBoardJs.js">
-        
-    </script>
+        </form>
+    </div>
+
+    <script src="./dashBoardJs.js"></script>
 </body>
-
 </html>

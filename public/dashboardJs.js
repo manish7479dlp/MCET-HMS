@@ -7,6 +7,92 @@ menu.onclick = function () {
   mainContent.classList.toggle("active");
 };
 
+const addStudent = () => {
+    
+}
+
+const BoysHostel = document.getElementsByClassName("boysHostel")[0];
+const GirlsHostel = document.getElementsByClassName("girlsHostel")[0];
+const AvailableSeats = document.getElementsByClassName("availableSeats")[0];
+const SearchStudent = document.getElementsByClassName("searchStudent")[0];
+const ModifyStudentDetails = document.getElementsByClassName("modifyStudentDetails")[0];
+const RegisterStudent = document.getElementsByClassName("registerStudent")[0];
+const Logout = document.getElementsByClassName("logout")[0];
+
+
+const navigateToBoysHostel = () => {
+  BoysHostel.id = "active--link"
+  GirlsHostel.id = ""
+  AvailableSeats.id = ""
+  SearchStudent.id = ""
+  ModifyStudentDetails.id = ""
+  RegisterStudent.id = ""
+  Logout.id = ""
+
+  document.getElementsByClassName("formContainer")[0].style.display = "none";
+  document.getElementsByClassName("dashboardRightContent")[0].style.display = "block";
+}
+const navigateToGirlsHostel = () => {
+  BoysHostel.id = ""
+  GirlsHostel.id = "active--link"
+  AvailableSeats.id = ""
+  SearchStudent.id = ""
+  ModifyStudentDetails.id = ""
+  RegisterStudent.id = ""
+  Logout.id = ""
+}
+const navigateToAvailableSeats = () => {
+  BoysHostel.id = ""
+  GirlsHostel.id = ""
+  AvailableSeats.id = "active--link"
+  SearchStudent.id = ""
+  ModifyStudentDetails.id = ""
+  RegisterStudent.id = ""
+  Logout.id = ""
+}
+const navigateToSearchStudent = () => {
+  BoysHostel.id = ""
+  GirlsHostel.id = ""
+  AvailableSeats.id = ""
+  SearchStudent.id = "active--link"
+  StudentDetails.id = ""
+  RegisterStudent.id = ""
+  Logout.id = ""
+}
+const navigateToModifyStudentDetails = () => {
+  BoysHostel.id = ""
+  GirlsHostel.id = ""
+  AvailableSeats.id = ""
+  SearchStudent.id = ""
+  ModifyStudentDetails.id = "active--link"
+  RegisterStudent.id = ""
+  Logout.id = ""
+}
+const navigateToRegisterStudent = () => {
+  BoysHostel.id = ""
+  GirlsHostel.id = ""
+  AvailableSeats.id = ""
+  SearchStudent.id = ""
+  ModifyStudentDetails.id = ""
+  RegisterStudent.id = "active--link"
+  Logout.id = ""
+
+  document.getElementsByClassName("formContainer")[0].style.display = "flex";
+  document.getElementsByClassName("dashboardRightContent")[0].style.display = "none";
+  // alert("nav")
+
+}
+const navigateToLogout = () => {
+  BoysHostel.id = ""
+  GirlsHostel.id = ""
+  AvailableSeats.id = ""
+  SearchStudent.id = ""
+  ModifyStudentDetails.id = ""
+  RegisterStudent.id = ""
+  Logout.id = "active--link"
+}
+
+// fetch student data
 const fetchStudentDetails = async (year) => {
 
   const url = "http://localhost:8000/student";
@@ -40,6 +126,7 @@ const fetchStudentDetails = async (year) => {
   result.map((data) => {
     return studentInfo(data);
   })
+
 
   
 };

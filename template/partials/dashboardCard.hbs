@@ -1,0 +1,73 @@
+<div class="overview">
+                <div class="title">
+                    <h2 class="section--title">Boy's Hostel Overview</h2>
+                    {{!-- <select name="date" id="date" class="dropdown">
+                        <option value="today">Today</option>
+                        <option value="lastweek">Last Week</option>
+                        <option value="lastmonth">Last Month</option>
+                        <option value="lastyear">Last Year</option>
+                        <option value="alltime">All Time</option>
+                    </select> --}}
+                </div>
+                <div class="cards">
+                    <div onclick="fetchStudentDetails(1)" class="card card-1">
+                        <div class="card--data">
+                            <div class="card--content">
+                                <h5 class="card--title">1<sup>st</sup> Year</h5>
+                                <h1>{{no1y}}<span style="font-size: 15px; "> Students</span</h1>
+                            </div>
+                            <i class="ri-user-2-line card--icon--lg"></i>
+                            
+                        </div>
+                        <div class="card--stats">
+                            <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>65%</span>
+                            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>10</span>
+                            <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>2</span>
+                        </div>
+                    </div>
+                    <div onclick="fetchStudentDetails(2)" class="card card-2">
+                        <div class="card--data">
+                            <div class="card--content">
+                                <h5 class="card--title">2<sup>nd</sup> Year</h5>
+                                <h1>{{no2y}}<span style="font-size: 15px; "> Students</span</h1>
+                            </div>
+                            <i class="ri-user-line card--icon--lg"></i>
+                        </div>
+                        <div class="card--stats">
+                            <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>82%</span>
+                            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>230</span>
+                            <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>45</span>
+                        </div>
+                    </div>
+                    <div onclick="fetchStudentDetails(3)" class="card card-3">
+                        <div class="card--data">
+                            <div class="card--content">
+                                <h5 class="card--title">3 <sup>rd</sup> Year</h5>
+
+
+                                <h1>{{no3y}}<span style="font-size: 15px; "> Students</span</h1>
+                            </div>
+                            <i class="ri-calendar-2-line card--icon--lg"></i>
+                        </div>
+                        <div class="card--stats">
+                            <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>27%</span>
+                            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>31</span>
+                            <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>23</span>
+                        </div>
+                    </div>
+                    <div onclick="fetchStudentDetails(4)" class="card card-4">
+                        <div class="card--data">
+                            <div class="card--content">
+                                <h5 class="card--title">4 <sup>th</sup> Year</h5>
+                                <h1>{{no4y}}<span style="font-size: 15px; "> Students</span></h1>
+                            </div>
+                            <i class="ri-hotel-bed-line card--icon--lg"></i>
+                        </div>
+                        <div class="card--stats">
+                            <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>8%</span>
+                            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>11</span>
+                            <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
