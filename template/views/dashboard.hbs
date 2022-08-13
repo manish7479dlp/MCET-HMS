@@ -106,7 +106,7 @@
                     </select>
                 </div>
                 <div class="cards">
-                    <div class="card card-1">
+                    <div onclick="fetchStudentDetails(1)" class="card card-1">
                         <div class="card--data">
                             <div class="card--content">
                                 <h5 class="card--title">1<sup>st</sup> Year</h5>
@@ -121,7 +121,7 @@
                             <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>2</span>
                         </div>
                     </div>
-                    <div class="card card-2">
+                    <div onclick="fetchStudentDetails(2)" class="card card-2">
                         <div class="card--data">
                             <div class="card--content">
                                 <h5 class="card--title">2<sup>nd</sup> Year</h5>
@@ -135,7 +135,7 @@
                             <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>45</span>
                         </div>
                     </div>
-                    <div class="card card-3">
+                    <div onclick="fetchStudentDetails(3)" class="card card-3">
                         <div class="card--data">
                             <div class="card--content">
                                 <h5 class="card--title">3 <sup>rd</sup> Year</h5>
@@ -151,7 +151,7 @@
                             <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>23</span>
                         </div>
                     </div>
-                    <div class="card card-4">
+                    <div onclick="fetchStudentDetails(4)" class="card card-4">
                         <div class="card--data">
                             <div class="card--content">
                                 <h5 class="card--title">4 <sup>th</sup> Year</h5>
@@ -420,6 +420,17 @@
             sidebar.classList.toggle("active");
             mainContent.classList.toggle("active");
             };
+
+            const fetchStudentDetails = async (year) => {
+                const url = "http://localhost:8000/student";
+                const response = await fetch(url);
+                let result = await response.json();
+                result = result.filter((data) => {
+                    return data.year === year;
+                })
+
+                console.log(result);
+            }
     </script>
 
 </body>

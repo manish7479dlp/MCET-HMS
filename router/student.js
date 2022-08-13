@@ -5,12 +5,12 @@ const router = express.Router();
 const studentDetailsSchema = require("../schema/studentDetails")
 
 // gives student details
-router.get("/studentDetails" , async (req , res) => {
+router.get("/student" , async (req , res) => {
     const response = await studentDetailsSchema.find();
     res.send(response);
 })
 
-router.get("/student" , async (req , res) => {
+router.get("/dashboard" , async (req , res) => {
     const response = await studentDetailsSchema.find();
     const no1y = response.filter((data) => {
         return data.year === 1;

@@ -35,9 +35,9 @@ app.get("/buildingDetails" , (req , res) => {
    res.render("buildingDetails")
 })
 
-app.get("/dashboard", (req , res) => {
-   res.render("dashboard");
-})
+// app.get("/dashboard", (req , res) => {
+//    res.render("dashboard");
+// })
 
 
 
