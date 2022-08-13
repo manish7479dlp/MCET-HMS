@@ -1,7 +1,7 @@
 <div class="container">
   <header>Student Registration</header>
 
-  <form action="#">
+  <form action="/student" method="post">
     <div class="form first">
       <div class="details personal">
         <span class="title">Personal Details</span>
@@ -9,73 +9,86 @@
         <div class="fields">
           <div class="input-field">
             <label>Full Name</label>
-            <input type="text" placeholder="Enter your name" required />
+            <input type="text" placeholder="Enter your name" required name="name" />
           </div>
 
           <div class="input-field">
-            <label>Date of Birth</label>
-            <input type="date" placeholder="Enter birth date" required />
+            <label>Aadhar Number</label>
+            <input type="number" placeholder="Enter Aadhar number" required name="aadhar"/>
           </div>
 
           <div class="input-field">
-            <label>Email</label>
-            <input type="text" placeholder="Enter your email" required />
+            <label>Blood Group</label>
+            <input type="text" placeholder="Enter your Blood Group" required name="bloodGroup"/>
           </div>
 
           <div class="input-field">
             <label>Mobile Number</label>
-            <input type="number" placeholder="Enter mobile number" required />
+            <input type="number" placeholder="Enter mobile number" required name="mob"/>
           </div>
 
           <div class="input-field">
-            <label>Gender</label>
-            <select required>
-              <option disabled selected>Select gender</option>
-              <option>Male</option>
-              <option>Female</option>
-              <option>Others</option>
+            <label>Year</label>
+            <select required name="year">
+              <option disabled selected>Select Year</option>
+              <option>1st</option>
+              <option>2nd</option>
+              <option>3rd</option>
+              <option>4th</option>
             </select>
           </div>
 
           <div class="input-field">
-            <label>Occupation</label>
-            <input type="text" placeholder="Enter your ccupation" required />
+            <label>Department</label>
+            <select required name="department">
+              <option disabled selected>Select Department</option>
+              <option>CSE</option>
+              <option>ECE</option>
+              <option>EE</option>
+              <option>CE</option>
+            </select>
           </div>
+
+          
         </div>
       </div>
 
       <div class="details ID">
-        <span class="title">Identity Details</span>
+        {{!-- <span class="title">Identity Details</span> --}}
 
         <div class="fields">
           <div class="input-field">
-            <label>ID Type</label>
-            <input type="text" placeholder="Enter ID type" required />
+            <label>Room Type</label>
+            <select required name="roomType">
+              <option disabled selected>Select Room Type</option>
+              <option>2-seaters</option>
+              <option>3-seaters</option>
+            </select>
           </div>
 
           <div class="input-field">
-            <label>ID Number</label>
-            <input type="number" placeholder="Enter ID number" required />
+            <label>Building Number</label>
+            <input type="text" placeholder="Enter Building number" required name="buildingNumber"/>
           </div>
 
           <div class="input-field">
-            <label>Issued Authority</label>
-            <input type="text" placeholder="Enter issued authority" required />
+            <label>Fathers's Name</label>
+            <input type="text" placeholder="Enter Your Father's Name" required name="fathersName"/>
           </div>
 
           <div class="input-field">
-            <label>Issued State</label>
-            <input type="text" placeholder="Enter issued state" required />
+            <label>Father's Mob Number</label>
+            <input type="number" placeholder="Enter Your Father's Number" required name="fathersMob"/>
           </div>
 
           <div class="input-field">
-            <label>Issued Date</label>
-            <input type="date" placeholder="Enter your issued date" required />
+            <label>Address</label>
+            <input type="date" placeholder="Enter your Address" required name="address"/>
           </div>
 
           <div class="input-field">
-            <label>Expiry Date</label>
-            <input type="date" placeholder="Enter expiry date" required />
+            <label>State</label>
+            <input type="date" placeholder="Enter Your State"  />
           </div>
         </div>
 
