@@ -8,9 +8,6 @@ menu.onclick = function () {
 };
 
 const fetchStudentDetails = async (year) => {
-  //   const tableHeading = document.getElementsByClassName("section--title");
-  //     tableHeading[0].innerHTML = year;
-  //     console.log(tableHeading[0].innerHTML);
 
   const url = "http://localhost:8000/student";
   const response = await fetch(url);
