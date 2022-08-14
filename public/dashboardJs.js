@@ -99,7 +99,7 @@ const fetchStudentDetails = async (year) => {
   const response = await fetch(url);
   let result = await response.json();
   result = result.filter((data) => {
-    return data.year === year;
+    return data.year == year;
   });
 
   console.log(result);
