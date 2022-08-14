@@ -9,6 +9,8 @@ menu.onclick = function () {
 
  const FormContainer = document.getElementsByClassName("formContainer");
  const DashboardRightContent = document.getElementsByClassName("dashboardRightContent");
+ const SearchStudentContainer = document.getElementById("searchStudentContainer");
+ SearchStudentContainer.style.display = "none";
 
 const BoysHostel = document.getElementsByClassName("boysHostel")[0];
 const GirlsHostel = document.getElementsByClassName("girlsHostel")[0];
@@ -30,6 +32,9 @@ const navigateToBoysHostel = () => {
 
   document.getElementsByClassName("formContainer")[0].style.display = "none";
   document.getElementsByClassName("dashboardRightContent")[0].style.display = "block";
+
+  SearchStudentContainer.style.display = "none"
+
 }
 const navigateToGirlsHostel = () => {
   BoysHostel.id = ""
@@ -39,6 +44,9 @@ const navigateToGirlsHostel = () => {
   ModifyStudentDetails.id = ""
   RegisterStudent.id = ""
   Logout.id = ""
+
+  SearchStudentContainer.style.display = "none"
+
 }
 const navigateToAvailableSeats = () => {
   BoysHostel.id = ""
@@ -48,6 +56,9 @@ const navigateToAvailableSeats = () => {
   ModifyStudentDetails.id = ""
   RegisterStudent.id = ""
   Logout.id = ""
+
+  SearchStudentContainer.style.display = "none"
+
 }
 const navigateToSearchStudent = () => {
   BoysHostel.id = ""
@@ -60,6 +71,9 @@ const navigateToSearchStudent = () => {
 
   DashboardRightContent[0].style.display = "none";
   FormContainer[0].style.display = "none";
+
+  //searchStudentContainer make visible.
+  SearchStudentContainer.style.display = "block"
 }
 const navigateToModifyStudentDetails = () => {
   BoysHostel.id = ""
@@ -69,6 +83,9 @@ const navigateToModifyStudentDetails = () => {
   ModifyStudentDetails.id = "active--link"
   RegisterStudent.id = ""
   Logout.id = ""
+
+  SearchStudentContainer.style.display = "none"
+
 }
 const navigateToRegisterStudent = () => {
   BoysHostel.id = ""
@@ -83,6 +100,9 @@ const navigateToRegisterStudent = () => {
   document.getElementsByClassName("dashboardRightContent")[0].style.display = "none";
   // alert("nav")
 
+  SearchStudentContainer.style.display = "none"
+
+
 }
 const navigateToLogout = () => {
   BoysHostel.id = ""
@@ -92,6 +112,9 @@ const navigateToLogout = () => {
   ModifyStudentDetails.id = ""
   RegisterStudent.id = ""
   Logout.id = "active--link"
+
+  SearchStudentContainer.style.display = "none"
+
 }
 
 // fetch student data
