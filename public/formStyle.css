@@ -153,6 +153,10 @@ form .buttons button , .backBtn{
     margin-right: 14px;
 }
 
+#bloodGroup {
+    text-transform: uppercase;
+}
+
 @media (max-width: 750px) {
     .container form{
         overflow-y: scroll;
