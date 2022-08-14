@@ -7,9 +7,7 @@ menu.onclick = function () {
   mainContent.classList.toggle("active");
 };
 
-const addStudent = () => {
-    
-}
+
 
 const BoysHostel = document.getElementsByClassName("boysHostel")[0];
 const GirlsHostel = document.getElementsByClassName("girlsHostel")[0];
