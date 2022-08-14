@@ -57,7 +57,9 @@ const navigateToAvailableSeats = () => {
   RegisterStudent.id = ""
   Logout.id = ""
 
+  FormContainer[0].style.display = "none";
   SearchStudentContainer.style.display = "none"
+  DashboardRightContent[0].style.display = "none";
 
 }
 const navigateToSearchStudent = () => {
