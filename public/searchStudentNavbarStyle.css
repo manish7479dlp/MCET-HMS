@@ -23,7 +23,7 @@
   border-radius: 20px;
   font-size: 1.3rem;
   background: transparent;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .searchContainer button {
