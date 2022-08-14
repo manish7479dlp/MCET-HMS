@@ -7,7 +7,8 @@ menu.onclick = function () {
   mainContent.classList.toggle("active");
 };
 
-
+ const FormContainer = document.getElementsByClassName("formContainer");
+ const DashboardRightContent = document.getElementsByClassName("dashboardRightContent");
 
 const BoysHostel = document.getElementsByClassName("boysHostel")[0];
 const GirlsHostel = document.getElementsByClassName("girlsHostel")[0];
@@ -53,9 +54,12 @@ const navigateToSearchStudent = () => {
   GirlsHostel.id = ""
   AvailableSeats.id = ""
   SearchStudent.id = "active--link"
-  StudentDetails.id = ""
+  ModifyStudentDetails.id = ""
   RegisterStudent.id = ""
   Logout.id = ""
+
+  DashboardRightContent[0].style.display = "none";
+  FormContainer[0].style.display = "none";
 }
 const navigateToModifyStudentDetails = () => {
   BoysHostel.id = ""
