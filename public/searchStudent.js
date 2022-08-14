@@ -1,9 +1,9 @@
 const searchingStudent = async () => {
   try {
     const parent = document.getElementsByClassName(
-        "studentDetailsCardContainer"
-      )[0];
-      removeAllChildNodes(parent);
+      "studentDetailsCardContainer"
+    )[0];
+    removeAllChildNodes(parent);
     const url = "http://localhost:8000";
     const SearchMedium = document.getElementById("searchMedium").value;
     const SearchingValue = document.getElementById("searchingValue").value;
@@ -12,21 +12,22 @@ const searchingStudent = async () => {
     //   let params = "/student/:department/:year";
 
     if (SearchMedium === "Year") {
-      alert(SearchMedium);
+      mainUrl = `${url}${mainUrl}/${SearchingValue}`;
     } else if (SearchMedium === "Blood-Group") {
-      alert(SearchMedium);
+      mainUrl = `${url}${mainUrl}BloodGroup/${SearchingValue}`;
+
     } else if (SearchMedium === "Building-Number") {
-      alert(SearchMedium);
+      mainUrl = `${url}${mainUrl}Building/${SearchingValue}`;
     } else {
       mainUrl = `${url}${mainUrl}/${SearchingValue}`;
-
-      const response = await fetch(mainUrl);
+    }
+    const response = await fetch(mainUrl);
       const result = await response.json();
-
       result.map((data) => {
         return studentFullDetails(data);
       });
-    }
+
+      document.getElementById("searchingValue").value = ""
   } catch (error) {
     console.log(error);
   }
@@ -39,7 +40,7 @@ function removeAllChildNodes(parent) {
   }
 }
 
-// insert student infomation
+// insert student full Details
 const studentFullDetails = (data) => {
   let div = document.createElement("div");
   const markup = `
@@ -55,14 +56,14 @@ const studentFullDetails = (data) => {
   <p>Father's Mob Number: <span>${data.fathersMob}</span></p>
   <p>Address: <span>${data.address}</span></p>
   `;
-    
-  div.className = "studentDetailsCard"
-    div.innerHTML = markup;
+
+  div.className = "studentDetailsCard";
+  div.innerHTML = markup;
 
   const parent = document.getElementsByClassName(
     "studentDetailsCardContainer"
   )[0];
 
-  console.log(parent);
+//   console.log(parent);
   parent.appendChild(div);
 };
