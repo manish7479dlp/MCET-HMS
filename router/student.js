@@ -44,7 +44,8 @@ router.get("/dashboard", async (req, res) => {
 });
 
 // get student details by student (Department and year)
-router.get("/student/:department/:year", async (req, res) => {
+router.get("/student/:year/:department", async (req, res) => {
+  console.log(req.params);
   try {
     const response = await studentDetailsSchema.find(req.params);
     console.log(
