@@ -10,7 +10,8 @@ menu.onclick = function () {
  const FormContainer = document.getElementsByClassName("formContainer");
  const DashboardRightContent = document.getElementsByClassName("dashboardRightContent");
  const SearchStudentContainer = document.getElementById("searchStudentContainer");
- SearchStudentContainer.style.display = "none";
+ const SeatAvailable = document.getElementById("seatAvailable");
+
 
 const BoysHostel = document.getElementsByClassName("boysHostel")[0];
 const GirlsHostel = document.getElementsByClassName("girlsHostel")[0];
@@ -46,6 +47,10 @@ const navigateToGirlsHostel = () => {
   Logout.id = ""
 
   SearchStudentContainer.style.display = "none"
+  SeatAvailable.style.display = "none"
+
+  FormContainer[0].style.display = "none";
+  DashboardRightContent[0].style.display = "none";
 
 }
 const navigateToAvailableSeats = () => {
@@ -60,6 +65,8 @@ const navigateToAvailableSeats = () => {
   FormContainer[0].style.display = "none";
   SearchStudentContainer.style.display = "none"
   DashboardRightContent[0].style.display = "none";
+  SeatAvailable.style.display = "block"
+
 
 }
 const navigateToSearchStudent = () => {
@@ -73,6 +80,8 @@ const navigateToSearchStudent = () => {
 
   DashboardRightContent[0].style.display = "none";
   FormContainer[0].style.display = "none";
+  SeatAvailable.style.display = "none"
+
 
   //searchStudentContainer make visible.
   SearchStudentContainer.style.display = "block"
@@ -87,6 +96,11 @@ const navigateToModifyStudentDetails = () => {
   Logout.id = ""
 
   SearchStudentContainer.style.display = "none"
+  SeatAvailable.style.display = "none"
+
+  FormContainer[0].style.display = "none";
+  DashboardRightContent[0].style.display = "none";
+
 
 }
 const navigateToRegisterStudent = () => {
@@ -103,6 +117,8 @@ const navigateToRegisterStudent = () => {
   // alert("nav")
 
   SearchStudentContainer.style.display = "none"
+  SeatAvailable.style.display = "none"
+
 
 
 }
@@ -116,6 +132,11 @@ const navigateToLogout = () => {
   Logout.id = "active--link"
 
   SearchStudentContainer.style.display = "none"
+  SeatAvailable.style.display = "none"
+
+  FormContainer[0].style.display = "none";
+  DashboardRightContent[0].style.display = "none";
+
 
 }
 
