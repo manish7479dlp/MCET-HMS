@@ -1,3 +1,4 @@
+const BlankSeat = document.getElementsByClassName("blankSeat");
 const checkSeatAvailability = async () => {
   try {
     const SeatSearchParameter = document.getElementById("seatSearchParameter");
@@ -9,7 +10,17 @@ const checkSeatAvailability = async () => {
     const response = await fetch(originalUrl);
     const result = await response.json();
     // console.log(result);
-
+     
+    BlankSeat[0].style.display = "none"
+    BlankSeat[1].style.display = "none"
+    BlankSeat[2].style.display = "none"
+    BlankSeat[3].style.display = "none"
+    BlankSeat[4].style.display = "none"
+    BlankSeat[5].style.display = "none"
+    BlankSeat[6].style.display = "none"
+    BlankSeat[7].style.display = "none"
+    BlankSeat[8].style.display = "none"
+    
     setDataToStudent(result, SeatSearchParameter.value);
     SeatSearchParameter.value = ""
   } catch (error) {
@@ -81,11 +92,15 @@ if(lower2SeaterData.length === 2) {
 } else if(lower2SeaterData.length === 1) {
     l2fName.lastChild.innerText = lower2SeaterData[0].name;
     l2fYear.lastChild.innerText = lower2SeaterData[0].year;
-    l2sDept.lastChild.innerText = lower2SeaterData[0].department;
+    l2fDept.lastChild.innerText = lower2SeaterData[0].department;
 
-    l2sName.innerHTML = "Empty"
-    l2sYear.innerHTML = ""
-    l2sDept.innerHTML = ""
+    // l2sName.innerHTML = "Empty"
+    // l2sYear.innerHTML = ""
+    // l2sDept.innerHTML = ""
+
+    l2sName.style.display = "none";
+    l2sYear.style.display = "none";
+    l2sDept.style.display = "none";
 
 } else {
     l2fName.innerHTML = "Empty"
