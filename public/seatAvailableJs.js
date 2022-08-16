@@ -2,7 +2,6 @@ const BlankSeat = document.getElementsByClassName("blankSeat");
 const checkSeatAvailability = async () => {
   try {
     document.getElementsByClassName("seatsAvailableContainer")[0].style.display = "flex";
-    document.getElementsByClassName("seatsAvailableContainer")[1].style.display = "flex";
     const SeatSearchParameter = document.getElementById("seatSearchParameter");
     const url = "http://localhost:8000";
     let originalUrl = "student";
