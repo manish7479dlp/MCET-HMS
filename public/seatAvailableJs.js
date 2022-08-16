@@ -1,7 +1,6 @@
 const BlankSeat = document.getElementsByClassName("blankSeat");
 const checkSeatAvailability = async () => {
   try {
-    document.getElementsByClassName("seatsAvailableContainer")[0].style.display = "flex";
     const SeatSearchParameter = document.getElementById("seatSearchParameter");
     const url = "http://localhost:8000";
     let originalUrl = "student";
@@ -11,6 +10,9 @@ const checkSeatAvailability = async () => {
     const response = await fetch(originalUrl);
     const result = await response.json();
     // console.log(result);
+
+    document.getElementsByClassName("seatsAvailableContainer")[0].style.display = "flex";
+
 
     document.getElementById("upperRoom").innerText = `Building Number: ${SeatSearchParameter.value}A`
     document.getElementById("lowerRoom").innerText = `Building Number: ${SeatSearchParameter.value}`
