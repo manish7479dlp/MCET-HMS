@@ -48,6 +48,7 @@
     justify-content: center;
     align-items: center;
     overflow-y: auto;
+    display: none;
 }
 
 .seatsAvailableContainer table {
@@ -69,6 +70,7 @@
     margin: 15px;
     border: 1px solid blue;
     height: 170px;
+    width: 170px;
     /* border-radius: 50px; */
 }
 
