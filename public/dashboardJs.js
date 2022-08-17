@@ -8,6 +8,14 @@ menu.onclick = function () {
 };
 
 
+// Auth check
+const auth = sessionStorage.getItem("auth");
+if(!auth) {
+
+  window.location.href = "http://localhost:8000/"
+}
+
+
 const FormContainer = document.getElementsByClassName("formContainer");
 const DashboardRightContent = document.getElementsByClassName(
   "dashboardRightContent"

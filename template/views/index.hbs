@@ -57,6 +57,7 @@
               {{!-- console.log("🚀 ~ file: index.hbs ~ line 59 ~ login ~ re̥sult", re̥sult) --}}
               const valid = isValidUser(data , re̥sult[0])
               if(valid) {
+                sessionStorage.setItem("auth", JSON.stringify(data));
                 window.location.href = "http://localhost:8000/dashboard"
               } else {
                 alert("Invalid details");
