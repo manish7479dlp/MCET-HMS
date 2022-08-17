@@ -7,142 +7,143 @@ menu.onclick = function () {
   mainContent.classList.toggle("active");
 };
 
- const FormContainer = document.getElementsByClassName("formContainer");
- const DashboardRightContent = document.getElementsByClassName("dashboardRightContent");
- const SearchStudentContainer = document.getElementById("searchStudentContainer");
- const SeatAvailable = document.getElementById("seatAvailable");
+const FormContainer = document.getElementsByClassName("formContainer");
+const DashboardRightContent = document.getElementsByClassName(
+  "dashboardRightContent"
+);
+const SearchStudentContainer = document.getElementById(
+  "searchStudentContainer"
+);
+const SeatsAvailbableContentContainer = document.getElementsByClassName("seatsAvailbableContentContainer")[0];
 
+SearchStudentContainer.style.display = "none";
+
+SeatsAvailbableContentContainer.style.display = "none";
 
 const BoysHostel = document.getElementsByClassName("boysHostel")[0];
 const GirlsHostel = document.getElementsByClassName("girlsHostel")[0];
 const AvailableSeats = document.getElementsByClassName("availableSeats")[0];
 const SearchStudent = document.getElementsByClassName("searchStudent")[0];
-const ModifyStudentDetails = document.getElementsByClassName("modifyStudentDetails")[0];
+const ModifyStudentDetails = document.getElementsByClassName(
+  "modifyStudentDetails"
+)[0];
 const RegisterStudent = document.getElementsByClassName("registerStudent")[0];
 const Logout = document.getElementsByClassName("logout")[0];
 
-
 const navigateToBoysHostel = () => {
-  BoysHostel.id = "active--link"
-  GirlsHostel.id = ""
-  AvailableSeats.id = ""
-  SearchStudent.id = ""
-  ModifyStudentDetails.id = ""
-  RegisterStudent.id = ""
-  Logout.id = ""
+  BoysHostel.id = "active--link";
+  GirlsHostel.id = "";
+  AvailableSeats.id = "";
+  SearchStudent.id = "";
+  ModifyStudentDetails.id = "";
+  RegisterStudent.id = "";
+  Logout.id = "";
 
   document.getElementsByClassName("formContainer")[0].style.display = "none";
-  document.getElementsByClassName("dashboardRightContent")[0].style.display = "block";
+  document.getElementsByClassName("dashboardRightContent")[0].style.display =
+    "block";
 
-  SearchStudentContainer.style.display = "none"
+  SearchStudentContainer.style.display = "none";
 
-}
+  SeatsAvailbableContentContainer.style.display = "none";
+
+  FormContainer[0].style.display = "none";
+};
 const navigateToGirlsHostel = () => {
-  BoysHostel.id = ""
-  GirlsHostel.id = "active--link"
-  AvailableSeats.id = ""
-  SearchStudent.id = ""
-  ModifyStudentDetails.id = ""
-  RegisterStudent.id = ""
-  Logout.id = ""
+  BoysHostel.id = "";
+  GirlsHostel.id = "active--link";
+  AvailableSeats.id = "";
+  SearchStudent.id = "";
+  ModifyStudentDetails.id = "";
+  RegisterStudent.id = "";
+  Logout.id = "";
 
-  SearchStudentContainer.style.display = "none"
-  SeatAvailable.style.display = "none"
+  SearchStudentContainer.style.display = "none";
+  SeatsAvailbableContentContainer.style.display = "none";
 
   FormContainer[0].style.display = "none";
   DashboardRightContent[0].style.display = "none";
-
-}
+};
 const navigateToAvailableSeats = () => {
-  BoysHostel.id = ""
-  GirlsHostel.id = ""
-  AvailableSeats.id = "active--link"
-  SearchStudent.id = ""
-  ModifyStudentDetails.id = ""
-  RegisterStudent.id = ""
-  Logout.id = ""
+  BoysHostel.id = "";
+  GirlsHostel.id = "";
+  AvailableSeats.id = "active--link";
+  SearchStudent.id = "";
+  ModifyStudentDetails.id = "";
+  RegisterStudent.id = "";
+  Logout.id = "";
 
   FormContainer[0].style.display = "none";
-  SearchStudentContainer.style.display = "none"
+  SearchStudentContainer.style.display = "none";
   DashboardRightContent[0].style.display = "none";
-  SeatAvailable.style.display = "block"
-
-
-}
+  SeatsAvailbableContentContainer.style.display = "block";
+};
 const navigateToSearchStudent = () => {
-  BoysHostel.id = ""
-  GirlsHostel.id = ""
-  AvailableSeats.id = ""
-  SearchStudent.id = "active--link"
-  ModifyStudentDetails.id = ""
-  RegisterStudent.id = ""
-  Logout.id = ""
+  BoysHostel.id = "";
+  GirlsHostel.id = "";
+  AvailableSeats.id = "";
+  SearchStudent.id = "active--link";
+  ModifyStudentDetails.id = "";
+  RegisterStudent.id = "";
+  Logout.id = "";
 
   DashboardRightContent[0].style.display = "none";
   FormContainer[0].style.display = "none";
-  SeatAvailable.style.display = "none"
-
+  SeatsAvailbableContentContainer.style.display = "none";
 
   //searchStudentContainer make visible.
-  SearchStudentContainer.style.display = "block"
-}
+  SearchStudentContainer.style.display = "block";
+};
 const navigateToModifyStudentDetails = () => {
-  BoysHostel.id = ""
-  GirlsHostel.id = ""
-  AvailableSeats.id = ""
-  SearchStudent.id = ""
-  ModifyStudentDetails.id = "active--link"
-  RegisterStudent.id = ""
-  Logout.id = ""
+  BoysHostel.id = "";
+  GirlsHostel.id = "";
+  AvailableSeats.id = "";
+  SearchStudent.id = "";
+  ModifyStudentDetails.id = "active--link";
+  RegisterStudent.id = "";
+  Logout.id = "";
 
-  SearchStudentContainer.style.display = "none"
-  SeatAvailable.style.display = "none"
+  SearchStudentContainer.style.display = "none";
+  SeatsAvailbableContentContainer.style.display = "none";
 
   FormContainer[0].style.display = "none";
   DashboardRightContent[0].style.display = "none";
-
-
-}
+};
 const navigateToRegisterStudent = () => {
-  BoysHostel.id = ""
-  GirlsHostel.id = ""
-  AvailableSeats.id = ""
-  SearchStudent.id = ""
-  ModifyStudentDetails.id = ""
-  RegisterStudent.id = "active--link"
-  Logout.id = ""
+  BoysHostel.id = "";
+  GirlsHostel.id = "";
+  AvailableSeats.id = "";
+  SearchStudent.id = "";
+  ModifyStudentDetails.id = "";
+  RegisterStudent.id = "active--link";
+  Logout.id = "";
 
   document.getElementsByClassName("formContainer")[0].style.display = "flex";
-  document.getElementsByClassName("dashboardRightContent")[0].style.display = "none";
+  document.getElementsByClassName("dashboardRightContent")[0].style.display =
+    "none";
   // alert("nav")
 
-  SearchStudentContainer.style.display = "none"
-  SeatAvailable.style.display = "none"
-
-
-
-}
+  SearchStudentContainer.style.display = "none";
+  SeatsAvailbableContentContainer.style.display = "none";
+};
 const navigateToLogout = () => {
-  BoysHostel.id = ""
-  GirlsHostel.id = ""
-  AvailableSeats.id = ""
-  SearchStudent.id = ""
-  ModifyStudentDetails.id = ""
-  RegisterStudent.id = ""
-  Logout.id = "active--link"
+  BoysHostel.id = "";
+  GirlsHostel.id = "";
+  AvailableSeats.id = "";
+  SearchStudent.id = "";
+  ModifyStudentDetails.id = "";
+  RegisterStudent.id = "";
+  Logout.id = "active--link";
 
-  SearchStudentContainer.style.display = "none"
-  SeatAvailable.style.display = "none"
+  SearchStudentContainer.style.display = "none";
+  SeatsAvailbableContentContainer.style.display = "none";
 
   FormContainer[0].style.display = "none";
   DashboardRightContent[0].style.display = "none";
-
-
-}
+};
 
 // fetch student data
 const fetchStudentDetails = async (year) => {
-
   const url = "http://localhost:8000/student";
   const response = await fetch(url);
   let result = await response.json();
@@ -173,23 +174,19 @@ const fetchStudentDetails = async (year) => {
 
   result.map((data) => {
     return studentInfo(data);
-  })
-
-
-  
+  });
 };
 
-
-// remove all child of parent 
+// remove all child of parent
 function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
 }
 
 // insert student infomation
 const studentInfo = (data) => {
-    // <td>${data.buildingNumber}-Seaters</td>
+  // <td>${data.buildingNumber}-Seaters</td>
   let tr = document.createElement("tr");
   const markup = `
     <td>${data.name}</td>

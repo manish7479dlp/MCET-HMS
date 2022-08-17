@@ -1,4 +1,22 @@
 const BlankSeat = document.getElementsByClassName("blankSeat");
+
+const dispayAllBuildingDetails = (buildingData) => {
+   for(let roomNumber = 14; roomNumber <= 20; roomNumber++) {
+      const eachRoomDetails = buildingData.filter((data) => {
+        return data.buildingNumber == roomNumber || data.buildingNumber == roomNumber + "A"
+      })
+
+      addEachRoomStatus(eachRoomDetails);
+   }
+}
+
+const addEachRoomStatus = (eachRoomDetails) => {
+  const seatAvailable = document.getElementById("seatAvailable");
+  const h1 = document.createElement("h1");
+  h1.innerText = `Total seats = 8. Reserve seats = ${eachRoomDetails.length}. Un_Reserve seats = ${8 - eachRoomDetails.length}`
+  seatAvailable.appendChild(h1);
+}
+
 const checkSeatAvailability = async () => {
   try {
     const SeatSearchParameter = document.getElementById("seatSearchParameter");
@@ -10,6 +28,11 @@ const checkSeatAvailability = async () => {
     const response = await fetch(originalUrl);
     const result = await response.json();
     // console.log(result);
+
+    if(SeatSearchParameter.value == 'ALL' ||  SeatSearchParameter.value == 'all' || SeatSearchParameter.value == 'All') {
+      dispayAllBuildingDetails(result);
+      return;
+    }
 
     document.getElementsByClassName("seatsAvailableContainer")[0].style.display = "flex";
 
