@@ -7,6 +7,7 @@ menu.onclick = function () {
   mainContent.classList.toggle("active");
 };
 
+
 const FormContainer = document.getElementsByClassName("formContainer");
 const DashboardRightContent = document.getElementsByClassName(
   "dashboardRightContent"
