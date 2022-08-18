@@ -14,9 +14,8 @@ const partialsPath = path.join(__dirname , "template/partials");
 
 // console.log(partialsPath);
 
-app.use(express.json())
 app.use(cors());
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: true}))
 
 app.use(express.static(staticPath))
 app.set("view engine" , "hbs");
@@ -24,7 +23,7 @@ app.set("views" ,templatePath);
 hbs.registerPartials(partialsPath);
 
 // Router code start
-
+app.use(express.json())
 app.use(studentDetail);
 app.use(adminDetails);
 

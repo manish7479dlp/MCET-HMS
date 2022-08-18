@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "node index.js -e js,hbs,css,html",
+    "dev": "nodemon index.js -e js,hbs,css,html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Manish and his team-mate",
