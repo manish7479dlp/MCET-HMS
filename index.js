@@ -4,7 +4,7 @@ const path = require("path");
 const hbs = require("hbs");
 const cors = require("cors")
 require("./dbConfig/dbConfig")
-const port = 8000;
+const port =  process.env.PORT ? process.env.PORT : 8000;
 
 const studentDetail = require("./router/student")
 const adminDetails = require("./router/admin")
