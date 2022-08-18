@@ -4,7 +4,7 @@ const searchingStudent = async () => {
       "studentDetailsCardContainer"
     )[0];
     removeAllChildNodes(parent);
-    const url = "http://localhost:8000";
+  
     const SearchMedium = document.getElementById("searchMedium").value;
     const SearchingValue = document.getElementById("searchingValue").value;
 
@@ -12,14 +12,14 @@ const searchingStudent = async () => {
     //   let params = "/student/:department/:year";
 
     if (SearchMedium === "Year") {
-      mainUrl = `${url}${mainUrl}/${SearchingValue}`;
+      mainUrl = `${mainUrl}/${SearchingValue}`;
     } else if (SearchMedium === "Blood-Group") {
-      mainUrl = `${url}${mainUrl}BloodGroup/${SearchingValue}`;
+      mainUrl = `${mainUrl}BloodGroup/${SearchingValue}`;
 
     } else if (SearchMedium === "Building-Number") {
-      mainUrl = `${url}${mainUrl}Building/${SearchingValue}`;
+      mainUrl = `${mainUrl}Building/${SearchingValue}`;
     } else {
-      mainUrl = `${url}${mainUrl}/${SearchingValue}`;
+      mainUrl = `${mainUrl}/${SearchingValue}`;
     }
     const response = await fetch(mainUrl);
       const result = await response.json();

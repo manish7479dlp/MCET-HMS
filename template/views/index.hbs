@@ -48,9 +48,8 @@
                 userId,
                 password
               }
-
-              const url = "http://localhost:8000/admin";
-
+              
+              const url = "/admin";
               const response = await fetch(url);
 
               const re̥sult = await response.json();
@@ -58,7 +57,7 @@
               const valid = isValidUser(data , re̥sult[0])
               if(valid) {
                 sessionStorage.setItem("auth", JSON.stringify(data));
-                window.location.href = "http://localhost:8000/dashboard"
+                window.location.href = "/dashboard"
               } else {
                 alert("Invalid details");
               }
@@ -68,37 +67,6 @@
             console.log(err);
           }
        }
-       {{!-- const login = async () => {
-        
-          try{
-              const userId = document.getElementById("userId").value;
-              console.log("🚀 ~ file: index.hbs ~ line 37 ~ login ~ userId", userId)
-              const password = document.getElementById("password").value;
-              const data = {
-                userId,
-                password
-              }
-
-              const url = "http://localhost:8000/adminAuth";
-
-              const response = await fetch(url , {
-                method: 'POST',
-                headers: {
-                  "Content-type": "application/json"
-                },
-                body: JSON.stringify(data)
-                
-              })
-
-              const re̥sult = await response.json();
-              console.log("🚀 ~ file: index.hbs ~ line 59 ~ login ~ re̥sult", re̥sult)
-
-
-          }catch(err) {
-            console.log(err);
-          }
-       } --}}
-
     </script>
 </body>
 </html>

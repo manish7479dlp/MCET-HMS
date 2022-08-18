@@ -38,10 +38,9 @@ const checkSeatAvailability = async () => {
   try {
     FullBuildingSeatAvailability.style.display = "none";
     const SeatSearchParameter = document.getElementById("seatSearchParameter");
-    const url = "http://localhost:8000";
     let originalUrl = "student";
     // let originalUrl = "studentBuilding";
-    originalUrl = `${url}/${originalUrl}`;
+    originalUrl = `/${originalUrl}`;
     // originalUrl = `${url}/${originalUrl}/${SeatSearchParameter.value}`;
     const response = await fetch(originalUrl);
     const result = await response.json();

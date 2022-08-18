@@ -11,8 +11,7 @@ menu.onclick = function () {
 // Auth check
 const auth = sessionStorage.getItem("auth");
 if(!auth) {
-
-  window.location.href = "http://localhost:8000/"
+  window.location.href = "/";
 }
 
 
@@ -153,7 +152,7 @@ const navigateToLogout = () => {
 
 // fetch student data
 const fetchStudentDetails = async (year) => {
-  const url = "http://localhost:8000/student";
+  const url = "/student";
   const response = await fetch(url);
   let result = await response.json();
   result = result.filter((data) => {
