@@ -247,6 +247,7 @@ const setDataToStudent = (data, buildingNumber) => {
   console.log(upper2SeaterData.length);
 
   if (upper2SeaterData.length === 2) {
+    alert("Yes");
     u2fName.lastChild.innerText = upper2SeaterData[0].name;
     u2fYear.lastChild.innerText = upper2SeaterData[0].year;
     u2fDept.lastChild.innerText = upper2SeaterData[0].department;
