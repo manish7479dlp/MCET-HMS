@@ -248,12 +248,12 @@ const setDataToStudent = (data, buildingNumber) => {
 
   if (upper2SeaterData.length === 2) {
     u2fName.lastChild.innerText = upper2SeaterData[0].name;
-    u2fName.lastChild.innerText = upper2SeaterData[0].year;
-    u2fName.lastChild.innerText = upper2SeaterData[0].department;
+    u2fYear.lastChild.innerText = upper2SeaterData[0].year;
+    u2fDept.lastChild.innerText = upper2SeaterData[0].department;
 
     u2sName.lastChild.innerText = upper2SeaterData[1].name;
-    u2sName.lastChild.innerText = upper2SeaterData[1].year;
-    u2sName.lastChild.innerText = upper2SeaterData[1].department;
+    u2sYear.lastChild.innerText = upper2SeaterData[1].year;
+    u2sDept.lastChild.innerText = upper2SeaterData[1].department;
   } else if (upper2SeaterData.length === 1) {
     console.log(upper2SeaterData[0].name);
     u2fName.lastChild.innerText = upper2SeaterData[0].name;
