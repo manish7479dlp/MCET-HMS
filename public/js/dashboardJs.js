@@ -7,13 +7,11 @@ menu.onclick = function () {
   mainContent.classList.toggle("active");
 };
 
-
 // Auth check
 const auth = sessionStorage.getItem("auth");
-if(!auth) {
+if (!auth) {
   window.location.href = "/";
 }
-
 
 const FormContainer = document.getElementsByClassName("formContainer");
 const DashboardRightContent = document.getElementsByClassName(
@@ -22,7 +20,9 @@ const DashboardRightContent = document.getElementsByClassName(
 const SearchStudentContainer = document.getElementById(
   "searchStudentContainer"
 );
-const SeatsAvailbableContentContainer = document.getElementsByClassName("seatsAvailbableContentContainer")[0];
+const SeatsAvailbableContentContainer = document.getElementsByClassName(
+  "seatsAvailbableContentContainer"
+)[0];
 
 SearchStudentContainer.style.display = "none";
 
@@ -159,7 +159,7 @@ const fetchStudentDetails = async (year) => {
     return data.year == year;
   });
 
-  console.log(result);
+  // console.log(result);
 
   //   insertTitleTag(year);
   const temp = document.getElementById("studentYear");
@@ -179,7 +179,7 @@ const fetchStudentDetails = async (year) => {
 
   const parent = document.getElementById("tableBody");
   removeAllChildNodes(parent);
-
+  let count = 0;
   result.map((data) => {
     return studentInfo(data);
   });
@@ -192,23 +192,37 @@ function removeAllChildNodes(parent) {
   }
 }
 
+const deleteStudentData = (data) => {
+  console.log(data);
+};
+
+const studentDetailsInternalInfo = (data) => {
+  const id = data._id;
+  let markup = `
+  <td>${data.name}</td>
+  <td>${data.mob}</td>
+  <td>${data.department + " / " + data.year}</td>
+  <td>${data.buildingNumber}</td>
+  <td>${data.roomType}</td>
+  <td><span><i class="ri-edit-line edit"></i>
+  <i id = "deleteStudentIcon" onclick = "deleteStudentData('${id}')" class="ri-delete-bin-line delete"></i></span></td>`;
+  return markup;
+};
+
 // insert student infomation
 const studentInfo = (data) => {
+  // console.log(data);
   // <td>${data.buildingNumber}-Seaters</td>
   let tr = document.createElement("tr");
-  const markup = `
-    <td>${data.name}</td>
-    <td>${data.mob}</td>
-    <td>${data.department + " / " + data.year}</td>
-    <td>${data.buildingNumber}</td>
-    <td>${data.roomType}</td>
-    <td><span><i class="ri-edit-line edit"></i><i
-    class="ri-delete-bin-line delete"></i></span></td>`;
+
+  const markup = studentDetailsInternalInfo(data);
 
   tr.innerHTML = markup;
 
   const parent = document.getElementById("tableBody");
 
-  console.log(parent);
   parent.appendChild(tr);
+
+  // const deleteStudentDetails = document.getElementById("deleteStudentIcon");
+  // deleteStudentDetails.addEventListener('click',() => { deleteStudentData(data)});
 };

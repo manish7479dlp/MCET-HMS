@@ -590,3 +590,10 @@ th {
 }
 
 /* dashboard css end */
+
+#deleteStudentIcon:hover {
+  background-color: red;
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+}
