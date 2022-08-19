@@ -192,8 +192,29 @@ function removeAllChildNodes(parent) {
   }
 }
 
-const deleteStudentData = (data) => {
-  console.log(data);
+const deleteStudentData = async (data) => {
+  try {
+    const confirmation = window.confirm("Do you Really Want to Delete.");
+    if (confirmation) {
+      const mainURL = `/student/${data}`;
+      console.log(mainURL);
+      const response = await fetch(mainURL, {
+        method: "DELETE",
+      });
+
+      const result = await response.json();
+      console.log(result);
+      window.location.href = "/dashboard"
+      
+    } else {
+      alert("Student Details is not Deleted..")
+    }
+  } catch (error) {
+    console.log(
+      "🚀 ~ file: dashboardJs.js ~ line 199 ~ deleteStudentData ~ error",
+      error
+    );
+  }
 };
 
 const studentDetailsInternalInfo = (data) => {
