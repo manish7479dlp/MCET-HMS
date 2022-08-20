@@ -13,10 +13,10 @@ const AdminDetailsSchema = mongoose.Schema({
         unique: true,
         required: true
     },
-    hostelTypes: {
+    hostelType: {
         type: String,
         require: true,
-        unique
+        unique: true,
     }
 })
 module.exports = new mongoose.model("AdminDetails" , AdminDetailsSchema)

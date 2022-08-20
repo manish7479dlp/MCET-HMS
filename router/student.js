@@ -14,9 +14,12 @@ router.get("/student", async (req, res) => {
   }
 });
 
-router.get("/dashboard", async (req, res) => {
+router.get("/dashboard/:hostelType", async (req, res) => {
   try {
-    const response = await studentDetailsSchema.find();
+    const parameter = req.params.hostelType === "Boys" ? "Male" : "Female"
+    console.log(parameter);
+    const response = await studentDetailsSchema.find({gender: parameter});
+    console.log(response);
     const no1y = response.filter((data) => {
       return data.year == 1;
     });
@@ -118,7 +121,7 @@ router.post("/student", async (req, res) => {
       "🚀 ~ file: student.js ~ line 14 ~ router.post ~ result",
       result
     );
-    res.redirect("/dashboard");
+    res.redirect("/dashboard/result.gender");
   } catch (error) {
     res.send(error);
   }

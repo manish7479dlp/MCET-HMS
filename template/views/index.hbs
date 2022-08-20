@@ -42,7 +42,6 @@
         
           try{
               const userId = document.getElementById("userId").value;
-              console.log(typeof(userId))
               const password = document.getElementById("password").value;
               const data = {
                 userId,
@@ -51,13 +50,22 @@
               
               const url = "/admin";
               const response = await fetch(url);
-
               const re̥sult = await response.json();
+
+              const validUserData = re̥sult.filter((originalData) => {
+                   return (data.userId == originalData.userId && data.password == originalData.password);
+
+              })
+
+              console.log(validUserData[0])
+
               {{!-- console.log("🚀 ~ file: index.hbs ~ line 59 ~ login ~ re̥sult", re̥sult) --}}
-              const valid = isValidUser(data , re̥sult[0])
-              if(valid) {
-                sessionStorage.setItem("auth", JSON.stringify(data));
-                window.location.href = "/dashboard"
+              {{!-- const valid = isValidUser(data , re̥sult[0]) --}}
+
+              if(validUserData.length > 0) {
+                sessionStorage.setItem("auth", JSON.stringify(validUserData));
+                {{!-- window.location.href = `/dashboard` --}}
+                window.location.href = `/dashboard/${validUserData[0].hostelType}`
               } else {
                 alert("Invalid details");
               }
