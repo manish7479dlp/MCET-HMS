@@ -1,0 +1,175 @@
+
+{{!-- <div class="full-screen hidden flex-container-center">
+  <h2 >Let me tell you about this thing!!</h2>
+  <button onclick="closePopup()">Close Popup!</button>
+</div> --}}
+
+
+
+<div class="full-screen hidden flex-container-center">
+  <div class="container">
+  <header>Edit Student Details</header>
+
+  <form action="/student" method="post">
+    <div class="form first">
+      <div class="details personal">
+        <span class="title">Personal Details</span>
+
+        <div class="fields">
+          <div class="input-field">
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your name" required name="name" />
+          </div>
+
+          <div class="input-field">
+            <label>Aadhar Number</label>
+            <input type="number" placeholder="Enter Aadhar number" required name="aadhar"/>
+          </div>
+
+          <div class="input-field">
+            <label>Blood Group</label>
+            <input list="bloodGroupList" id="bloodGroup" type="text" placeholder="Enter your Blood Group" required name="bloodGroup"/>
+          </div>
+
+          <datalist id="bloodGroupList">
+                <option value="A+">
+                <option value="B+">
+                <option value="AB+">
+                <option value="O+">
+
+                <option value="A-">
+                <option value="B-">
+                <option value="AB-">
+                <option value="O-">
+          </datalist>
+
+          <div class="input-field">
+            <label>Mobile Number</label>
+            <input type="number" placeholder="Enter mobile number" required name="mob"/>
+          </div>
+
+          <div class="input-field">
+            <label>Year</label>
+            <select required name="year">
+              <option disabled selected>Select Year</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label>Department</label>
+            <select required name="department">
+              <option disabled selected>Select Department</option>
+              <option>CSE</option>
+              <option>ECE</option>
+              <option>EE</option>
+              <option>CE</option>
+            </select>
+          </div>
+
+          
+        </div>
+      </div>
+
+      <div class="details ID">
+        {{!-- <span class="title">Identity Details</span> --}}
+
+        <div class="fields">
+          <div class="input-field">
+            <label>Room Type</label>
+            <select required name="roomType">
+              <option disabled selected>Select Room Type</option>
+              <option>2-seaters</option>
+              <option>3-seaters</option>
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label>Building Number</label>
+            <input list="buildingNumber" type="text" placeholder="Enter Building number" required name="buildingNumber"/>
+          </div>
+
+          <datalist id="buildingNumber">
+            <option value="14">
+                  <option value="14A">
+
+                  <option value="15">
+                  <option value="15A">
+
+                  <option value="16">
+                  <option value="16A">
+
+                  <option value="17">
+                  <option value="17A">
+
+                  <option value="18">
+                  <option value="18A">
+
+                  <option value="19">
+                  <option value="19A">
+
+                  <option value="20">
+                  <option value="20A">
+
+                  <option value="61">
+                  <option value="61A">
+
+                  <option value="62">
+                  <option value="62A">
+
+                  <option value="63">
+                  <option value="63A">
+
+                  <option value="64">
+                  <option value="64A">
+
+                  <option value="65">
+                  <option value="65A">
+
+                  <option value="66">
+                  <option value="66A">
+
+                  <option value="67">
+                  <option value="67A">
+
+                  <option value="68">
+                  <option value="68A">
+
+                  <option value="69">
+                  <option value="69A">
+
+          </datalist>
+
+          <div class="input-field">
+            <label>Fathers's Name</label>
+            <input type="text" placeholder="Enter Your Father's Name" required name="fathersName"/>
+          </div>
+
+          <div class="input-field">
+            <label>Father's Mob Number</label>
+            <input type="number" placeholder="Enter Your Father's Number" required name="fathersMob"/>
+          </div>
+
+          <div class="input-field">
+            <label>Address</label>
+            <input type="text" placeholder="Enter your Address" required name="address"/>
+          </div>
+
+          <div class="input-field">
+            <label>State</label>
+            <input type="text" placeholder="Enter Your State"  />
+          </div>
+        </div>
+
+        <button class="nextBtn" onclick="closePopup()">
+          <span class="btnText">Update</span>
+        </button>
+      </div>
+    </div>
+
+      </form>
+</div>
+</div>

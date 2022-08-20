@@ -185,6 +185,8 @@ const fetchStudentDetails = async (year) => {
   });
 };
 
+
+
 // remove all child of parent
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
@@ -217,9 +219,20 @@ const deleteStudentData = async (data) => {
   }
 };
 
-const editStudentData = () => {
-  alert("i am trying to edit");
+const editStudentData = async (data) => {
+  data = data + "";
+  const mainURL = "/student"
+  const response = await fetch(mainURL);
+  const result = await response.json();
+
+  const desireStudentDetails = result.filter((res) => {
+    
+    return res._id === data;
+  })
+  console.log(desireStudentDetails);
+  showPopup(desireStudentDetails);
 }
+
 
 const studentDetailsInternalInfo = (data) => {
   const id = data._id;
