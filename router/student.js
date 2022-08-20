@@ -16,9 +16,9 @@ router.get("/student", async (req, res) => {
 
 router.get("/dashboard/:hostelType", async (req, res) => {
   try {
-    const parameter = req.params.hostelType === "Boys" ? "Male" : "Female"
+    const parameter = req.params.hostelType === "Boys" ? "Male" : "Female";
     console.log(parameter);
-    const response = await studentDetailsSchema.find({gender: parameter});
+    const response = await studentDetailsSchema.find({ gender: parameter });
     console.log(response);
     const no1y = response.filter((data) => {
       return data.year == 1;
@@ -40,7 +40,7 @@ router.get("/dashboard/:hostelType", async (req, res) => {
       no2y: no2y.length,
       no3y: no3y.length,
       no4y: no4y.length,
-      hostelType: req.params.hostelType
+      hostelType: req.params.hostelType,
     });
   } catch (error) {
     res.send(error);
@@ -114,7 +114,7 @@ router.post("/student", async (req, res) => {
       roomType: req.body.roomType,
       year: req.body.year,
       department: req.body.department,
-      gender: req.body.gender
+      gender: req.body.gender,
     };
     const response = await new studentDetailsSchema(data);
     const result = await response.save();
@@ -122,7 +122,8 @@ router.post("/student", async (req, res) => {
       "🚀 ~ file: student.js ~ line 14 ~ router.post ~ result",
       result
     );
-    res.redirect("/dashboard/result.gender");
+    const hostelType = result.gender == "Male" ? "Boys" : "Girls";
+    res.redirect(`/dashboard/${hostelType}`);
   } catch (error) {
     res.send(error);
   }
@@ -153,7 +154,7 @@ router.patch("/student/:_id", async (req, res) => {
       roomType: req.body.roomType,
       year: req.body.year,
       department: req.body.department,
-      gender: req.body.gender
+      gender: req.body.gender,
     };
     const response = await studentDetailsSchema.findByIdAndUpdate(
       req.params,
@@ -188,7 +189,7 @@ router.post("/student/:_id", async (req, res) => {
       roomType: req.body.roomType,
       year: req.body.year,
       department: req.body.department,
-      gender: req.body.gender
+      gender: req.body.gender,
     };
     const response = await studentDetailsSchema.findByIdAndUpdate(
       req.params,
@@ -202,7 +203,9 @@ router.post("/student/:_id", async (req, res) => {
       "🚀 ~ file: student.js ~ line 32 ~ router.patch ~ response",
       response
     );
-    res.redirect(`/dashboard/${response.gender}`);
+    const hostelType = response.gender == "Male" ? "Boys" : "Girls";
+    console.log(`/dashboard/${hostelType}`);
+    res.redirect(`/dashboard/${hostelType}`);
   } catch (error) {
     res.send(error);
   }
