@@ -597,3 +597,9 @@ th {
   padding: 5px;
   color: white;
 }
+#editStudentIcon:hover {
+  background-color: rgb(51, 199, 240);
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+}

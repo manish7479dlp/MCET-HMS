@@ -225,7 +225,7 @@ const studentDetailsInternalInfo = (data) => {
   <td>${data.department + " / " + data.year}</td>
   <td>${data.buildingNumber}</td>
   <td>${data.roomType}</td>
-  <td><span><i class="ri-edit-line edit"></i>
+  <td><span><i id = "editStudentIcon" class="ri-edit-line edit"></i>
   <i id = "deleteStudentIcon" onclick = "deleteStudentData('${id}')" class="ri-delete-bin-line delete"></i></span></td>`;
   return markup;
 };
