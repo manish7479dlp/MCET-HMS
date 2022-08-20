@@ -12,6 +12,11 @@ const AdminDetailsSchema = mongoose.Schema({
         type: String,
         unique: true,
         required: true
+    },
+    hostelTypes: {
+        type: String,
+        require: true,
+        unique
     }
 })
 module.exports = new mongoose.model("AdminDetails" , AdminDetailsSchema)
