@@ -40,6 +40,7 @@ router.get("/dashboard/:hostelType", async (req, res) => {
       no2y: no2y.length,
       no3y: no3y.length,
       no4y: no4y.length,
+      hostelType: req.params.hostelType
     });
   } catch (error) {
     res.send(error);
