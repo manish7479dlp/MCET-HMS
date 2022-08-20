@@ -1,16 +1,9 @@
 
-{{!-- <div class="full-screen hidden flex-container-center">
-  <h2 >Let me tell you about this thing!!</h2>
-  <button onclick="closePopup()">Close Popup!</button>
-</div> --}}
-
-
-
 <div class="full-screen hidden flex-container-center">
   <div class="container">
   <header>Edit Student Details</header>
 
-  <form action="/student" method="post">
+  <form id="editForm" method="post">
     <div class="form first">
       <div class="details personal">
         <span class="title">Personal Details</span>
@@ -18,17 +11,17 @@
         <div class="fields">
           <div class="input-field">
             <label>Full Name</label>
-            <input type="text" placeholder="Enter your name" required name="name" />
+            <input id="fullName" type="text" placeholder="Enter your name" required name="name" />
           </div>
 
           <div class="input-field">
             <label>Aadhar Number</label>
-            <input type="number" placeholder="Enter Aadhar number" required name="aadhar"/>
+            <input id="aadharNumber" type="number" placeholder="Enter Aadhar number" required name="aadhar"/>
           </div>
 
           <div class="input-field">
             <label>Blood Group</label>
-            <input list="bloodGroupList" id="bloodGroup" type="text" placeholder="Enter your Blood Group" required name="bloodGroup"/>
+            <input id="bloodGroupFiled" list="bloodGroupList" id="bloodGroup" type="text" placeholder="Enter your Blood Group" required name="bloodGroup"/>
           </div>
 
           <datalist id="bloodGroupList">
@@ -45,12 +38,12 @@
 
           <div class="input-field">
             <label>Mobile Number</label>
-            <input type="number" placeholder="Enter mobile number" required name="mob"/>
+            <input id="mobileNumber" type="number" placeholder="Enter mobile number" required name="mob"/>
           </div>
 
           <div class="input-field">
             <label>Year</label>
-            <select required name="year">
+            <select id="year" required name="year">
               <option disabled selected>Select Year</option>
               <option>1</option>
               <option>2</option>
@@ -61,7 +54,7 @@
 
           <div class="input-field">
             <label>Department</label>
-            <select required name="department">
+            <select id="department" required name="department">
               <option disabled selected>Select Department</option>
               <option>CSE</option>
               <option>ECE</option>
@@ -80,7 +73,7 @@
         <div class="fields">
           <div class="input-field">
             <label>Room Type</label>
-            <select required name="roomType">
+            <select id="roomType" required name="roomType">
               <option disabled selected>Select Room Type</option>
               <option>2-seaters</option>
               <option>3-seaters</option>
@@ -89,7 +82,7 @@
 
           <div class="input-field">
             <label>Building Number</label>
-            <input list="buildingNumber" type="text" placeholder="Enter Building number" required name="buildingNumber"/>
+            <input id="buildingNumberField" list="buildingNumber" type="text" placeholder="Enter Building number" required name="buildingNumber"/>
           </div>
 
           <datalist id="buildingNumber">
@@ -145,17 +138,17 @@
 
           <div class="input-field">
             <label>Fathers's Name</label>
-            <input type="text" placeholder="Enter Your Father's Name" required name="fathersName"/>
+            <input id="fathersName" type="text" placeholder="Enter Your Father's Name" required name="fathersName"/>
           </div>
 
           <div class="input-field">
             <label>Father's Mob Number</label>
-            <input type="number" placeholder="Enter Your Father's Number" required name="fathersMob"/>
+            <input id="fathersMobNumber" type="number" placeholder="Enter Your Father's Number" required name="fathersMob"/>
           </div>
 
           <div class="input-field">
             <label>Address</label>
-            <input type="text" placeholder="Enter your Address" required name="address"/>
+            <input id="address" type="text" placeholder="Enter your Address" required name="address"/>
           </div>
 
           <div class="input-field">
@@ -164,7 +157,7 @@
           </div>
         </div>
 
-        <button class="nextBtn" onclick="closePopup()">
+        <button class="nextBtn"  onclick="closePopup()">
           <span class="btnText">Update</span>
         </button>
       </div>

@@ -136,9 +136,22 @@ router.delete("/student/:_id", async (req, res) => {
 //update particular student using build-in id
 router.patch("/student/:_id", async (req, res) => {
   try {
+    const data = {
+      name: req.body.name,
+      mob: req.body.mob,
+      aadhar: req.body.aadhar,
+      bloodGroup: req.body.bloodGroup,
+      address: req.body.address,
+      fathersName: req.body.fathersName,
+      fathersMob: req.body.fathersMob,
+      buildingNumber: req.body.buildingNumber,
+      roomType: req.body.roomType,
+      year: req.body.year,
+      department: req.body.department,
+    };
     const response = await studentDetailsSchema.findByIdAndUpdate(
       req.params,
-      req.body,
+      data,
       {
         new: true,
         useFindAndModify: false,
@@ -149,6 +162,40 @@ router.patch("/student/:_id", async (req, res) => {
       response
     );
     res.send(response);
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+//update particular student using build-in id (by post method because form doesnot support pathch)
+router.post("/student/:_id", async (req, res) => {
+  try {
+    const data = {
+      name: req.body.name,
+      mob: req.body.mob,
+      aadhar: req.body.aadhar,
+      bloodGroup: req.body.bloodGroup,
+      address: req.body.address,
+      fathersName: req.body.fathersName,
+      fathersMob: req.body.fathersMob,
+      buildingNumber: req.body.buildingNumber,
+      roomType: req.body.roomType,
+      year: req.body.year,
+      department: req.body.department,
+    };
+    const response = await studentDetailsSchema.findByIdAndUpdate(
+      req.params,
+      data,
+      {
+        new: true,
+        useFindAndModify: false,
+      }
+    );
+    console.log(
+      "🚀 ~ file: student.js ~ line 32 ~ router.patch ~ response",
+      response
+    );
+    res.redirect("/dashboard");
   } catch (error) {
     res.send(error);
   }
