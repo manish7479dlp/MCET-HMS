@@ -29,7 +29,7 @@ SearchStudentContainer.style.display = "none";
 SeatsAvailbableContentContainer.style.display = "none";
 
 const BoysHostel = document.getElementsByClassName("boysHostel")[0];
-const GirlsHostel = document.getElementsByClassName("girlsHostel")[0];
+// const GirlsHostel = document.getElementsByClassName("girlsHostel")[0];
 const AvailableSeats = document.getElementsByClassName("availableSeats")[0];
 const SearchStudent = document.getElementsByClassName("searchStudent")[0];
 const ModifyStudentDetails = document.getElementsByClassName(
@@ -40,7 +40,7 @@ const Logout = document.getElementsByClassName("logout")[0];
 
 const navigateToBoysHostel = () => {
   BoysHostel.id = "active--link";
-  GirlsHostel.id = "";
+  // GirlsHostel.id = "";
   AvailableSeats.id = "";
   SearchStudent.id = "";
   ModifyStudentDetails.id = "";
@@ -57,24 +57,24 @@ const navigateToBoysHostel = () => {
 
   FormContainer[0].style.display = "none";
 };
-const navigateToGirlsHostel = () => {
-  BoysHostel.id = "";
-  GirlsHostel.id = "active--link";
-  AvailableSeats.id = "";
-  SearchStudent.id = "";
-  ModifyStudentDetails.id = "";
-  RegisterStudent.id = "";
-  Logout.id = "";
+// const navigateToGirlsHostel = () => {
+//   BoysHostel.id = "";
+//   // GirlsHostel.id = "active--link";
+//   AvailableSeats.id = "";
+//   SearchStudent.id = "";
+//   ModifyStudentDetails.id = "";
+//   RegisterStudent.id = "";
+//   Logout.id = "";
 
-  SearchStudentContainer.style.display = "none";
-  SeatsAvailbableContentContainer.style.display = "none";
+//   SearchStudentContainer.style.display = "none";
+//   SeatsAvailbableContentContainer.style.display = "none";
 
-  FormContainer[0].style.display = "none";
-  DashboardRightContent[0].style.display = "none";
-};
+//   FormContainer[0].style.display = "none";
+//   DashboardRightContent[0].style.display = "none";
+// };
 const navigateToAvailableSeats = () => {
   BoysHostel.id = "";
-  GirlsHostel.id = "";
+  // GirlsHostel.id = "";
   AvailableSeats.id = "active--link";
   SearchStudent.id = "";
   ModifyStudentDetails.id = "";
@@ -88,7 +88,7 @@ const navigateToAvailableSeats = () => {
 };
 const navigateToSearchStudent = () => {
   BoysHostel.id = "";
-  GirlsHostel.id = "";
+  // GirlsHostel.id = "";
   AvailableSeats.id = "";
   SearchStudent.id = "active--link";
   ModifyStudentDetails.id = "";
@@ -104,7 +104,7 @@ const navigateToSearchStudent = () => {
 };
 const navigateToModifyStudentDetails = () => {
   BoysHostel.id = "";
-  GirlsHostel.id = "";
+  // GirlsHostel.id = "";
   AvailableSeats.id = "";
   SearchStudent.id = "";
   ModifyStudentDetails.id = "active--link";
@@ -119,7 +119,7 @@ const navigateToModifyStudentDetails = () => {
 };
 const navigateToRegisterStudent = () => {
   BoysHostel.id = "";
-  GirlsHostel.id = "";
+  // GirlsHostel.id = "";
   AvailableSeats.id = "";
   SearchStudent.id = "";
   ModifyStudentDetails.id = "";
@@ -136,7 +136,7 @@ const navigateToRegisterStudent = () => {
 };
 const navigateToLogout = () => {
   BoysHostel.id = "";
-  GirlsHostel.id = "";
+  // GirlsHostel.id = "";
   AvailableSeats.id = "";
   SearchStudent.id = "";
   ModifyStudentDetails.id = "";
