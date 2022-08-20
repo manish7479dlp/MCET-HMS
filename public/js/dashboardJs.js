@@ -217,6 +217,10 @@ const deleteStudentData = async (data) => {
   }
 };
 
+const editStudentData = () => {
+  alert("i am trying to edit");
+}
+
 const studentDetailsInternalInfo = (data) => {
   const id = data._id;
   let markup = `
@@ -225,7 +229,7 @@ const studentDetailsInternalInfo = (data) => {
   <td>${data.department + " / " + data.year}</td>
   <td>${data.buildingNumber}</td>
   <td>${data.roomType}</td>
-  <td><span><i id = "editStudentIcon" class="ri-edit-line edit"></i>
+  <td><span><i id = "editStudentIcon" onclick = "editStudentData('${id}')" class="ri-edit-line edit"></i>
   <i id = "deleteStudentIcon" onclick = "deleteStudentData('${id}')" class="ri-delete-bin-line delete"></i></span></td>`;
   return markup;
 };
