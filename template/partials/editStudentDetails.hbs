@@ -20,6 +20,15 @@
           </div>
 
           <div class="input-field">
+            <label>Gender</label>
+            <select id="gender" name="gender" required name="roomType">
+              <option disabled selected>Select Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+
+          <div class="input-field">
             <label>Blood Group</label>
             <input id="bloodGroupFiled" list="bloodGroupList" id="bloodGroup" type="text" placeholder="Enter your Blood Group" required name="bloodGroup"/>
           </div>
@@ -41,16 +50,7 @@
             <input id="mobileNumber" type="number" placeholder="Enter mobile number" required name="mob"/>
           </div>
 
-          <div class="input-field">
-            <label>Year</label>
-            <select id="year" required name="year">
-              <option disabled selected>Select Year</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-            </select>
-          </div>
+          
 
           <div class="input-field">
             <label>Department</label>
@@ -71,6 +71,18 @@
         {{!-- <span class="title">Identity Details</span> --}}
 
         <div class="fields">
+
+          <div class="input-field">
+            <label>Year</label>
+            <select id="year" required name="year">
+              <option disabled selected>Select Year</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+
           <div class="input-field">
             <label>Room Type</label>
             <select id="roomType" required name="roomType">
@@ -150,12 +162,6 @@
             <label>Address</label>
             <input id="address" type="text" placeholder="Enter your Address" required name="address"/>
           </div>
-
-          <div class="input-field">
-            <label>State</label>
-            <input type="text" placeholder="Enter Your State"  />
-          </div>
-        </div>
 
         <button class="nextBtn"  onclick="closePopup()">
           <span class="btnText">Update</span>
