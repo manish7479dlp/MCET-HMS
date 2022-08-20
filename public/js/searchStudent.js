@@ -46,6 +46,7 @@ const studentFullDetails = (data) => {
   const markup = `
   <p>Name: <span>${data.name}</span></p>
   <p>Mobile Number: <span>${data.mob}</span></p>
+  <p>Gender: <span>${data.gender}</span></p>
   <p>Year: <span>${data.year}</span></p>
   <p>Department: <span>${data.department}</span></p>
   <p>Blood-Group: <span class="room">${data.bloodGroup}</span></p>
