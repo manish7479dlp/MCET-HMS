@@ -9,29 +9,46 @@ const seatsAvailableContainer = document.getElementsByClassName(
 FullBuildingSeatAvailability.style.display = "none";
 
 const dispayAllBuildingDetails = (buildingData) => {
-  for (let roomNumber = 14; roomNumber <= 20; roomNumber++) {
-    const eachRoomDetails = buildingData.filter((data) => {
-      return (
-        data.buildingNumber == roomNumber ||
-        data.buildingNumber == roomNumber + "A"
-      );
-    });
+  const studentGender = JSON.parse(sessionStorage.getItem("auth"))[0]
+    .hostelType;
+  if (studentGender == "Boys") {
+    for (let roomNumber = 12; roomNumber <= 63; roomNumber++) {
+      const eachRoomDetails = buildingData.filter((data) => {
+        return (
+          data.buildingNumber == roomNumber ||
+          data.buildingNumber == roomNumber + "A"
+        );
+      });
 
-    addEachRoomStatus(eachRoomDetails,roomNumber);
+      addEachRoomStatus(eachRoomDetails, roomNumber);
+    }
+  } else {
+    for (let roomNumber = 64; roomNumber <= 70; roomNumber++) {
+      const eachRoomDetails = buildingData.filter((data) => {
+        return (
+          data.buildingNumber == roomNumber ||
+          data.buildingNumber == roomNumber + "A"
+        );
+      });
+  
+      addEachRoomStatus(eachRoomDetails, roomNumber);
+    }
   }
 };
 
-const addEachRoomStatus = (eachRoomDetails,roomNumber) => {
+const addEachRoomStatus = (eachRoomDetails, roomNumber) => {
   FullBuildingSeatAvailability.style.display = "flex";
   const div = document.createElement("div");
   div.className = "seatVaccentStatusCard";
 
   const markup = ` <h2>Building No: <span style = "color: red">${roomNumber} / ${roomNumber}A</span> </h2>
-    <p>Blank : <sapn style = "color: green"> ${8 - eachRoomDetails.length} </span></p>`;
+    <p>Blank : <sapn style = "color: green"> ${
+      8 - eachRoomDetails.length
+    } </span></p>`;
 
-    div.innerHTML = markup;
+  div.innerHTML = markup;
 
-    FullBuildingSeatAvailability.appendChild(div);
+  FullBuildingSeatAvailability.appendChild(div);
 };
 
 const checkSeatAvailability = async () => {
@@ -51,8 +68,7 @@ const checkSeatAvailability = async () => {
       SeatSearchParameter.value == "all" ||
       SeatSearchParameter.value == "All"
     ) {
-
-      removeAllChildNodes(FullBuildingSeatAvailability)
+      removeAllChildNodes(FullBuildingSeatAvailability);
       seatsAvailableContainer.style.display = "none";
       dispayAllBuildingDetails(result);
       return;

@@ -201,7 +201,7 @@ router.post("/student/:_id", async (req, res) => {
       "🚀 ~ file: student.js ~ line 32 ~ router.patch ~ response",
       response
     );
-    res.redirect("/dashboard");
+    res.redirect(`/dashboard/${response.gender}`);
   } catch (error) {
     res.send(error);
   }

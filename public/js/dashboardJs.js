@@ -152,18 +152,18 @@ const navigateToLogout = () => {
 
 // fetch student data
 const fetchStudentDetails = async (year) => {
-  const studentGender = sessionStorage.getItem("auth").hostelType
+  const studentGender = JSON.parse(sessionStorage.getItem("auth"))[0].hostelType
   console.log(studentGender);
   const url = "/student";
   const response = await fetch(url);
   let result = await response.json();
-  const hostelType = studentGender === "Boys" ? "Male" : "Female"
+  const hostelType = studentGender == "Boys" ? "Male" : "Female"
   result = result.filter((data) => {
     return data.year == year && data.gender == hostelType;
   });
   
 
-  console.log(result);
+  // console.log(result);
 
   //   insertTitleTag(year);
   const temp = document.getElementById("studentYear");
@@ -210,7 +210,7 @@ const deleteStudentData = async (data) => {
 
       const result = await response.json();
       console.log(result);
-      window.location.href = `/dashboard/${JSON.parse(sessionStorage.getItem("auth").hostelType)}`
+      window.location.href = `/dashboard/${JSON.parse(sessionStorage.getItem("auth"))[0].hostelType}`
       
     } else {
       alert("Student Details is not Deleted..")

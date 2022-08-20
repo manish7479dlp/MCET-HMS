@@ -4,7 +4,7 @@ const searchingStudent = async () => {
       "studentDetailsCardContainer"
     )[0];
     removeAllChildNodes(parent);
-  
+
     const SearchMedium = document.getElementById("searchMedium").value;
     const SearchingValue = document.getElementById("searchingValue").value;
 
@@ -15,19 +15,29 @@ const searchingStudent = async () => {
       mainUrl = `${mainUrl}/${SearchingValue}`;
     } else if (SearchMedium === "Blood-Group") {
       mainUrl = `${mainUrl}BloodGroup/${SearchingValue}`;
-
     } else if (SearchMedium === "Building-Number") {
       mainUrl = `${mainUrl}Building/${SearchingValue}`;
     } else {
       mainUrl = `${mainUrl}/${SearchingValue}`;
     }
     const response = await fetch(mainUrl);
-      const result = await response.json();
-      result.map((data) => {
-        return studentFullDetails(data);
-      });
+    let result = await response.json();
 
-      document.getElementById("searchingValue").value = ""
+    const studentGender = JSON.parse(sessionStorage.getItem("auth"))[0]
+      .hostelType;
+
+    const hostelType = studentGender == "Boys" ? "Male" : "Female";
+
+    result = result.filter((data) => {
+      return data.gender == hostelType;
+    });
+
+
+    result.map((data) => {
+      return studentFullDetails(data);
+    });
+
+    document.getElementById("searchingValue").value = "";
   } catch (error) {
     console.log(error);
   }
@@ -65,6 +75,6 @@ const studentFullDetails = (data) => {
     "studentDetailsCardContainer"
   )[0];
 
-//   console.log(parent);
+  //   console.log(parent);
   parent.appendChild(div);
 };
