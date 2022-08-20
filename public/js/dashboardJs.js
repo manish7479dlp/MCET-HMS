@@ -148,6 +148,10 @@ const navigateToLogout = () => {
 
   FormContainer[0].style.display = "none";
   DashboardRightContent[0].style.display = "none";
+
+  sessionStorage.removeItem("auth");
+  window.location.href = '/'
+
 };
 
 // fetch student data
