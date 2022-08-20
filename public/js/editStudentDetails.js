@@ -26,7 +26,7 @@ const fillStudentDetailsFiled = (data) => {
   
   document.getElementById("roomType").value = data.roomType;
   
-  document.getElementById("buildingNumberField").value = data.buldingNumber;
+  document.getElementById("buildingNumberField").value = data.buildingNumber;
   
   document.getElementById("fathersName").value = data.fathersName;
   
