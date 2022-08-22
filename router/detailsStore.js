@@ -9,55 +9,44 @@ router.get("/storeStudentDetails/:hostelType", async (req, res) => {
   try {
     const url = "https://mcet-hms.herokuapp.com/student";
 
-    const jsonToExcelData = async (url) => {
-      try {
-        const passoutStudentFolderPath = path.join(
-          __dirname,
-          "../public/passoutStudents/"
-        );
+    const passoutStudentFolderPath = path.join(__dirname, "../passoutStudents/");
 
-        let fileName = new Date().getFullYear();
+    let fileName = new Date().getFullYear();
 
-        const students = await fetch(url);
-        let result = await students.json();
+    const students = await fetch(url);
+    let result = await students.json();
 
-        const gender = req.params.hostelType == "Boys" ? "Male" : "Female";
-        console.log(gender);
+    const gender = req.params.hostelType == "Boys" ? "Male" : "Female";
+    console.log(gender);
 
-        result = result.filter((eachStudent) => {
-          return eachStudent.gender == gender;
-        });
+    result = result.filter((eachStudent) => {
+      return eachStudent.gender == gender;
+    });
 
-        fs.writeFileSync(
-          `${passoutStudentFolderPath}${fileName}${req.params.hostelType}HostelBatch.json`,
-          JSON.stringify(result)
-        );
+    fs.writeFileSync(
+      `${passoutStudentFolderPath}${fileName}${req.params.hostelType}HostelBatch.json`,
+      JSON.stringify(result)
+    );
 
-        const workSheet = xlsx.utils.json_to_sheet(result);
-        const workBook = xlsx.utils.book_new();
+    const workSheet = xlsx.utils.json_to_sheet(result);
+    const workBook = xlsx.utils.book_new();
 
-        xlsx.utils.book_append_sheet(workBook, workSheet, "students");
+    xlsx.utils.book_append_sheet(workBook, workSheet, "students");
 
-        //  Generate Buffer
+    //  Generate Buffer
 
-        xlsx.write(workBook, { bookType: "xlsx", type: "buffer" });
+    xlsx.write(workBook, { bookType: "xlsx", type: "buffer" });
 
-        //Binary String
+    //Binary String
 
-        xlsx.write(workBook, { bookType: "xlsx", type: "binary" });
+    xlsx.write(workBook, { bookType: "xlsx", type: "binary" });
 
-        fileName = `${passoutStudentFolderPath}${fileName}${req.params.hostelType}HostelBatch.xlsx`;
-        xlsx.writeFile(workBook, fileName);
-        return result;
-      } catch (error) {
-        console.log(error);
-        return [];
-      }
-    };
+    fileName = `${passoutStudentFolderPath}${fileName}${req.params.hostelType}HostelBatch.xlsx`;
+    xlsx.writeFile(workBook, fileName);
 
-    const response = await jsonToExcelData(url);
+   
 
-    const hostelType = response[0].gender == "Male" ? "Boys" : "Girls";
+    const hostelType = result[0].gender == "Male" ? "Boys" : "Girls";
 
     res.redirect(`/dashboard/${hostelType}`);
   } catch (error) {
