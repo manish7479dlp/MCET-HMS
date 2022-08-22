@@ -8,6 +8,7 @@ const port =  process.env.PORT ? process.env.PORT : 8000;
 
 const studentDetail = require("./router/student")
 const adminDetails = require("./router/admin")
+const detailsStore = require("./router/detailsStore")
 const staticPath = path.join(__dirname , "public");
 const templatePath = path.join(__dirname , "template/views");
 const partialsPath = path.join(__dirname , "template/partials");
@@ -26,6 +27,7 @@ hbs.registerPartials(partialsPath);
 app.use(express.json())
 app.use(studentDetail);
 app.use(adminDetails);
+app.use(detailsStore);
 
 app.get("/" , (req , res) => {
    res.render("index")
