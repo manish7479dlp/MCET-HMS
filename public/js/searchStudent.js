@@ -1,7 +1,7 @@
 const SearchingValue = document.getElementById("searchingValue");
 const searchButton = document.getElementById("searchButton");
 
-if(SearchingValue.length == 0) {
+if(SearchingValue.value.length == 0) {
   searchButton.style.display = "none";
 }
 
@@ -31,6 +31,8 @@ const searchingStudent = async () => {
       mainUrl = `${mainUrl}/${SearchingValue.value}`;
     } else if(SearchMedium == "Aadhar Number"){
       mainUrl = `${mainUrl}Aadhar/${SearchingValue.value}`;
+    } else if(SearchMedium == "Full Name"){
+      mainUrl = `${mainUrl}Name/${SearchingValue.value}`;
     }
     console.log(mainUrl);
     console.log(SearchingValue.value);
@@ -55,6 +57,9 @@ const searchingStudent = async () => {
   } catch (error) {
     console.log(error);
   }
+
+  searchButton.style.display = "none";
+
 };
 
 // remove all child of parent
