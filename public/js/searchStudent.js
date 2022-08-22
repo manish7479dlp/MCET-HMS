@@ -1,3 +1,16 @@
+const SearchingValue = document.getElementById("searchingValue").value;
+const searchButton = document.getElementById("searchButton");
+
+console.log(SearchingValue.length);
+
+if(SearchingValue.length == 0) {
+  searchButton.style.display = "none";
+}
+
+const searchingValueChange = () => {
+  searchButton.style.display= "inline"
+}
+
 const searchingStudent = async () => {
   try {
     const parent = document.getElementsByClassName(
@@ -6,8 +19,6 @@ const searchingStudent = async () => {
     removeAllChildNodes(parent);
 
     const SearchMedium = document.getElementById("searchMedium").value;
-    const SearchingValue = document.getElementById("searchingValue").value;
-
     let mainUrl = "/student";
     //   let params = "/student/:department/:year";
 
@@ -17,7 +28,7 @@ const searchingStudent = async () => {
       mainUrl = `${mainUrl}BloodGroup/${SearchingValue}`;
     } else if (SearchMedium === "Building-Number") {
       mainUrl = `${mainUrl}Building/${SearchingValue}`;
-    } else {
+    } else if(SearchMedium === "Year/Department"){
       mainUrl = `${mainUrl}/${SearchingValue}`;
     }
     const response = await fetch(mainUrl);

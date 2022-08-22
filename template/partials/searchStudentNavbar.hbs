@@ -1,14 +1,17 @@
+
 <div class="searchContainer">
-  <select  id="searchMedium">
+  <select  id="searchMedium" required>
+    <option selected>**Choose Option**</option>
     <option>Year</option>
+    <option>Aadhar Number</option>
     <option>Blood-Group</option>
     <option>Building-Number</option>
     <option>Year/Department</option>
   </select>
 
   <div>
-    <input id="searchingValue"  type="text" placeholder="searching..." list="search"/>
-    <button onclick="searchingStudent()">Go</button>
+    <input onblur="searchingValueChange()" id="searchingValue"  type="text" placeholder="searching..." list="search"/>
+    <button id="searchButton" onclick="searchingStudent()">Go</button>
   </div>
 
   <datalist id="search">
