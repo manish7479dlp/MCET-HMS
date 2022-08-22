@@ -19,12 +19,14 @@
 
           <div class="input-field">
             <label>Gender</label>
-            <select id="registerGenderField" name="gender" required disabled name="roomType">
+            <select disabled id="genderDummyField">
               <option disabled selected>Select Gender</option>
               <option>Male</option>
               <option>Female</option>
             </select>
           </div>
+
+          <input style="display: none" id="registerGenderField" type="text" name="gender">
 
           <div class="input-field">
             <label>Blood Group</label>

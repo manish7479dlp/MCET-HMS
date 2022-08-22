@@ -272,3 +272,12 @@ const studentInfo = (data) => {
   // const deleteStudentDetails = document.getElementById("deleteStudentIcon");
   // deleteStudentDetails.addEventListener('click',() => { deleteStudentData(data)});
 };
+
+const genderDummyField = document.getElementById("genderDummyField");
+const registerGenderField = document.getElementById("registerGenderField");
+let Gender = JSON.parse(sessionStorage.getItem("auth"))[0].hostelType;
+Gender = Gender == 'Boys' ? "Male" : "Female"
+registerGenderField.value = Gender;
+genderDummyField.value = Gender;
+
+
