@@ -1,7 +1,5 @@
-const SearchingValue = document.getElementById("searchingValue").value;
+const SearchingValue = document.getElementById("searchingValue");
 const searchButton = document.getElementById("searchButton");
-
-console.log(SearchingValue.length);
 
 if(SearchingValue.length == 0) {
   searchButton.style.display = "none";
@@ -9,6 +7,7 @@ if(SearchingValue.length == 0) {
 
 const searchingValueChange = () => {
   searchButton.style.display= "inline"
+  
 }
 
 const searchingStudent = async () => {
@@ -23,14 +22,18 @@ const searchingStudent = async () => {
     //   let params = "/student/:department/:year";
 
     if (SearchMedium === "Year") {
-      mainUrl = `${mainUrl}/${SearchingValue}`;
+      mainUrl = `${mainUrl}/${SearchingValue.value}`;
     } else if (SearchMedium === "Blood-Group") {
-      mainUrl = `${mainUrl}BloodGroup/${SearchingValue}`;
+      mainUrl = `${mainUrl}BloodGroup/${SearchingValue.value}`;
     } else if (SearchMedium === "Building-Number") {
-      mainUrl = `${mainUrl}Building/${SearchingValue}`;
+      mainUrl = `${mainUrl}Building/${SearchingValue.value}`;
     } else if(SearchMedium === "Year/Department"){
-      mainUrl = `${mainUrl}/${SearchingValue}`;
+      mainUrl = `${mainUrl}/${SearchingValue.value}`;
+    } else if(SearchMedium == "Aadhar Number"){
+      mainUrl = `${mainUrl}Aadhar/${SearchingValue.value}`;
     }
+    console.log(mainUrl);
+    console.log(SearchingValue.value);
     const response = await fetch(mainUrl);
     let result = await response.json();
 

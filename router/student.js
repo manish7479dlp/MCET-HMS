@@ -84,6 +84,20 @@ router.get("/studentBuilding/:buildingNumber", async (req, res) => {
     res.send(error);
   }
 });
+// get student details by student (Aadhar Card number)
+router.get("/studentAadhar/:aadhar", async (req, res) => {
+  try {
+    console.log(req.params);
+    const response = await studentDetailsSchema.find(req.params);
+    console.log(
+      "🚀 ~ file: student.js ~ line 22 ~ router.get ~ response",
+      response
+    );
+    res.send(response);
+  } catch (error) {
+    res.send(error);
+  }
+});
 // get student details by student (bloodGroup)
 router.get("/studentBloodGroup/:bloodGroup", async (req, res) => {
   try {
