@@ -20,6 +20,9 @@ const DashboardRightContent = document.getElementsByClassName(
 const SearchStudentContainer = document.getElementById(
   "searchStudentContainer"
 );
+const ModifyStudentDetailsContainer = document.getElementById(
+  "modifyStudentDetailsContainer"
+);
 const SeatsAvailbableContentContainer = document.getElementsByClassName(
   "seatsAvailbableContentContainer"
 )[0];
@@ -56,6 +59,7 @@ const navigateToBoysHostel = () => {
   SeatsAvailbableContentContainer.style.display = "none";
 
   FormContainer[0].style.display = "none";
+  ModifyStudentDetailsContainer.style.display = "none";
 };
 // const navigateToGirlsHostel = () => {
 //   BoysHostel.id = "";
@@ -85,6 +89,7 @@ const navigateToAvailableSeats = () => {
   SearchStudentContainer.style.display = "none";
   DashboardRightContent[0].style.display = "none";
   SeatsAvailbableContentContainer.style.display = "block";
+  ModifyStudentDetailsContainer.style.display = "none";
 };
 const navigateToSearchStudent = () => {
   BoysHostel.id = "";
@@ -101,6 +106,7 @@ const navigateToSearchStudent = () => {
 
   //searchStudentContainer make visible.
   SearchStudentContainer.style.display = "block";
+  ModifyStudentDetailsContainer.style.display = "none";
 };
 const navigateToModifyStudentDetails = () => {
   BoysHostel.id = "";
@@ -116,7 +122,11 @@ const navigateToModifyStudentDetails = () => {
 
   FormContainer[0].style.display = "none";
   DashboardRightContent[0].style.display = "none";
+  ModifyStudentDetailsContainer.style.display = "block";
+
+  
 };
+
 const navigateToRegisterStudent = () => {
   BoysHostel.id = "";
   // GirlsHostel.id = "";
@@ -133,7 +143,9 @@ const navigateToRegisterStudent = () => {
 
   SearchStudentContainer.style.display = "none";
   SeatsAvailbableContentContainer.style.display = "none";
+  ModifyStudentDetailsContainer.style.display = "none";
 };
+
 const navigateToLogout = () => {
   BoysHostel.id = "";
   // GirlsHostel.id = "";
@@ -148,24 +160,24 @@ const navigateToLogout = () => {
 
   FormContainer[0].style.display = "none";
   DashboardRightContent[0].style.display = "none";
+  ModifyStudentDetailsContainer.style.display = "none";
 
   sessionStorage.removeItem("auth");
-  window.location.href = '/'
-
+  window.location.href = "/";
 };
 
 // fetch student data
 const fetchStudentDetails = async (year) => {
-  const studentGender = JSON.parse(sessionStorage.getItem("auth"))[0].hostelType
+  const studentGender = JSON.parse(sessionStorage.getItem("auth"))[0]
+    .hostelType;
   console.log(studentGender);
   const url = "/student";
   const response = await fetch(url);
   let result = await response.json();
-  const hostelType = studentGender == "Boys" ? "Male" : "Female"
+  const hostelType = studentGender == "Boys" ? "Male" : "Female";
   result = result.filter((data) => {
     return data.year == year && data.gender == hostelType;
   });
-  
 
   // console.log(result);
 
@@ -193,8 +205,6 @@ const fetchStudentDetails = async (year) => {
   });
 };
 
-
-
 // remove all child of parent
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
@@ -214,10 +224,11 @@ const deleteStudentData = async (data) => {
 
       const result = await response.json();
       console.log(result);
-      window.location.href = `/dashboard/${JSON.parse(sessionStorage.getItem("auth"))[0].hostelType}`
-      
+      window.location.href = `/dashboard/${
+        JSON.parse(sessionStorage.getItem("auth"))[0].hostelType
+      }`;
     } else {
-      alert("Student Details is not Deleted..")
+      alert("Student Details is not Deleted..");
     }
   } catch (error) {
     console.log(
@@ -229,18 +240,16 @@ const deleteStudentData = async (data) => {
 
 const editStudentData = async (data) => {
   data = data + "";
-  const mainURL = "/student"
+  const mainURL = "/student";
   const response = await fetch(mainURL);
   const result = await response.json();
 
   const desireStudentDetails = result.filter((res) => {
-    
     return res._id === data;
-  })
+  });
   console.log(desireStudentDetails);
   showPopup(desireStudentDetails);
-}
-
+};
 
 const studentDetailsInternalInfo = (data) => {
   const id = data._id;
@@ -276,8 +285,6 @@ const studentInfo = (data) => {
 const genderDummyField = document.getElementById("genderDummyField");
 const registerGenderField = document.getElementById("registerGenderField");
 let Gender = JSON.parse(sessionStorage.getItem("auth"))[0].hostelType;
-Gender = Gender == 'Boys' ? "Male" : "Female"
+Gender = Gender == "Boys" ? "Male" : "Female";
 registerGenderField.value = Gender;
 genderDummyField.value = Gender;
-
-

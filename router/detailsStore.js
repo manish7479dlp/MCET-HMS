@@ -1,10 +1,11 @@
 const xlsx = require("xlsx");
+const fs = require("fs");
 const fetch = require("node-fetch");
 const path = require("path");
 const express = require("express");
 const router = express.Router();
 
-router.get("/storeStudentDetails", async (res, req) => {
+router.get("/storeStudentDetails/:hostelType", async (req, res) => {
   try {
     const url = "https://mcet-hms.herokuapp.com/student";
 
@@ -17,11 +18,20 @@ router.get("/storeStudentDetails", async (res, req) => {
 
         let fileName = new Date().getFullYear();
 
-        fileName =
-          passoutStudentFolderPath + "BoysHostel" + fileName + "Batch.xlsx";
-
         const students = await fetch(url);
-        const result = await students.json();
+        let result = await students.json();
+
+        const gender = req.params.hostelType == "Boys" ? "Male" : "Female";
+        console.log(gender);
+
+        result = result.filter((eachStudent) => {
+          return eachStudent.gender == gender;
+        });
+
+        fs.writeFileSync(
+          `${passoutStudentFolderPath}${fileName}${req.params.hostelType}HostelBatch.json`,
+          JSON.stringify(result)
+        );
 
         const workSheet = xlsx.utils.json_to_sheet(result);
         const workBook = xlsx.utils.book_new();
@@ -36,20 +46,23 @@ router.get("/storeStudentDetails", async (res, req) => {
 
         xlsx.write(workBook, { bookType: "xlsx", type: "binary" });
 
+        fileName = `${passoutStudentFolderPath}${fileName}${req.params.hostelType}HostelBatch.xlsx`;
         xlsx.writeFile(workBook, fileName);
-        return true;
+        return result;
       } catch (error) {
         console.log(error);
-        return false;
+        return [];
       }
     };
 
-    jsonToExcelData(url)
+    const response = await jsonToExcelData(url);
 
-    req.send("Data store Successfully");
+    const hostelType = response[0].gender == "Male" ? "Boys" : "Girls";
+
+    res.redirect(`/dashboard/${hostelType}`);
   } catch (error) {
     console.log(error);
-    res.send(error)
+    res.send(error);
   }
 });
 
