@@ -18,6 +18,7 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   border-bottom: 2px solid #f1f1f1;
 }
 
@@ -26,6 +27,8 @@ body {
   align-items: center;
   width: 300px;
   padding-left: 40px;
+  position: absolute;
+  left: 0;
 }
 
 .logo span {
@@ -606,4 +609,15 @@ th {
   border-radius: 5px;
   padding: 5px;
   color: white;
+}
+
+/* dashboard heading cssa */
+#porjectTitle {
+  font-size: 2.8rem;
+  color: #07abb1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 1px 3px 4px #3ff560;
+  font-weight: 700;
+  margin-left: 80px;
+  
 }
