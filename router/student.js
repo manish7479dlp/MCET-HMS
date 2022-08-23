@@ -144,6 +144,7 @@ router.post("/student", async (req, res) => {
       year: req.body.year,
       department: req.body.department,
       gender: req.body.gender,
+      email: req.body.email,
     };
     const response = await new studentDetailsSchema(data);
     const result = await response.save();
@@ -184,6 +185,7 @@ router.patch("/student/:_id", async (req, res) => {
       year: req.body.year,
       department: req.body.department,
       gender: req.body.gender,
+      email: req.body.email
     };
     const response = await studentDetailsSchema.findByIdAndUpdate(
       req.params,
@@ -219,6 +221,7 @@ router.post("/student/:_id", async (req, res) => {
       year: req.body.year,
       department: req.body.department,
       gender: req.body.gender,
+      email: req.body.email
     };
     const response = await studentDetailsSchema.findByIdAndUpdate(
       req.params,
