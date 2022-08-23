@@ -28,6 +28,7 @@ const SeatsAvailbableContentContainer = document.getElementsByClassName(
 )[0];
 
 SearchStudentContainer.style.display = "none";
+ModifyStudentDetailsContainer.style.display = "none";
 
 SeatsAvailbableContentContainer.style.display = "none";
 
