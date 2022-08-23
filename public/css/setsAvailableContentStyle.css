@@ -1,131 +1,179 @@
 .seatsAvailableHeaderContainer {
-    width: 100%;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    background: linear-gradient(to right bottom,rgb(105, 105, 234) , rgb(247, 131, 247))
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right bottom,
+    rgb(105, 105, 234),
+    rgb(247, 131, 247)
+  );
 }
 
 .seatsAvailableHeaderContainer h1 {
-    color: white;
-    font-size: 2.8rem;
+  color: white;
+  font-size: 2.8rem;
 }
 
 .seatsAvailableHeaderContainer input {
-    outline: none;
-    border-radius: 10px;
-    text-align: center;
-    padding: 6px;
-    border: none;
-    font-size: 1.4rem;
-    position: absolute;
-    right: 50px;
+  outline: none;
+  border-radius: 10px;
+  text-align: center;
+  padding: 6px;
+  border: none;
+  font-size: 1.4rem;
+  position: absolute;
+  right: 50px;
 }
 .seatsAvailableHeaderContainer button {
-    color: white;
-    font-weight: 500;
-    background: linear-gradient(orange , brown);
-    padding: 6px;
-    border: none;
-    font-size: 1.4rem;
-    position: absolute;
-    right: 50px;
-    border-radius: 10px;
-
+  color: white;
+  font-weight: 500;
+  background: linear-gradient(orange, brown);
+  padding: 6px;
+  border: none;
+  font-size: 1.4rem;
+  position: absolute;
+  right: 50px;
+  border-radius: 10px;
 }
 
 .seatsAvailableHeaderContainer button:hover {
-    background: linear-gradient(brown , orange);
+  background: linear-gradient(brown, orange);
 }
 
- .seatsAvailableContainer {
-    width: 100%;
-    height: 80vh;
-    /* border: 3px solid magenta; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-y: auto;
-    display: none;
+.seatsAvailableContainer {
+  width: 100%;
+  height: 80vh;
+  /* border: 3px solid magenta; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  display: none;
 }
 
 .seatsAvailableContainer table {
-    width: 90%;
-    border: 2px solid green;
-    text-align: center;
-    border-radius: 50px;
-
+  width: 90%;
+  border: 2px solid green;
+  text-align: center;
+  border-radius: 50px;
+}
+.seatsAvailableContainer table {
+  width: 90%;
+  border: 2px solid green;
+  text-align: center;
+  border-radius: 50px;
 }
 
-
-.seatsAvailableContainer table th {
-    /* border: 1px solid brown; */
-    font-size: 1.4rem;
-    font-weight: 600;
+.seatsAvailableContainer table th,
+.fullBuildingSeatAvailability table th {
+  /* border: 1px solid brown; */
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 
-.seatsAvailableContainer td {
-    margin: 15px;
-    border: 1px solid blue;
-    height: 170px;
-    width: 170px;
-    /* border-radius: 50px; */
+.seatsAvailableContainer td,
+.fullBuildingSeatAvailability td {
+  margin: 15px;
+  border: 1px solid blue;
+  height: 170px;
+  width: 170px;
+  /* border-radius: 50px; */
 }
 
 .buildingNumber {
-    font-size: 1.8rem;
-    color: white;
-    background-color: rgb(135, 135, 135);
+  font-size: 1.8rem;
+  color: white;
+  background-color: rgb(135, 135, 135);
 }
 
 .seatsAvailableContainer tr td div p {
-    font-size: 1rem;
-    font-weight: 500;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-.seatsAvailableContainer tr td div p span{
-    font-weight: 600;
-    font-size: 1.1rem;
+.seatsAvailableContainer tr td div p span {
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 #blankSeat {
-    display: none;
+  display: none;
 }
 
 /* fullBuildingSeatAvailability css start */
 
 .fullBuildingSeatAvailability {
-    width: 100%;
-    height: 550px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    overflow: auto;
-    box-shadow: 2px 2px 5px 3px rgb(142, 141, 141);
-    margin: 20px;
-    border-radius: 10px;
+  width: 100%;
+  height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: auto;
+  box-shadow: 2px 2px 5px 3px rgb(142, 141, 141);
+  margin: 20px;
+  border-radius: 10px;
 }
 
 .fullBuildingSeatAvailability .seatVaccentStatusCard {
-    width: 180px;
-    height: 180px;
-    border-radius: 10px;
-    border: 1px solid white;
-    text-align: center;
-    padding: 10px 5px;
-    margin: 10px 15px 0px 15px;
-    border: 2px solid brown;
-    padding-top: 20px;
+  width: 180px;
+  height: 180px;
+  border-radius: 10px;
+  border: 1px solid white;
+  text-align: center;
+  padding: 10px 5px;
+  margin: 10px 15px 0px 15px;
+  border: 2px solid brown;
+  padding-top: 20px;
 }
 .fullBuildingSeatAvailability .seatVaccentStatusCard h2 {
-    color: black
+  color: black;
 }
 .fullBuildingSeatAvailability .seatVaccentStatusCard p {
-    color: black;
-    font-weight: 500;
-    font-size: 1.4rem;
-    padding: 5px;
+  color: black;
+  font-weight: 500;
+  font-size: 1.4rem;
+  padding: 5px;
 }
+
+.fullBuildingSeatAvailability {
+  background-color: rgb(236, 236, 236);
+  padding: 20px;
+}
+
+.fullBuildingSeatAvailability table {
+  border: 2px solid gray;
+}
+
+.fullBuildingSeatAvailability table caption {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: blue;
+}
+.fullBuildingSeatAvailability table th {
+  border: 2px solid green;
+  text-align: center;
+}
+.fullBuildingSeatAvailability table td {
+  height: 20px;
+  font-size: 27px;
+  text-align: center;
+  text-align: center;
+  border: none;
+  border-right: 2px solid white;
+  margin-right: 4px;
+}
+
+.vaccentSeats {
+  color: rgb(227, 22, 22);
+  font-weight: 900;
+}
+
+.fullBuildingSeatAvailability tr:nth-child(odd) {
+  background-color: Lightgreen;
+}
+

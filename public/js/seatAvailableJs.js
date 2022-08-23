@@ -1,4 +1,6 @@
 const BlankSeat = document.getElementsByClassName("blankSeat");
+const vaccentDataTable = document.getElementById("vaccentDataTable");
+
 const FullBuildingSeatAvailability = document.getElementsByClassName(
   "fullBuildingSeatAvailability"
 )[0];
@@ -12,43 +14,112 @@ const dispayAllBuildingDetails = (buildingData) => {
   const studentGender = JSON.parse(sessionStorage.getItem("auth"))[0]
     .hostelType;
   if (studentGender == "Boys") {
-    for (let roomNumber = 12; roomNumber <= 63; roomNumber++) {
+    for (let roomNumber = 14; roomNumber <= 64; roomNumber++) {
       const eachRoomDetails = buildingData.filter((data) => {
         return (
           data.buildingNumber == roomNumber ||
           data.buildingNumber == roomNumber + "A"
         );
       });
+      FullBuildingSeatAvailability.style.display = "flex";
 
-      addEachRoomStatus(eachRoomDetails, roomNumber);
+      const validRoom = new Array(66);
+      validRoom[14] = true;
+      validRoom[15] = true;
+      validRoom[16] = true;
+      validRoom[17] = true;
+      validRoom[18] = true;
+      validRoom[19] = true;
+      validRoom[20] = true;
+      validRoom[61] = true;
+      validRoom[63] = true;
+      validRoom[56] = true;
+      validRoom[51] = true;
+      validRoom[53] = true;
+      validRoom[55] = true;
+      validRoom[62] = true;
+      validRoom[64] = true;
+
+      if (validRoom[roomNumber]) {
+        addEachRoomStatus(eachRoomDetails, roomNumber);
+      }
     }
   } else {
-    for (let roomNumber = 64; roomNumber <= 70; roomNumber++) {
+    for (let roomNumber = 65; roomNumber <= 70; roomNumber++) {
       const eachRoomDetails = buildingData.filter((data) => {
         return (
           data.buildingNumber == roomNumber ||
           data.buildingNumber == roomNumber + "A"
         );
       });
-  
+      FullBuildingSeatAvailability.style.display = "flex";
+
       addEachRoomStatus(eachRoomDetails, roomNumber);
     }
   }
 };
 
 const addEachRoomStatus = (eachRoomDetails, roomNumber) => {
-  FullBuildingSeatAvailability.style.display = "flex";
-  const div = document.createElement("div");
-  div.className = "seatVaccentStatusCard";
+  const tr1 = document.createElement("tr");
+  const tr2 = document.createElement("tr");
 
-  const markup = ` <h2>Building No: <span style = "color: red">${roomNumber} / ${roomNumber}A</span> </h2>
-    <p>Blank : <sapn style = "color: green"> ${
-      8 - eachRoomDetails.length
-    } </span></p>`;
+  if (roomNumber != 51 || roomNumber != 53 || roomNumber != 55) {
+    const upper2Seater = eachRoomDetails.filter((data) => {
+      return (
+        data.buildingNumber == roomNumber + "A" && data.roomType == "2-seaters"
+      );
+    });
 
-  div.innerHTML = markup;
+    const upper3Seater = eachRoomDetails.filter((data) => {
+      return (
+        data.buildingNumber == roomNumber + "A" && data.roomType == "3-seaters"
+      );
+    });
 
-  FullBuildingSeatAvailability.appendChild(div);
+    const markup1 = ` <tr>
+  <td>${roomNumber}A</td>
+  ${
+    upper2Seater.length == 0
+      ? `<td class = "vaccentSeats">${2 - upper2Seater.length} </td> `
+      : `<td>${2 - upper2Seater.length}</td>`
+  }
+  ${
+    upper3Seater.length == 0
+      ? `<td class = "vaccentSeats">${2 - upper3Seater.length} </td> `
+      : `<td>${2 - upper3Seater.length}</td>`
+  }
+</tr>`;
+
+    tr1.innerHTML = markup1;
+    vaccentDataTable.appendChild(tr1);
+  }
+
+  if (roomNumber != 56) {
+    const lower2Seater = eachRoomDetails.filter((data) => {
+      return data.buildingNumber == roomNumber && data.roomType == "2-seaters";
+    });
+
+    const lower3Seater = eachRoomDetails.filter((data) => {
+      return data.buildingNumber == roomNumber && data.roomType == "3-seaters";
+    });
+
+    const markup2 = ` <tr>
+  <td>${roomNumber}</td>
+  ${
+    lower2Seater.length == 0
+      ? `<td class = "vaccentSeats">${2 - lower2Seater.length} </td> `
+      : `<td>${2 - lower2Seater.length}</td>`
+  }
+  ${
+    lower3Seater.length == 0
+      ? `<td class = "vaccentSeats">${2 - lower3Seater.length} </td> `
+      : `<td>${2 - lower3Seater.length}</td>`
+  }
+</tr>`;
+
+    tr2.innerHTML = markup2;
+    vaccentDataTable.appendChild(tr2);
+  }
 };
 
 const checkSeatAvailability = async () => {
@@ -68,8 +139,21 @@ const checkSeatAvailability = async () => {
       SeatSearchParameter.value == "all" ||
       SeatSearchParameter.value == "All"
     ) {
-      removeAllChildNodes(FullBuildingSeatAvailability);
       seatsAvailableContainer.style.display = "none";
+
+      removeAllChildNodes(vaccentDataTable);
+      // add tr into table
+      const tr = document.createElement("tr");
+      const caption = document.createElement("caption");
+      caption.innerText = "Total Seats Vaccency List";
+      const markup = `
+      <th>Room Number</th>
+      <th>2-Seaters</th>
+      <th>3-Seaters</th>`;
+
+      tr.innerHTML = markup;
+      vaccentDataTable.appendChild(caption);
+      vaccentDataTable.appendChild(tr);
       dispayAllBuildingDetails(result);
       return;
     }
@@ -176,8 +260,6 @@ const setDataToStudent = (data, buildingNumber) => {
     );
   });
 
-  // console.log(lower2SeaterData);
-
   if (lower2SeaterData.length === 2) {
     l2fName.lastChild.innerText = lower2SeaterData[0].name;
     l2fYear.lastChild.innerText = lower2SeaterData[0].year;
@@ -259,8 +341,7 @@ const setDataToStudent = (data, buildingNumber) => {
     );
   });
 
-  console.log(upper2SeaterData);
-  console.log(upper2SeaterData.length);
+
 
   if (upper2SeaterData.length === 2) {
     u2fName.lastChild.innerText = upper2SeaterData[0].name;
@@ -271,7 +352,6 @@ const setDataToStudent = (data, buildingNumber) => {
     u2sYear.lastChild.innerText = upper2SeaterData[1].year;
     u2sDept.lastChild.innerText = upper2SeaterData[1].department;
   } else if (upper2SeaterData.length === 1) {
-    console.log(upper2SeaterData[0].name);
     u2fName.lastChild.innerText = upper2SeaterData[0].name;
     u2fYear.lastChild.innerText = upper2SeaterData[0].year;
     u2fDept.lastChild.innerText = upper2SeaterData[0].department;

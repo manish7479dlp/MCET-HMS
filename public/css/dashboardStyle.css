@@ -465,6 +465,10 @@ a {
   margin-bottom: 10px;
 }
 
+.table tr:nth-child(even) {
+  background-color: Lightgreen;
+}
+
 table {
   width: 100%;
   text-align: left;
