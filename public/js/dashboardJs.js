@@ -13,6 +13,11 @@ if (!auth) {
   window.location.href = "/";
 }
 
+const registerGenderField = document.getElementById("registerGenderField");
+let Gender = JSON.parse(sessionStorage.getItem("auth"))[0].hostelType;
+Gender = Gender == "Boys" ? "Male" : "Female";
+registerGenderField.value = Gender;
+
 const FormContainer = document.getElementsByClassName("formContainer");
 const DashboardRightContent = document.getElementsByClassName(
   "dashboardRightContent"
@@ -41,6 +46,37 @@ const ModifyStudentDetails = document.getElementsByClassName(
 )[0];
 const RegisterStudent = document.getElementsByClassName("registerStudent")[0];
 const Logout = document.getElementsByClassName("logout")[0];
+
+// Download student Details of specific year
+
+const downloadDetail = async (year) => {
+  const url = `/student/${year}`;
+  const response = await fetch(url);
+  let result = await response.json();
+
+  result = result.filter((data) => {
+    return data.gender == Gender;
+  });
+
+  console.log(result);
+
+  const doc = new jsPDF();
+
+  doc.text(20, 20, "Hlw from the other side");
+
+
+  
+  const currentYear = new Date().getFullYear();
+  if (year === 1) {
+    doc.save(`${currentYear}First_Year.pdf`);
+  } else if (year === 2) {
+    doc.save(`${currentYear}Second_Year.pdf`);
+  } else if (year === 3) {
+    doc.save(`${currentYear}Third_Year.pdf`);
+  } else if (year === 4) {
+    doc.save(`${currentYear}Fourth_Year.pdf`);
+  }
+};
 
 const navigateToBoysHostel = () => {
   BoysHostel.id = "active--link";
@@ -124,8 +160,6 @@ const navigateToModifyStudentDetails = () => {
   FormContainer[0].style.display = "none";
   DashboardRightContent[0].style.display = "none";
   ModifyStudentDetailsContainer.style.display = "block";
-
-  
 };
 
 const navigateToRegisterStudent = () => {
@@ -282,10 +316,3 @@ const studentInfo = (data) => {
   // const deleteStudentDetails = document.getElementById("deleteStudentIcon");
   // deleteStudentDetails.addEventListener('click',() => { deleteStudentData(data)});
 };
-
-const genderDummyField = document.getElementById("genderDummyField");
-const registerGenderField = document.getElementById("registerGenderField");
-let Gender = JSON.parse(sessionStorage.getItem("auth"))[0].hostelType;
-Gender = Gender == "Boys" ? "Male" : "Female";
-registerGenderField.value = Gender;
-genderDummyField.value = Gender;

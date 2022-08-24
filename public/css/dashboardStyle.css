@@ -621,3 +621,16 @@ th {
   margin-left: 80px;
   
 }
+
+/* downloadDetailsIcon css */
+.downloadDetailsIcon {
+  padding: 5px 3px;
+  color: blue;
+  font-size: 20px;
+}
+.downloadDetailsIcon:hover {
+  padding: 5px 3px;
+  background-color: green;
+  border-radius: 5px;
+  color: white;
+}
