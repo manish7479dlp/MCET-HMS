@@ -140,23 +140,24 @@ const checkSeatAvailability = async () => {
       SeatSearchParameter.value == "All"
     ) {
       seatsAvailableContainer.style.display = "none";
+      porjectTitle.innerText = "Available Seats List"
 
       removeAllChildNodes(vaccentDataTable);
       // add tr into table
       const tr = document.createElement("tr");
-      const caption = document.createElement("caption");
-      caption.innerText = "Total Seats Vaccency List";
+
       const markup = `
       <th>Room Number</th>
       <th>2-Seaters</th>
       <th>3-Seaters</th>`;
 
       tr.innerHTML = markup;
-      vaccentDataTable.appendChild(caption);
       vaccentDataTable.appendChild(tr);
       dispayAllBuildingDetails(result);
       return;
     }
+
+
 
     seatsAvailableContainer.style.display = "flex";
 
@@ -175,6 +176,8 @@ const checkSeatAvailability = async () => {
     BlankSeat[5].style.display = "none";
     BlankSeat[6].style.display = "none";
     BlankSeat[7].style.display = "none";
+
+    porjectTitle.innerText = "Available Seats"
 
     setDataToStudent(result, SeatSearchParameter.value);
     SeatSearchParameter.value = "";
@@ -340,8 +343,6 @@ const setDataToStudent = (data, buildingNumber) => {
       data.roomType === "2-seaters" && data.buildingNumber === buildingNumber
     );
   });
-
-
 
   if (upper2SeaterData.length === 2) {
     u2fName.lastChild.innerText = upper2SeaterData[0].name;

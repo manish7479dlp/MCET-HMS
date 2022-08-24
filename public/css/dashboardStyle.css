@@ -44,21 +44,25 @@ body {
 }
 
 .search {
-  background-color: #f1f4f8;
+  background-color: #d8e3f2;
   border-radius: 50px;
-  width: 400px;
+  width: 300px;
   padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: absolute;
+  right: 20px;
+
 }
 
 .search input {
   background-color: transparent;
   outline: none;
   border: none;
-  text-indent: 15px;
   width: 85%;
+  text-align: center;
+  font-size: 1.4rem;
 }
 
 .search button {
@@ -70,6 +74,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.search button :hover {
+  color: green;
+  font-weight: 700;
 }
 
 .search button i {

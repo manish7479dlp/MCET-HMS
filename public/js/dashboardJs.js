@@ -12,6 +12,8 @@ const auth = sessionStorage.getItem("auth");
 if (!auth) {
   window.location.href = "/";
 }
+// project heading
+const porjectTitle = document.getElementById("porjectTitle");
 
 const registerGenderField = document.getElementById("registerGenderField");
 let Gender = JSON.parse(sessionStorage.getItem("auth"))[0].hostelType;
@@ -46,6 +48,7 @@ const ModifyStudentDetails = document.getElementsByClassName(
 )[0];
 const RegisterStudent = document.getElementsByClassName("registerStudent")[0];
 const Logout = document.getElementsByClassName("logout")[0];
+const search = document.getElementsByClassName("search")[0];
 
 // Download student Details of specific year
 
@@ -74,7 +77,14 @@ const Logout = document.getElementsByClassName("logout")[0];
 //   }
 // };
 
+porjectTitle.innerText = "Boys Hostel Details"
+//navbar search box
+search.style.display = "none"
+
+
 const navigateToBoysHostel = () => {
+  porjectTitle.innerText = `${JSON.parse(sessionStorage.getItem("auth"))[0].hostelType} Hostel Details`
+
   BoysHostel.id = "active--link";
   // GirlsHostel.id = "";
   AvailableSeats.id = "";
@@ -93,6 +103,9 @@ const navigateToBoysHostel = () => {
 
   FormContainer[0].style.display = "none";
   ModifyStudentDetailsContainer.style.display = "none";
+
+  //navbar search box
+  search.style.display = "none"
 };
 // const navigateToGirlsHostel = () => {
 //   BoysHostel.id = "";
@@ -110,6 +123,7 @@ const navigateToBoysHostel = () => {
 //   DashboardRightContent[0].style.display = "none";
 // };
 const navigateToAvailableSeats = () => {
+  porjectTitle.innerText = "Available Seats"
   BoysHostel.id = "";
   // GirlsHostel.id = "";
   AvailableSeats.id = "active--link";
@@ -123,8 +137,12 @@ const navigateToAvailableSeats = () => {
   DashboardRightContent[0].style.display = "none";
   SeatsAvailbableContentContainer.style.display = "block";
   ModifyStudentDetailsContainer.style.display = "none";
+  //navbar search box
+search.style.display = "flex"
 };
 const navigateToSearchStudent = () => {
+  porjectTitle.innerText = "Search Students"
+
   BoysHostel.id = "";
   // GirlsHostel.id = "";
   AvailableSeats.id = "";
@@ -140,8 +158,12 @@ const navigateToSearchStudent = () => {
   //searchStudentContainer make visible.
   SearchStudentContainer.style.display = "block";
   ModifyStudentDetailsContainer.style.display = "none";
+   //navbar search box
+   search.style.display = "none"
 };
 const navigateToModifyStudentDetails = () => {
+  porjectTitle.innerText = "Modify Student Details"
+
   BoysHostel.id = "";
   // GirlsHostel.id = "";
   AvailableSeats.id = "";
@@ -156,9 +178,13 @@ const navigateToModifyStudentDetails = () => {
   FormContainer[0].style.display = "none";
   DashboardRightContent[0].style.display = "none";
   ModifyStudentDetailsContainer.style.display = "block";
+   //navbar search box
+   search.style.display = "none"
 };
 
 const navigateToRegisterStudent = () => {
+  porjectTitle.innerText = "Registration"
+
   BoysHostel.id = "";
   // GirlsHostel.id = "";
   AvailableSeats.id = "";
@@ -175,6 +201,8 @@ const navigateToRegisterStudent = () => {
   SearchStudentContainer.style.display = "none";
   SeatsAvailbableContentContainer.style.display = "none";
   ModifyStudentDetailsContainer.style.display = "none";
+   //navbar search box
+   search.style.display = "none"
 };
 
 const navigateToLogout = () => {
@@ -195,6 +223,8 @@ const navigateToLogout = () => {
 
   sessionStorage.removeItem("auth");
   window.location.href = "/";
+   //navbar search box
+   search.style.display = "none"
 };
 
 // fetch student data
