@@ -34,7 +34,7 @@ const fillStudentDetailsFiled = (data) => {
   
   document.getElementById("address").value = data.address;
   
-  document.getElementById("gender").value = data.gender;
+  document.getElementById("email").value = data.email;
   
   
 }

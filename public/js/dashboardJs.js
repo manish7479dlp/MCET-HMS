@@ -77,7 +77,8 @@ const search = document.getElementsByClassName("search")[0];
 //   }
 // };
 
-porjectTitle.innerText = "Boys Hostel Details"
+porjectTitle.innerText = `${JSON.parse(sessionStorage.getItem("auth"))[0].hostelType} Hostel Details`
+
 //navbar search box
 search.style.display = "none"
 
