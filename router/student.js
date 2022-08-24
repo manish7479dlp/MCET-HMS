@@ -41,6 +41,10 @@ router.get("/dashboard/:hostelType", async (req, res) => {
       no3y: no3y.length,
       no4y: no4y.length,
       hostelType: req.params.hostelType,
+      firstYearPercentage: parseInt(no1y.length / response.length * 100),
+      secondYearPercentage: parseInt(no2y.length / response.length * 100),
+      thirdYearPercentage: parseInt(no3y.length / response.length * 100),
+      fourthYearPercentage: parseInt(no4y.length / response.length * 100),
     });
   } catch (error) {
     res.send(error);
@@ -185,7 +189,7 @@ router.patch("/student/:_id", async (req, res) => {
       year: req.body.year,
       department: req.body.department,
       gender: req.body.gender,
-      email: req.body.email
+      email: req.body.email,
     };
     const response = await studentDetailsSchema.findByIdAndUpdate(
       req.params,
@@ -221,7 +225,7 @@ router.post("/student/:_id", async (req, res) => {
       year: req.body.year,
       department: req.body.department,
       gender: req.body.gender,
-      email: req.body.email
+      email: req.body.email,
     };
     const response = await studentDetailsSchema.findByIdAndUpdate(
       req.params,
