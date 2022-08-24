@@ -140,7 +140,7 @@ const checkSeatAvailability = async () => {
       SeatSearchParameter.value == "All"
     ) {
       seatsAvailableContainer.style.display = "none";
-      porjectTitle.innerText = "Available Seats List"
+      porjectTitle.innerText = "Available All Seats List"
 
       removeAllChildNodes(vaccentDataTable);
       // add tr into table
@@ -177,7 +177,7 @@ const checkSeatAvailability = async () => {
     BlankSeat[6].style.display = "none";
     BlankSeat[7].style.display = "none";
 
-    porjectTitle.innerText = "Available Seats"
+    porjectTitle.innerText = "Room Wise Available Seats"
 
     setDataToStudent(result, SeatSearchParameter.value);
     SeatSearchParameter.value = "";
