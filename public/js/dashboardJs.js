@@ -184,7 +184,7 @@ const navigateToModifyStudentDetails = () => {
 };
 
 const navigateToRegisterStudent = () => {
-  porjectTitle.innerText = "Registration"
+  porjectTitle.innerText = "New Student Registration"
 
   BoysHostel.id = "";
   // GirlsHostel.id = "";

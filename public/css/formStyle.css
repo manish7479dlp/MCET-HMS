@@ -16,7 +16,7 @@
 }
 .container{
     position: relative;
-    max-width: 900px;
+    max-width: 1100px;
     width: 100%;
     border-radius: 6px;
     padding: 30px;
@@ -26,7 +26,7 @@
 }
 .container header{
     position: relative;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 600;
     color: #333;
 }
@@ -70,7 +70,7 @@ form.secActive .form.first{
 .container form .title{
     display: block;
     margin-bottom: 8px;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     margin: 6px 0;
     color: #333;
@@ -89,13 +89,13 @@ form .fields .input-field{
     margin: 4px 0;
 }
 .input-field label{
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 500;
     color: #2e2e2e;
 }
 .input-field input, select{
     outline: none;
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 400;
     color: #333;
     border-radius: 5px;
@@ -132,7 +132,7 @@ form .fields .input-field{
     cursor: pointer;
 }
 .container form .btnText{
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 400;
 }
 form button:hover{
