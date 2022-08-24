@@ -49,34 +49,30 @@ const Logout = document.getElementsByClassName("logout")[0];
 
 // Download student Details of specific year
 
-const downloadDetail = async (year) => {
-  const url = `/student/${year}`;
-  const response = await fetch(url);
-  let result = await response.json();
+// const downloadDetail = async (year) => {
+//   const url = `/student/${year}`;
+//   const response = await fetch(url);
+//   let result = await response.json();
 
-  result = result.filter((data) => {
-    return data.gender == Gender;
-  });
+//   result = result.filter((data) => {
+//     return data.gender == Gender;
+//   });
 
-  console.log(result);
+//   console.log(result);
 
-  const doc = new jsPDF();
+//   const doc = new jsPDF();
 
-  doc.text(20, 20, "Hlw from the other side");
-
-
-  
-  const currentYear = new Date().getFullYear();
-  if (year === 1) {
-    doc.save(`${currentYear}First_Year.pdf`);
-  } else if (year === 2) {
-    doc.save(`${currentYear}Second_Year.pdf`);
-  } else if (year === 3) {
-    doc.save(`${currentYear}Third_Year.pdf`);
-  } else if (year === 4) {
-    doc.save(`${currentYear}Fourth_Year.pdf`);
-  }
-};
+//   const currentYear = new Date().getFullYear();
+//   if (year === 1) {
+//     doc.save(`${currentYear}First_Year.pdf`);
+//   } else if (year === 2) {
+//     doc.save(`${currentYear}Second_Year.pdf`);
+//   } else if (year === 3) {
+//     doc.save(`${currentYear}Third_Year.pdf`);
+//   } else if (year === 4) {
+//     doc.save(`${currentYear}Fourth_Year.pdf`);
+//   }
+// };
 
 const navigateToBoysHostel = () => {
   BoysHostel.id = "active--link";

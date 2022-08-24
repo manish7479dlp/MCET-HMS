@@ -1,0 +1,106 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="studentDetailsPageTitle">Document</title>
+    <style>
+      *{ padding: 0; margin: 0; box-sizing: border-box; }
+      .printFormateStudentDetailsContainer{ border: 2px solid black; margin:
+      15px; } .printFormateStudentDetailsContainer .printFormateHeading {
+      text-align: center; font-size: 3rem; color: rgb(246, 166, 166);
+      text-shadow: 2px 5px 4px rgb(223, 237, 74); margin-bottom: 10px; }
+      .printFormateStudentDetailsContainer table { margin: auto; border: 1px
+      solid black;
+      background-color: #EDDFB3; } .printFormateStudentDetailsContainer table th ,
+      .printFormateStudentDetailsContainer table td{ padding: 10px; text-align:
+      center; } .printFormateStudentDetailsContainer table th{ /* border: 2px
+      solid black; */ font-size: 1.2rem; border: 2px solid black; }
+      .printFormateStudentDetailsContainer table td{ /* border: 2px solid black;
+      */ font-size: 1rem; } .printFormateStudentDetailsContainer table
+      tr:nth-child(even) { background-color: #76BA99; }
+    </style>
+  </head>
+  <body>
+    <div class="printFormateStudentDetailsContainer">
+      <h1 class="printFormateHeading"><span>{{year}}
+          </span>Year Student Details</h1>
+      <table id="studentDetailsTable">
+        <tr>
+          <th>Name</th>
+          <th>Mob Number</th>
+          <th>Father's Name</th>
+          <th>Father's Mob</th>
+          <th>Email</th>
+          <th>Year</th>
+          <th>Building Details</th>
+          <th>Blood Group</th>
+          <th>Address</th>
+        </tr>
+
+      </table>
+    </div>
+
+    <script>
+     const studentDetailsPageTitle = document.getElementById("studentDetailsPageTitle");
+      const studentDetailsTable = document.getElementById("studentDetailsTable")
+      const printFormateHeading = document.getElementsByClassName("printFormateHeading")[0];
+      
+      const year = printFormateHeading.firstChild.innerText;
+      const currentYear = new Date().getFullYear();
+      
+      studentDetailsPageTitle.innerText = `${year}Year${currentYear}StudentDetails`
+      
+
+
+
+      const fetchStudentDataOfParticularYear = async () => {
+          const url = `/student/${year}`;
+          const response = await fetch(url);
+          
+          let result = await response.json();
+          result = result.filter((data) => { 
+            return data.gender == "Male"; 
+          
+          });
+
+          console.log(result);
+
+          result.map((studentData) => {
+            return addPaticularStudentDetials(studentData);
+          })
+
+          
+      }
+
+fetchStudentDataOfParticularYear();
+
+
+const addPaticularStudentDetials = (studentData) => {
+  console.log(studentData)
+    const tr = document.createElement('tr')
+    const markup = `<td>${studentData.name}</td>
+          <td>${studentData.mob}</td>
+          <td>${studentData.fathersName}</td>
+          <td>${studentData.fathersMob}</td>
+          <td>${studentData.email}</td>
+          <td>${studentData.year}</td>
+          <td>${studentData.buildingNumber} / ${studentData.roomType}</td>
+          <td>${studentData.bloodGroup}</td>
+          <td>${studentData.address}</td>`
+          tr.innerHTML = markup;
+          studentDetailsTable.appendChild(tr);
+}
+
+
+
+ {{!-- console.log(result);
+       const doc = new jsPDF();
+      const currentYear = new Date().getFullYear(); if (year === 1) {
+      doc.save(`${currentYear}First_Year.pdf`); } else if (year === 2) {
+      doc.save(`${currentYear}Second_Year.pdf`); } else if (year === 3) {
+      doc.save(`${currentYear}Third_Year.pdf`); } else if (year === 4) {
+      doc.save(`${currentYear}Fourth_Year.pdf`); } --}}
+    </script>
+  </body>
+</html>

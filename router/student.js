@@ -247,4 +247,15 @@ router.post("/student/:_id", async (req, res) => {
   }
 });
 
+router.get("/studentDetails/:year", async (req, res) => {
+  try {
+    res.render("studentDetailsPage",{
+      year: req.params.year
+    });
+  } catch (error) {
+    console.log(error);
+    res.send(error);
+  }
+});
+
 module.exports = router;
