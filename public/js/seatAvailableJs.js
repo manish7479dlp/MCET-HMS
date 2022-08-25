@@ -10,7 +10,7 @@ const seatsAvailableContainer = document.getElementsByClassName(
 )[0];
 FullBuildingSeatAvailability.style.display = "none";
 
-const dispayAllBuildingDetails = (buildingData) => {
+const displayAllBuildingDetails = (buildingData) => {
   const studentGender = JSON.parse(sessionStorage.getItem("auth"))[0]
     .hostelType;
   if (studentGender == "Boys") {
@@ -59,6 +59,7 @@ const dispayAllBuildingDetails = (buildingData) => {
   }
 };
 
+// add new row into table with room data
 const addEachRoomStatus = (eachRoomDetails, roomNumber) => {
   const tr1 = document.createElement("tr");
   const tr2 = document.createElement("tr");
@@ -153,7 +154,7 @@ const checkSeatAvailability = async () => {
 
       tr.innerHTML = markup;
       vaccentDataTable.appendChild(tr);
-      dispayAllBuildingDetails(result);
+      displayAllBuildingDetails(result);
       return;
     }
 
