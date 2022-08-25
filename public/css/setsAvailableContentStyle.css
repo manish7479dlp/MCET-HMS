@@ -134,6 +134,7 @@
   /* position: fixed; */
   position: sticky;
   top: -22px;
-  background-color: aqua;
+  background-color: #069A8E;
+  color: white
 }
 
