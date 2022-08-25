@@ -146,6 +146,7 @@ const checkSeatAvailability = async () => {
       removeAllChildNodes(vaccentDataTable);
       // add tr into table
       const tr = document.createElement("tr");
+      tr.className = "seatAvailableTableth"
 
       const markup = `
       <th>Room Number</th>

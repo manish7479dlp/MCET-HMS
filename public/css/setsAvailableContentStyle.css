@@ -129,3 +129,11 @@
   background-color: Lightgreen;
 }
 
+/* seatAvailableTableth css start */
+.seatAvailableTableth {
+  /* position: fixed; */
+  position: sticky;
+  top: -22px;
+  background-color: aqua;
+}
+
