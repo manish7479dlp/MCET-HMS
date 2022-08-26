@@ -39,6 +39,9 @@ ModifyStudentDetailsContainer.style.display = "none";
 
 SeatsAvailbableContentContainer.style.display = "none";
 
+document.getElementsByClassName("formContainer")[0].style.display = "none";
+
+
 const BoysHostel = document.getElementsByClassName("boysHostel")[0];
 // const GirlsHostel = document.getElementsByClassName("girlsHostel")[0];
 const AvailableSeats = document.getElementsByClassName("availableSeats")[0];
