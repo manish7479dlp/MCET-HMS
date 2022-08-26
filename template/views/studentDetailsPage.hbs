@@ -5,102 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title id="studentDetailsPageTitle">Document</title>
     <style>
-      *{ padding: 0; margin: 0; box-sizing: border-box; }
-      .printFormateStudentDetailsContainer{ border: 2px solid black; margin:
-      15px; } .printFormateStudentDetailsContainer .printFormateHeading {
-      text-align: center; font-size: 3rem; color: rgb(246, 166, 166);
-      text-shadow: 2px 5px 4px rgb(223, 237, 74); margin-bottom: 10px; }
-      .printFormateStudentDetailsContainer table { margin: auto; border: 1px
-      solid black;
-      background-color: #EDDFB3; } .printFormateStudentDetailsContainer table th ,
-      .printFormateStudentDetailsContainer table td{ padding: 10px; text-align:
-      center; } .printFormateStudentDetailsContainer table th{ /* border: 2px
-      solid black; */ font-size: 1.2rem; border: 2px solid black; }
-      .printFormateStudentDetailsContainer table td{ /* border: 2px solid black;
-      */ font-size: 1rem; } .printFormateStudentDetailsContainer table
-      tr:nth-child(even) { background-color: #76BA99; }
+     * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.printFormateStudentDetailsContainer {
+  border: 2px solid black;
+  margin: 2px;
+  padding-bottom: 10px;
+}
+.printFormateStudentDetailsContainer .printFormateHeading {
+  position: sticky;
+  top: 0px;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  background-color: white;
+  color: #07abb1;
+  text-shadow: 1px 3px 4px #3ff560;
+  font-weight: 800;
+}
+.printFormateStudentDetailsContainer table th,
+.printFormateStudentDetailsContainer table td {
+  padding: 10px;
+  text-align: center;
+}
+.printFormateStudentDetailsContainer table th {
+  font-size: 1.2rem;
+  background-color: #1d96b2;
+  color: white;
+}
+.printFormateStudentDetailsContainer table td {
+  font-size: 1rem;
+  font-weight: 550;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+.printFormateStudentDetailsContainer table tr:nth-child(odd) {
+  background-color: #90ee90;
+}
+#particularYearStudentDetailsTableContentHeader {
+  position: sticky;
+  top: 55.3px;
+  background-color: rgb(237, 221, 83);
+}
+
     </style>
   </head>
   <body>
-    <div class="printFormateStudentDetailsContainer">
-      <h1 class="printFormateHeading"><span>{{year}}
-          </span>Year Student Details</h1>
-      <table id="studentDetailsTable">
-        <tr>
-          <th>Name</th>
-          <th>Mob Number</th>
-          <th>Father's Name</th>
-          <th>Father's Mob</th>
-          <th>Email</th>
-          <th>Year</th>
-          <th>Building Details</th>
-          <th>Blood Group</th>
-          <th>Address</th>
-        </tr>
+      <div class="printFormateStudentDetailsContainer">
+        
+        <table id="studentDetailsTable">
+            <caption class="printFormateHeading"><span>{{year}}</span> year Student</caption>
+            <tr id="particularYearStudentDetailsTableContentHeader">
+                <th>S-No</th>
+                <th>Name</th>
+                <th>Mob Number</th>
+                <th>Father's Name</th>
+                <th>Father's Mob</th>
+                <th>Email</th>
+                <th>Building Details</th>
+                <th>Blood Group</th>
+                <th>Address</th>
+            </tr>
 
-      </table>
+        </table>
     </div>
 
     <script>
-     const studentDetailsPageTitle = document.getElementById("studentDetailsPageTitle");
-      const studentDetailsTable = document.getElementById("studentDetailsTable")
-      const printFormateHeading = document.getElementsByClassName("printFormateHeading")[0];
-      
-      const year = printFormateHeading.firstChild.innerText;
-      const currentYear = new Date().getFullYear();
-      
-      studentDetailsPageTitle.innerText = `${year}Year${currentYear}StudentDetails`
-      
+const studentDetailsTable = document.getElementById("studentDetailsTable");
+const printFormateHeading = document.getElementsByClassName(
+  "printFormateHeading"
+)[0];
+const year = printFormateHeading.firstChild.innerText;
 
+{{!-- set table caption --}}
 
-
-      const fetchStudentDataOfParticularYear = async () => {
-          const url = `/student/${year}`;
-          const response = await fetch(url);
-          
-          let result = await response.json();
-          result = result.filter((data) => { 
-            return data.gender == "Male"; 
-          
-          });
-
-          console.log(result);
-
-          result.map((studentData) => {
-            return addPaticularStudentDetials(studentData);
-          })
-
-          
-      }
-
+if(year === "1") {
+  printFormateHeading.innerText = "1st year Student Details"
+} else if(year === "2") {
+  printFormateHeading.innerText = "2nd year Student Details"
+} else if(year === "3") {
+  printFormateHeading.innerText = "3rd year Student Details"
+} else if(year === "4"){
+  printFormateHeading.innerText = "4th year Student Details"
+}
+const currentYear = new Date().getFullYear();
+studentDetailsPageTitle.innerText = `${year}Year${currentYear}StudentDetails`;
+const fetchStudentDataOfParticularYear = async () => {
+  const url = `https://mcet-hms.herokuapp.com/student/${year}`;
+  const response = await fetch(url);
+  let result = await response.json();
+  result = result.filter((data) => {
+    return data.gender == "Male";
+  });
+  console.log(result);
+  result.map((studentData, idx) => {
+    addPaticularStudentDetials(studentData, idx + 1);
+    return;
+  });
+};
 fetchStudentDataOfParticularYear();
 
+const addPaticularStudentDetials = (studentData , snum) => {
+  console.log(studentData);
+  const tr = document.createElement("tr");
+  const markup = `<td>${snum}</td><td>${studentData.name}</td>
+      <td>${studentData.mob}</td> <td>${studentData.fathersName}</td>
+      <td>${studentData.fathersMob}</td> <td>${studentData.email}</td>
+       <td>${studentData.buildingNumber} 
+      ${studentData.roomType}</td> <td>${studentData.bloodGroup}</td>
+      <td>${studentData.address}</td>`;
+  tr.innerHTML = markup;
+  studentDetailsTable.appendChild(tr);
+};
 
-const addPaticularStudentDetials = (studentData) => {
-  console.log(studentData)
-    const tr = document.createElement('tr')
-    const markup = `<td>${studentData.name}</td>
-          <td>${studentData.mob}</td>
-          <td>${studentData.fathersName}</td>
-          <td>${studentData.fathersMob}</td>
-          <td>${studentData.email}</td>
-          <td>${studentData.year}</td>
-          <td>${studentData.buildingNumber} / ${studentData.roomType}</td>
-          <td>${studentData.bloodGroup}</td>
-          <td>${studentData.address}</td>`
-          tr.innerHTML = markup;
-          studentDetailsTable.appendChild(tr);
-}
-
-
-
- {{!-- console.log(result);
-       const doc = new jsPDF();
-      const currentYear = new Date().getFullYear(); if (year === 1) {
-      doc.save(`${currentYear}First_Year.pdf`); } else if (year === 2) {
-      doc.save(`${currentYear}Second_Year.pdf`); } else if (year === 3) {
-      doc.save(`${currentYear}Third_Year.pdf`); } else if (year === 4) {
-      doc.save(`${currentYear}Fourth_Year.pdf`); } --}}
+      
     </script>
   </body>
 </html>
