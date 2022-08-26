@@ -82,8 +82,10 @@ body {
 }
 
 .search button :hover {
-  color: green;
-  font-weight: 700;
+  color: white;
+  font-weight: 900;
+  background-color: red;
+  border-radius: 10px;
 }
 
 .search button i {
