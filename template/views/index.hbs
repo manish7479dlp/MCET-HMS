@@ -5,9 +5,11 @@
     <title>Home</title>
     <link
       href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      
+      rel="stylesheet"   
     />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" />
+
    
 </head>
 <body>
@@ -30,6 +32,23 @@
 
     ></script>
     <script>
+    toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": true,
+    "positionClass": "toast-top-center",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
 
       const isValidUser = (passData , originalData) => {
         console.log(passData );
@@ -39,8 +58,8 @@
        
 
        const login = async () => {
-        
           try{
+            toastr.info("Please wait...")
               const userId = document.getElementById("userId").value;
               const password = document.getElementById("password").value;
               const data = {
@@ -65,9 +84,13 @@
               if(validUserData.length > 0) {
                 sessionStorage.setItem("auth", JSON.stringify(validUserData));
                 {{!-- window.location.href = `/dashboard` --}}
+                toastr.success("Login Successful")
                 window.location.href = `/dashboard/${validUserData[0].hostelType}`
               } else {
-                alert("Invalid details");
+                 toastr.option = {
+                      "positionClass": "toast-top-center",
+                 }
+                toastr.error("Invalid details");
               }
 
 
