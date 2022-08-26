@@ -1,4 +1,3 @@
-
 .seatsAvailableContainer {
   width: 100%;
   height: 90vh;
@@ -103,7 +102,6 @@
 
 .fullBuildingSeatAvailability table {
   border: 2px solid gray;
-
 }
 
 .fullBuildingSeatAvailability table th {
@@ -134,7 +132,13 @@
   /* position: fixed; */
   position: sticky;
   top: -22px;
-  background-color: #069A8E;
-  color: white
+  background-color: #069a8e;
+  color: white;
 }
 
+@media screen and (max-width: 1000px) {
+  .seatsAvailableContainer table {
+    margin-top: 223px;
+    margin-bottom: 20px;
+  }
+}
