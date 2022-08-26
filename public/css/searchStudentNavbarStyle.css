@@ -58,9 +58,10 @@
   border-radius: 10px;
   margin: 7px;
   width: 350px;
-  height: 500px;
+  height: 520px;
   max-width: 350px;
   background-color: rgb(240, 187, 229);
+  word-wrap: break-word;
 }
 
 .studentDetailsCard .room {
