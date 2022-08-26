@@ -46,14 +46,19 @@ body {
 .search {
   background-color: #d8e3f2;
   border-radius: 50px;
-  width: 300px;
+  width: 44px;
+  /* width: 300px; */
   padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: absolute;
   right: 20px;
+  transition: .6s;
+}
 
+.search:hover {
+  width: 300px;
 }
 
 .search input {
