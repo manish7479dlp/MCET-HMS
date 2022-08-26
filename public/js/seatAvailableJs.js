@@ -125,6 +125,7 @@ const addEachRoomStatus = (eachRoomDetails, roomNumber) => {
 
 const checkSeatAvailability = async () => {
   try {
+    toastr.info("Please wait..")
     FullBuildingSeatAvailability.style.display = "none";
     const SeatSearchParameter = document.getElementById("seatSearchParameter");
     let originalUrl = "student";
@@ -185,6 +186,7 @@ const checkSeatAvailability = async () => {
     SeatSearchParameter.value = "";
   } catch (error) {
     console.log(error);
+    toastr.error("Some technical issue is happened.")
   }
 };
 
