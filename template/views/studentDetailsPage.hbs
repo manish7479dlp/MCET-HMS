@@ -60,6 +60,14 @@
 }
 
     </style>
+
+    
+{{!-- toastr cdn link --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
   </head>
   <body>
       <div class="printFormateStudentDetailsContainer">
@@ -82,6 +90,25 @@
     </div>
 
     <script>
+
+  toastr.options = {
+  closeButton: true,
+  debug: false,
+  newestOnTop: false,
+  progressBar: true,
+  positionClass: "toast-top-center",
+  preventDuplicates: false,
+  onclick: null,
+  showDuration: "300",
+  hideDuration: "1000",
+  timeOut: "5000",
+  extendedTimeOut: "1000",
+  showEasing: "swing",
+  hideEasing: "linear",
+  showMethod: "fadeIn",
+  hideMethod: "fadeOut",
+};
+
 const studentDetailsTable = document.getElementById("studentDetailsTable");
 const printFormateHeading = document.getElementsByClassName(
   "printFormateHeading"
@@ -102,7 +129,9 @@ if(year === "1") {
 const currentYear = new Date().getFullYear();
 studentDetailsPageTitle.innerText = `${year}Year${currentYear}StudentDetails`;
 const fetchStudentDataOfParticularYear = async () => {
-  const url = `https://mcet-hms.herokuapp.com/student/${year}`;
+  try{
+    toastr.info("Please wait...");
+    const url = `https://mcet-hms.herokuapp.com/student/${year}`;
   const response = await fetch(url);
   let result = await response.json();
   result = result.filter((data) => {
@@ -113,6 +142,10 @@ const fetchStudentDataOfParticularYear = async () => {
     addPaticularStudentDetials(studentData, idx + 1);
     return;
   });
+  } catch(error) {
+    consoloe.log(error);
+    toastr.error("Some techincal problem is happened");
+  }
 };
 fetchStudentDataOfParticularYear();
 
