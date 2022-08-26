@@ -7,11 +7,33 @@ menu.onclick = function () {
   mainContent.classList.toggle("active");
 };
 
+toastr.options = {
+  closeButton: true,
+  debug: false,
+  newestOnTop: false,
+  progressBar: true,
+  positionClass: "toast-top-center",
+  preventDuplicates: false,
+  onclick: null,
+  showDuration: "300",
+  hideDuration: "1000",
+  timeOut: "5000",
+  extendedTimeOut: "1000",
+  showEasing: "swing",
+  hideEasing: "linear",
+  showMethod: "fadeIn",
+  hideMethod: "fadeOut",
+};
+
 // Auth check
 const auth = sessionStorage.getItem("auth");
 if (!auth) {
+  toastr.warning("Don't try to do like this..");
   window.location.href = "/";
 }
+
+// toastr behaviour code
+
 // project heading
 const porjectTitle = document.getElementById("porjectTitle");
 
@@ -40,7 +62,6 @@ ModifyStudentDetailsContainer.style.display = "none";
 SeatsAvailbableContentContainer.style.display = "none";
 
 document.getElementsByClassName("formContainer")[0].style.display = "none";
-
 
 const BoysHostel = document.getElementsByClassName("boysHostel")[0];
 // const GirlsHostel = document.getElementsByClassName("girlsHostel")[0];
@@ -80,14 +101,17 @@ const search = document.getElementsByClassName("search")[0];
 //   }
 // };
 
-porjectTitle.innerText = `${JSON.parse(sessionStorage.getItem("auth"))[0].hostelType} Hostel Details`
+porjectTitle.innerText = `${
+  JSON.parse(sessionStorage.getItem("auth"))[0].hostelType
+} Hostel Details`;
 
 //navbar search box
-search.style.display = "none"
-
+search.style.display = "none";
 
 const navigateToBoysHostel = () => {
-  porjectTitle.innerText = `${JSON.parse(sessionStorage.getItem("auth"))[0].hostelType} Hostel Details`
+  porjectTitle.innerText = `${
+    JSON.parse(sessionStorage.getItem("auth"))[0].hostelType
+  } Hostel Details`;
 
   BoysHostel.id = "active--link";
   // GirlsHostel.id = "";
@@ -109,7 +133,7 @@ const navigateToBoysHostel = () => {
   ModifyStudentDetailsContainer.style.display = "none";
 
   //navbar search box
-  search.style.display = "none"
+  search.style.display = "none";
 };
 // const navigateToGirlsHostel = () => {
 //   BoysHostel.id = "";
@@ -127,7 +151,7 @@ const navigateToBoysHostel = () => {
 //   DashboardRightContent[0].style.display = "none";
 // };
 const navigateToAvailableSeats = () => {
-  porjectTitle.innerText = "Available Seats"
+  porjectTitle.innerText = "Available Seats";
   BoysHostel.id = "";
   // GirlsHostel.id = "";
   AvailableSeats.id = "active--link";
@@ -142,10 +166,10 @@ const navigateToAvailableSeats = () => {
   SeatsAvailbableContentContainer.style.display = "block";
   ModifyStudentDetailsContainer.style.display = "none";
   //navbar search box
-search.style.display = "flex"
+  search.style.display = "flex";
 };
 const navigateToSearchStudent = () => {
-  porjectTitle.innerText = "Search Students"
+  porjectTitle.innerText = "Search Students";
 
   BoysHostel.id = "";
   // GirlsHostel.id = "";
@@ -162,11 +186,11 @@ const navigateToSearchStudent = () => {
   //searchStudentContainer make visible.
   SearchStudentContainer.style.display = "block";
   ModifyStudentDetailsContainer.style.display = "none";
-   //navbar search box
-   search.style.display = "none"
+  //navbar search box
+  search.style.display = "none";
 };
 const navigateToModifyStudentDetails = () => {
-  porjectTitle.innerText = "Modify Student Details"
+  porjectTitle.innerText = "Modify Student Details";
 
   BoysHostel.id = "";
   // GirlsHostel.id = "";
@@ -182,12 +206,12 @@ const navigateToModifyStudentDetails = () => {
   FormContainer[0].style.display = "none";
   DashboardRightContent[0].style.display = "none";
   ModifyStudentDetailsContainer.style.display = "block";
-   //navbar search box
-   search.style.display = "none"
+  //navbar search box
+  search.style.display = "none";
 };
 
 const navigateToRegisterStudent = () => {
-  porjectTitle.innerText = "New Student Registration"
+  porjectTitle.innerText = "New Student Registration";
 
   BoysHostel.id = "";
   // GirlsHostel.id = "";
@@ -205,8 +229,8 @@ const navigateToRegisterStudent = () => {
   SearchStudentContainer.style.display = "none";
   SeatsAvailbableContentContainer.style.display = "none";
   ModifyStudentDetailsContainer.style.display = "none";
-   //navbar search box
-   search.style.display = "none"
+  //navbar search box
+  search.style.display = "none";
 };
 
 const navigateToLogout = () => {
@@ -225,49 +249,57 @@ const navigateToLogout = () => {
   DashboardRightContent[0].style.display = "none";
   ModifyStudentDetailsContainer.style.display = "none";
 
+  search.style.display = "none";
   sessionStorage.removeItem("auth");
+
+  toastr.success("Logout Sucessfully");
   window.location.href = "/";
-   //navbar search box
-   search.style.display = "none"
+  //navbar search box
 };
 
 // fetch student data
 const fetchStudentDetails = async (year) => {
-  const studentGender = JSON.parse(sessionStorage.getItem("auth"))[0]
-    .hostelType;
-  console.log(studentGender);
-  const url = "/student";
-  const response = await fetch(url);
-  let result = await response.json();
-  const hostelType = studentGender == "Boys" ? "Male" : "Female";
-  result = result.filter((data) => {
-    return data.year == year && data.gender == hostelType;
-  });
+  try {
+    toastr.info("Please wait...");
+    const studentGender = JSON.parse(sessionStorage.getItem("auth"))[0]
+      .hostelType;
+    console.log(studentGender);
+    const url = "/student";
+    const response = await fetch(url);
+    let result = await response.json();
+    const hostelType = studentGender == "Boys" ? "Male" : "Female";
+    result = result.filter((data) => {
+      return data.year == year && data.gender == hostelType;
+    });
 
-  // console.log(result);
+    // console.log(result);
 
-  //   insertTitleTag(year);
-  const temp = document.getElementById("studentYear");
+    //   insertTitleTag(year);
+    const temp = document.getElementById("studentYear");
 
-  if (year === 1) {
-    temp.innerHTML = `<span id="studentYear">${year}</span><sup>st</sup> Year Student's`;
-  } else if (year === 2) {
-    temp.innerHTML = `<span id="studentYear">${year}</span><sup>nd</sup> Year Student's`;
-  } else if (year === 3) {
-    temp.innerHTML = `<span id="studentYear">${year}</span><sup>rd</sup> Year Student's`;
-  } else {
-    temp.innerHTML = `<span id="studentYear">${year}</span><sup>th</sup> Year Student's`;
+    if (year === 1) {
+      temp.innerHTML = `<span id="studentYear">${year}</span><sup>st</sup> Year Student's`;
+    } else if (year === 2) {
+      temp.innerHTML = `<span id="studentYear">${year}</span><sup>nd</sup> Year Student's`;
+    } else if (year === 3) {
+      temp.innerHTML = `<span id="studentYear">${year}</span><sup>rd</sup> Year Student's`;
+    } else {
+      temp.innerHTML = `<span id="studentYear">${year}</span><sup>th</sup> Year Student's`;
+    }
+
+    document.getElementById("addStudentBtn").style.visibility = "visible";
+    document.getElementById("tableHead").style.visibility = "visible";
+
+    const parent = document.getElementById("tableBody");
+    removeAllChildNodes(parent);
+    let count = 0;
+    result.map((data) => {
+      return studentInfo(data);
+    });
+  } catch (error) {
+    console.log(error);
+    toastr.error("Some technical problem is happened");
   }
-
-  document.getElementById("addStudentBtn").style.visibility = "visible";
-  document.getElementById("tableHead").style.visibility = "visible";
-
-  const parent = document.getElementById("tableBody");
-  removeAllChildNodes(parent);
-  let count = 0;
-  result.map((data) => {
-    return studentInfo(data);
-  });
 };
 
 // remove all child of parent
@@ -292,28 +324,37 @@ const deleteStudentData = async (data) => {
       window.location.href = `/dashboard/${
         JSON.parse(sessionStorage.getItem("auth"))[0].hostelType
       }`;
+      toastr.success("Student Details Sucessfully Deleted");
     } else {
-      alert("Student Details is not Deleted..");
+      toastr.info("Student Details is not Deleted");
     }
   } catch (error) {
     console.log(
       "🚀 ~ file: dashboardJs.js ~ line 199 ~ deleteStudentData ~ error",
       error
     );
+
+    toastr.error("Due to Technical issue Student Details is not Deleted");
   }
 };
 
 const editStudentData = async (data) => {
-  data = data + "";
-  const mainURL = "/student";
-  const response = await fetch(mainURL);
-  const result = await response.json();
+  try {
+    data = data + "";
+    const mainURL = "/student";
+    const response = await fetch(mainURL);
+    const result = await response.json();
 
-  const desireStudentDetails = result.filter((res) => {
-    return res._id === data;
-  });
-  console.log(desireStudentDetails);
-  showPopup(desireStudentDetails);
+    const desireStudentDetails = result.filter((res) => {
+      return res._id === data;
+    });
+    console.log(desireStudentDetails);
+    showPopup(desireStudentDetails);
+    toastr.success("Details Updated Sucessfully");
+  } catch (error) {
+    console.log(error);
+    toastr.error("Due to Technical issue Student Details is not Updated");
+  }
 };
 
 const studentDetailsInternalInfo = (data) => {
