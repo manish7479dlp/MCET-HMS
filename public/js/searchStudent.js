@@ -12,6 +12,7 @@ const searchingValueChange = () => {
 
 const searchingStudent = async () => {
   try {
+    toastr.info("Please wait...")
     const parent = document.getElementsByClassName(
       "studentDetailsCardContainer"
     )[0];
