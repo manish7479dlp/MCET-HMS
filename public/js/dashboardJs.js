@@ -350,7 +350,6 @@ const editStudentData = async (data) => {
     });
     console.log(desireStudentDetails);
     showPopup(desireStudentDetails);
-    toastr.success("Details Updated Sucessfully");
   } catch (error) {
     console.log(error);
     toastr.error("Due to Technical issue Student Details is not Updated");

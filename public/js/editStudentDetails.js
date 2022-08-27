@@ -43,4 +43,6 @@ function closePopup(){
   const editForm = document.getElementById("editForm");
   console.log(editForm);
   popup.classList.add('hidden');
+  toastr.success("Details Updated Sucessfully");
+
 }
