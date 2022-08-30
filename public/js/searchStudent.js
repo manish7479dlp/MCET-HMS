@@ -13,7 +13,6 @@ const searchingValueChange = () => {
 const searchingStudent = async () => {
   try {
     loading.style.display = "block"
-    toastr.info("Please wait...")
     const parent = document.getElementsByClassName(
       "studentDetailsCardContainer"
     )[0];
@@ -69,6 +68,7 @@ const searchingStudent = async () => {
       parent.appendChild(h1);
     }
   } catch (error) {
+    toastr.error("Some Technical issue occure")
     console.log(error);
   }
 
