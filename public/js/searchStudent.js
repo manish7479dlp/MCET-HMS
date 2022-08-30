@@ -57,6 +57,13 @@ const searchingStudent = async () => {
     });
 
     document.getElementById("searchingValue").value = "";
+
+    if(result.length === 0) {
+      const h1 = document.createElement("h1");
+      h1.style.fontSize = "4em"
+      h1.innerText = "No Record Found";
+      parent.appendChild(h1);
+    }
   } catch (error) {
     console.log(error);
   }
