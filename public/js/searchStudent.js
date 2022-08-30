@@ -12,6 +12,7 @@ const searchingValueChange = () => {
 
 const searchingStudent = async () => {
   try {
+    loading.style.display = "block"
     toastr.info("Please wait...")
     const parent = document.getElementsByClassName(
       "studentDetailsCardContainer"
@@ -49,7 +50,8 @@ const searchingStudent = async () => {
       return data.gender == hostelType;
     });
 
-
+    loading.style.display = "none"
+  
     result.map((data) => {
       return studentFullDetails(data);
     });
