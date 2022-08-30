@@ -60,7 +60,11 @@ const searchingStudent = async () => {
 
     if(result.length === 0) {
       const h1 = document.createElement("h1");
-      h1.style.fontSize = "4em"
+      h1.style.cssText = `
+      font-size: 4em;
+      color: red;
+      `
+      
       h1.innerText = "No Record Found";
       parent.appendChild(h1);
     }
