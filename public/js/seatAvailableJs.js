@@ -125,7 +125,11 @@ const addEachRoomStatus = (eachRoomDetails, roomNumber) => {
 
 const checkSeatAvailability = async () => {
   try {
-    toastr.info("Please wait..")
+    loading.style.display = "block";
+    removeAllChildNodes(vaccentDataTable);
+    seatsAvailableContainer.style.display = "none";
+
+    toastr.info("Please wait..");
     FullBuildingSeatAvailability.style.display = "none";
     const SeatSearchParameter = document.getElementById("seatSearchParameter");
     let originalUrl = "student";
@@ -136,18 +140,19 @@ const checkSeatAvailability = async () => {
     const result = await response.json();
     // console.log(result);
 
+    loading.style.display = "none";
+
     if (
       SeatSearchParameter.value == "ALL" ||
       SeatSearchParameter.value == "all" ||
       SeatSearchParameter.value == "All"
     ) {
       seatsAvailableContainer.style.display = "none";
-      porjectTitle.innerText = "Available All Seats List"
+      porjectTitle.innerText = "Available All Seats List";
 
-      removeAllChildNodes(vaccentDataTable);
       // add tr into table
       const tr = document.createElement("tr");
-      tr.className = "seatAvailableTableth"
+      tr.className = "seatAvailableTableth";
 
       const markup = `
       <th>Room Number</th>
@@ -157,10 +162,10 @@ const checkSeatAvailability = async () => {
       tr.innerHTML = markup;
       vaccentDataTable.appendChild(tr);
       displayAllBuildingDetails(result);
+      SeatSearchParameter.value = "";
+
       return;
     }
-
-
 
     seatsAvailableContainer.style.display = "flex";
 
@@ -180,13 +185,13 @@ const checkSeatAvailability = async () => {
     BlankSeat[6].style.display = "none";
     BlankSeat[7].style.display = "none";
 
-    porjectTitle.innerText = "Room Wise Available Seats"
+    porjectTitle.innerText = "Room Wise Available Seats";
 
     setDataToStudent(result, SeatSearchParameter.value);
     SeatSearchParameter.value = "";
   } catch (error) {
     console.log(error);
-    toastr.error("Some technical issue is happened.")
+    toastr.error("Some technical issue is happened.");
   }
 };
 
