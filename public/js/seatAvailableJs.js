@@ -129,7 +129,6 @@ const checkSeatAvailability = async () => {
     removeAllChildNodes(vaccentDataTable);
     seatsAvailableContainer.style.display = "none";
 
-    toastr.info("Please wait..");
     FullBuildingSeatAvailability.style.display = "none";
     const SeatSearchParameter = document.getElementById("seatSearchParameter");
     let originalUrl = "student";
