@@ -222,7 +222,6 @@ const fetchStudentDetails = async (year) => {
     removeAllChildNodes(parent);
     loading.style.display = "block"
     
-    toastr.info("Please wait...");
     const studentGender = JSON.parse(sessionStorage.getItem("auth"))[0]
       .hostelType;
     console.log(studentGender);
