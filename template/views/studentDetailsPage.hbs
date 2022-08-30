@@ -142,6 +142,8 @@ const fetchStudentDataOfParticularYear = async () => {
     addPaticularStudentDetials(studentData, idx + 1);
     return;
   });
+  // print the student Details.
+      window.print();
   } catch(error) {
     consoloe.log(error);
     toastr.error("Some techincal problem is happened");
