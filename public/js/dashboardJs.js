@@ -32,7 +32,9 @@ if (!auth) {
   window.location.href = "/";
 }
 
-// toastr behaviour code
+// dashboard loading partial reference
+const loading = document.getElementById("loading");
+loading.style.display = "none";
 
 // project heading
 const porjectTitle = document.getElementById("porjectTitle");
@@ -74,33 +76,6 @@ const RegisterStudent = document.getElementsByClassName("registerStudent")[0];
 const Logout = document.getElementsByClassName("logout")[0];
 const search = document.getElementsByClassName("search")[0];
 
-// Download student Details of specific year
-
-// const downloadDetail = async (year) => {
-//   const url = `/student/${year}`;
-//   const response = await fetch(url);
-//   let result = await response.json();
-
-//   result = result.filter((data) => {
-//     return data.gender == Gender;
-//   });
-
-//   console.log(result);
-
-//   const doc = new jsPDF();
-
-//   const currentYear = new Date().getFullYear();
-//   if (year === 1) {
-//     doc.save(`${currentYear}First_Year.pdf`);
-//   } else if (year === 2) {
-//     doc.save(`${currentYear}Second_Year.pdf`);
-//   } else if (year === 3) {
-//     doc.save(`${currentYear}Third_Year.pdf`);
-//   } else if (year === 4) {
-//     doc.save(`${currentYear}Fourth_Year.pdf`);
-//   }
-// };
-
 porjectTitle.innerText = `${
   JSON.parse(sessionStorage.getItem("auth"))[0].hostelType
 } Hostel Details`;
@@ -114,7 +89,6 @@ const navigateToBoysHostel = () => {
   } Hostel Details`;
 
   BoysHostel.id = "active--link";
-  // GirlsHostel.id = "";
   AvailableSeats.id = "";
   SearchStudent.id = "";
   ModifyStudentDetails.id = "";
@@ -135,21 +109,7 @@ const navigateToBoysHostel = () => {
   //navbar search box
   search.style.display = "none";
 };
-// const navigateToGirlsHostel = () => {
-//   BoysHostel.id = "";
-//   // GirlsHostel.id = "active--link";
-//   AvailableSeats.id = "";
-//   SearchStudent.id = "";
-//   ModifyStudentDetails.id = "";
-//   RegisterStudent.id = "";
-//   Logout.id = "";
 
-//   SearchStudentContainer.style.display = "none";
-//   SeatsAvailbableContentContainer.style.display = "none";
-
-//   FormContainer[0].style.display = "none";
-//   DashboardRightContent[0].style.display = "none";
-// };
 const navigateToAvailableSeats = () => {
   porjectTitle.innerText = "Available Seats";
   BoysHostel.id = "";
@@ -172,7 +132,6 @@ const navigateToSearchStudent = () => {
   porjectTitle.innerText = "Search Students";
 
   BoysHostel.id = "";
-  // GirlsHostel.id = "";
   AvailableSeats.id = "";
   SearchStudent.id = "active--link";
   ModifyStudentDetails.id = "";
@@ -193,7 +152,6 @@ const navigateToModifyStudentDetails = () => {
   porjectTitle.innerText = "Modify Student Details";
 
   BoysHostel.id = "";
-  // GirlsHostel.id = "";
   AvailableSeats.id = "";
   SearchStudent.id = "";
   ModifyStudentDetails.id = "active--link";
@@ -260,6 +218,10 @@ const navigateToLogout = () => {
 // fetch student data
 const fetchStudentDetails = async (year) => {
   try {
+    const parent = document.getElementById("tableBody");
+    removeAllChildNodes(parent);
+    loading.style.display = "block"
+    
     toastr.info("Please wait...");
     const studentGender = JSON.parse(sessionStorage.getItem("auth"))[0]
       .hostelType;
@@ -272,9 +234,6 @@ const fetchStudentDetails = async (year) => {
       return data.year == year && data.gender == hostelType;
     });
 
-    // console.log(result);
-
-    //   insertTitleTag(year);
     const temp = document.getElementById("studentYear");
 
     if (year === 1) {
@@ -290,8 +249,10 @@ const fetchStudentDetails = async (year) => {
     document.getElementById("addStudentBtn").style.visibility = "visible";
     document.getElementById("tableHead").style.visibility = "visible";
 
-    const parent = document.getElementById("tableBody");
-    removeAllChildNodes(parent);
+    loading.style.display = "none"
+
+
+   
     let count = 0;
     result.map((data) => {
       return studentInfo(data);
