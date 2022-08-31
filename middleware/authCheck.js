@@ -10,13 +10,13 @@ var checkUserAuth = async (req, res, next) => {
     try {
       // Get Token from header
       token = authorization.split(' ')[1]
-
+       console.log(token);
       // Verify Token
       const { userID } = jwt.verify(token, process.env.JWT_SECRET_KEY)
 
       // Get User from Token
       req.user = await studentDetailsSchema.findById(userID).select('-password')
-
+      //  console.log(req.user);
       next()
     } catch (error) {
       console.log(error)

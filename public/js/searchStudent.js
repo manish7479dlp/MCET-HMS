@@ -37,12 +37,16 @@ const searchingStudent = async () => {
     }
     console.log(mainUrl);
     console.log(SearchingValue.value);
-    const response = await fetch(mainUrl);
+    const response = await fetch(mainUrl,{
+      method: "GET",
+      headers:{
+        "Content-Type": "application/json",
+         "Authorization": `Bearer ${document.cookie.split(":")[1]}`
+      }
+    });
     let result = await response.json();
 
-    const studentGender = JSON.parse(sessionStorage.getItem("auth"))[0]
-      .hostelType;
-
+    const studentGender = sessionStorage.getItem("hostelType")
     const hostelType = studentGender == "Boys" ? "Male" : "Female";
 
     result = result.filter((data) => {

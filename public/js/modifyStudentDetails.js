@@ -1,4 +1,4 @@
 const storePassedStudentDetails = document.getElementById("storePassedStudentDetails");
-const authData = JSON.parse(sessionStorage.getItem("auth"))[0];
+const authData = sessionStorage.getItem("hostelType");
 console.log(authData);
-storePassedStudentDetails.setAttribute("action" , `/storeStudentDetails/${authData.hostelType}`);
+storePassedStudentDetails.setAttribute("action" , `/storeStudentDetails/${authData}`);

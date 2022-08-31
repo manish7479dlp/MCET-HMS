@@ -3,9 +3,20 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const studentDetailsSchema = require("../schema/studentDetails");
+const checkUserAuth = require("../middleware/authCheck")
+
+// router.use("/student" , checkUserAuth);
+// router.use("/dashboard/:hostelType" , checkUserAuth);
+// router.use("/student/:year/:department" , checkUserAuth);
+// router.use("/student/:year" , checkUserAuth);
+// router.use("/studentBuilding/:buildingNumber" , checkUserAuth);
+// router.use("/studentName/:name" , checkUserAuth);
+// router.use("/studentAadhar/:aadhar" , checkUserAuth);
+// router.use("/studentBloodGroup/:bloodGroup" , checkUserAuth);
+// router.use("/studentBloodGroup/:bloodGroup" , checkUserAuth);
 
 // gives student details
-router.get("/student", async (req, res) => {
+router.get("/student",checkUserAuth, async (req, res) => {
   try {
     const response = await studentDetailsSchema.find();
     res.send(response);
@@ -14,12 +25,10 @@ router.get("/student", async (req, res) => {
   }
 });
 
-router.get("/dashboard/:hostelType", async (req, res) => {
+router.get("/dashboard/:hostelType",async (req, res) => {
   try {
     const parameter = req.params.hostelType === "Boys" ? "Male" : "Female";
-    console.log(parameter);
     const response = await studentDetailsSchema.find({ gender: parameter });
-    console.log(response);
     const no1y = response.filter((data) => {
       return data.year == 1;
     });
@@ -32,8 +41,7 @@ router.get("/dashboard/:hostelType", async (req, res) => {
     const no4y = response.filter((data) => {
       return data.year == 4;
     });
-
-    console.log(no1y.length);
+//  res.send(response);
 
     res.render("dashboard", {
       no1y: no1y.length,
@@ -52,7 +60,7 @@ router.get("/dashboard/:hostelType", async (req, res) => {
 });
 
 // get student details by student (Department and year)
-router.get("/student/:year/:department", async (req, res) => {
+router.get("/student/:year/:department",checkUserAuth, async (req, res) => {
   console.log(req.params);
   try {
     const response = await studentDetailsSchema.find(req.params);
@@ -67,7 +75,7 @@ router.get("/student/:year/:department", async (req, res) => {
 });
 
 // get student details by student (Year)
-router.get("/student/:year", async (req, res) => {
+router.get("/student/:year",checkUserAuth, async (req, res) => {
   try {
     console.log(req.params);
     const response = await studentDetailsSchema.find(req.params);
@@ -78,7 +86,7 @@ router.get("/student/:year", async (req, res) => {
   }
 });
 // get student details by student (Building Number)
-router.get("/studentBuilding/:buildingNumber", async (req, res) => {
+router.get("/studentBuilding/:buildingNumber",checkUserAuth, async (req, res) => {
   try {
     console.log(req.params);
     const response = await studentDetailsSchema.find(req.params);
@@ -89,7 +97,7 @@ router.get("/studentBuilding/:buildingNumber", async (req, res) => {
   }
 });
 // get student details by student (Full Name)
-router.get("/studentName/:name", async (req, res) => {
+router.get("/studentName/:name",checkUserAuth, async (req, res) => {
   try {
     console.log(req.params);
     const response = await studentDetailsSchema.find(req.params);
@@ -103,7 +111,7 @@ router.get("/studentName/:name", async (req, res) => {
   }
 });
 // get student details by student (Aadhar Card number)
-router.get("/studentAadhar/:aadhar", async (req, res) => {
+router.get("/studentAadhar/:aadhar",checkUserAuth, async (req, res) => {
   try {
     console.log(req.params);
     const response = await studentDetailsSchema.find(req.params);
@@ -118,7 +126,7 @@ router.get("/studentAadhar/:aadhar", async (req, res) => {
 });
 
 // get student details by student (bloodGroup)
-router.get("/studentBloodGroup/:bloodGroup", async (req, res) => {
+router.get("/studentBloodGroup/:bloodGroup",checkUserAuth, async (req, res) => {
   try {
     console.log(req.params);
     const response = await studentDetailsSchema.find(req.params);
@@ -152,10 +160,7 @@ router.post("/student", async (req, res) => {
     };
     const response = await new studentDetailsSchema(data);
     const result = await response.save();
-    console.log(
-      "🚀 ~ file: student.js ~ line 14 ~ router.post ~ result",
-      result
-    );
+
     const hostelType = result.gender == "Male" ? "Boys" : "Girls";
     res.redirect(`/dashboard/${hostelType}`);
   } catch (error) {

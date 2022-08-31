@@ -26,7 +26,7 @@ toastr.options = {
 };
 
 // Auth check
-const auth = sessionStorage.getItem("auth");
+const auth = sessionStorage.getItem("hostelType");
 if (!auth) {
   toastr.warning("Don't try to do like this..");
   window.location.href = "/";
@@ -40,7 +40,7 @@ loading.style.display = "none";
 const porjectTitle = document.getElementById("porjectTitle");
 
 const registerGenderField = document.getElementById("registerGenderField");
-let Gender = JSON.parse(sessionStorage.getItem("auth"))[0].hostelType;
+let Gender = sessionStorage.getItem("hostelType");
 Gender = Gender == "Boys" ? "Male" : "Female";
 registerGenderField.value = Gender;
 
@@ -77,7 +77,7 @@ const Logout = document.getElementsByClassName("logout")[0];
 const search = document.getElementsByClassName("search")[0];
 
 porjectTitle.innerText = `${
-  JSON.parse(sessionStorage.getItem("auth"))[0].hostelType
+  sessionStorage.getItem("hostelType")
 } Hostel Details`;
 
 //navbar search box
@@ -85,7 +85,7 @@ search.style.display = "none";
 
 const navigateToBoysHostel = () => {
   porjectTitle.innerText = `${
-    JSON.parse(sessionStorage.getItem("auth"))[0].hostelType
+    sessionStorage.getItem("hostelType")
   } Hostel Details`;
 
   BoysHostel.id = "active--link";
@@ -220,13 +220,18 @@ const fetchStudentDetails = async (year) => {
   try {
     const parent = document.getElementById("tableBody");
     removeAllChildNodes(parent);
-    loading.style.display = "block"
-    
-    const studentGender = JSON.parse(sessionStorage.getItem("auth"))[0]
-      .hostelType;
+    loading.style.display = "block";
+
+    const studentGender = sessionStorage.getItem("hostelType");
     console.log(studentGender);
     const url = "/student";
-    const response = await fetch(url);
+    const response = await fetch(url,{
+      method: "GET",
+      headers:{
+        "Content-Type": "application/json",
+         "Authorization": `Bearer ${document.cookie.split(":")[1]}`
+      }
+    });
     let result = await response.json();
     const hostelType = studentGender == "Boys" ? "Male" : "Female";
     result = result.filter((data) => {
@@ -248,10 +253,8 @@ const fetchStudentDetails = async (year) => {
     document.getElementById("addStudentBtn").style.visibility = "visible";
     document.getElementById("tableHead").style.visibility = "visible";
 
-    loading.style.display = "none"
+    loading.style.display = "none";
 
-
-   
     let count = 0;
     result.map((data) => {
       return studentInfo(data);
@@ -277,12 +280,17 @@ const deleteStudentData = async (data) => {
       console.log(mainURL);
       const response = await fetch(mainURL, {
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${document.cookie.split(":")[1]}`
+
+        }
       });
 
       const result = await response.json();
       console.log(result);
       window.location.href = `/dashboard/${
-        JSON.parse(sessionStorage.getItem("auth"))[0].hostelType
+        sessionStorage.getItem("hostelType")
       }`;
       toastr.success("Student Details Sucessfully Deleted");
     } else {
@@ -302,7 +310,13 @@ const editStudentData = async (data) => {
   try {
     data = data + "";
     const mainURL = "/student";
-    const response = await fetch(mainURL);
+    const response = await fetch(mainURL,{ 
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${document.cookie.split(":")[1]}`
+      }
+      });
     const result = await response.json();
 
     const desireStudentDetails = result.filter((res) => {

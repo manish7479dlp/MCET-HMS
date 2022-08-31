@@ -11,8 +11,7 @@ const seatsAvailableContainer = document.getElementsByClassName(
 FullBuildingSeatAvailability.style.display = "none";
 
 const displayAllBuildingDetails = (buildingData) => {
-  const studentGender = JSON.parse(sessionStorage.getItem("auth"))[0]
-    .hostelType;
+  const studentGender = sessionStorage.getItem("hostelType")
   if (studentGender == "Boys") {
     for (let roomNumber = 14; roomNumber <= 64; roomNumber++) {
       const eachRoomDetails = buildingData.filter((data) => {
@@ -135,9 +134,14 @@ const checkSeatAvailability = async () => {
     // let originalUrl = "studentBuilding";
     originalUrl = `/${originalUrl}`;
     // originalUrl = `${url}/${originalUrl}/${SeatSearchParameter.value}`;
-    const response = await fetch(originalUrl);
+    const response = await fetch(originalUrl,{
+      method: "GET",
+      headers:{
+        "Content-Type": "application/json",
+         "Authorization": `Bearer ${document.cookie.split(":")[1]}`
+      }
+    });
     const result = await response.json();
-    // console.log(result);
 
     loading.style.display = "none";
 
