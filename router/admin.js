@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const AdminDetails = require("../schema/admin")
+const authCheck = require("../middleware/authCheck");
 
 router.get("/admin" , async (req , res) => {
     try {
