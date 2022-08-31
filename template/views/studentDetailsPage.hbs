@@ -14,6 +14,8 @@
   border: 2px solid black;
   margin: 2px;
   padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
 }
 .printFormateStudentDetailsContainer .printFormateHeading {
   position: sticky;
@@ -132,12 +134,17 @@ const fetchStudentDataOfParticularYear = async () => {
   try{
     toastr.info("Please wait...");
     const url = `https://mcet-hms.herokuapp.com/student/${year}`;
-  const response = await fetch(url);
+  const response = await fetch(url,{
+      method: "GET",
+      headers:{
+        "Content-Type": "application/json",
+         "Authorization": `Bearer ${document.cookie.split(":")[1]}`
+      }
+    });
   let result = await response.json();
   result = result.filter((data) => {
     return data.gender == "Male";
   });
-  console.log(result);
   result.map((studentData, idx) => {
     addPaticularStudentDetials(studentData, idx + 1);
     return;
@@ -145,14 +152,13 @@ const fetchStudentDataOfParticularYear = async () => {
   // print the student Details.
       window.print();
   } catch(error) {
-    consoloe.log(error);
+    console.log(error);
     toastr.error("Some techincal problem is happened");
   }
 };
 fetchStudentDataOfParticularYear();
 
 const addPaticularStudentDetials = (studentData , snum) => {
-  console.log(studentData);
   const tr = document.createElement("tr");
   const markup = `<td>${snum}</td><td>${studentData.name}</td>
       <td>${studentData.mob}</td> <td>${studentData.fathersName}</td>
