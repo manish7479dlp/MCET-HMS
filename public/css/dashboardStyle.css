@@ -479,7 +479,7 @@ a {
 }
 
 .table {
-  height: 317px;
+  height: calc(100vh - 410px);
   overflow-y: auto;
   margin-bottom: 10px;
 }
